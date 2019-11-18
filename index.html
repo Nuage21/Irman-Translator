@@ -4,31 +4,189 @@
 	<title>The First Amazigh Translater</title>
 	<meta charset = "UTF-8" />
 	<link rel = "stylesheet" type = "text/css" href = "css/index_style.css" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link type = "text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="css/fontawesome.css" rel="stylesheet">
+	<!-- Footer's css -->
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> 
 	<!-- Bootstrap Scripts +jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<header>
-	<div>
-		<h1>Welcome to the first Amazigh Translater</h1>
-	</div>
-	<div>
-		<h2> And by this shall a language never die</h2>
-	</div>
+<div class="fixed-top">
+  <header class="topbar">
+      <div class="container">
+        <div class="row">
+          <!-- social icon-->
+          <div class="col-sm-12">
+            <ul class="social-network">
+              <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+  <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+    <div class="container" style = "margin-left:0px;">
+	<a href = "https://en.wikipedia.org/wiki/Berber_flag">
+		<img class = "rounded float-left" src = "img/berber-flag.png" style="width:100px;height:50px;"/>
+	</a>
+      <a class="navbar-brand" href="index.html" style="padding-left: 10px;"> The First Amazigh Traductor</a>
+      <a class="navbar-brand" href="index.html" style="font-size: 15px;"> ⴷ-ⵟⵔⴰⴷⵓⴽⵜⴻⵔ ⴰⵎⴻⵣⵡⴰⵔⵓ ⵏ ⵜⵎⴰⵣⵉⵖⵜ ⴰⵎⴻⵏⵣⵓ</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
 </header>
-<div id = "inputs-container">
+<!-- body here -->
+<div id = "inputs-container" style="margin:100px 0px 100px 0px;">
 	<div class = "input-txt-div">
-		<textarea class = "input-txt" id = "from-language"></textarea>
+		<textarea class = "input-txt, form-control" id = "from-language" rows="10" cols="60"></textarea>
 	</div>
 	<div class = "input-txt-div">
-		<textarea class = "input-txt" id = "to-language"></textarea>
+		<textarea class = "input-txt, form-control" id = "to-language" rows="10" cols="60"></textarea>
 	</div>
 </div>
 
-<footer>
-</footer>
+<!-- Footer -->
+		<footer class="pt-5 pb-4" id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+						<h5 class="mb-4 font-weight-bold">ABOUT US</h5>
+						<p class="mb-4">Etiam laoreet in ex quis efficitur.</p>
+						<ul class="f-address">
+							<li>
+								<div class="row">
+									<div class="col-1"><i class="fas fa-map-marker"></i></div>
+									<div class="col-10">
+										<h6 class="font-weight-bold mb-0">Address:</h6>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col-1"><i class="far fa-envelope"></i></div>
+									<div class="col-10">
+										<h6 class="font-weight-bold mb-0">Have any questions?</h6>
+										<p><a href="#">Support@userthemes.com</a></p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col-1"><i class="fas fa-phone-volume"></i></div>
+									<div class="col-10">
+										<h6 class="font-weight-bold mb-0">Address:</h6>
+										<p><a href="#">+XX (0) XX XX-XXXX-XXXX</a></p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+						<h5 class="mb-4 font-weight-bold">FRESH TWEETS</h5>
+						<ul class="f-address">
+							<li>
+								<div class="row">
+									<div class="col-1"><i class="fab fa-twitter"></i></div>
+									<div class="col-10">
+										<p class="mb-0"><a href="#">@userthemesrel </a> HTML Version Out Now</p>
+										<label>10 Mins Ago</label>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col-1"><i class="fab fa-twitter"></i></div>
+									<div class="col-10">
+										<p class="mb-0"><a href="#">@userthemesrel </a> HTML Version Out Now</p>
+										<label>10 Mins Ago</label>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col-1"><i class="fab fa-twitter"></i></div>
+									<div class="col-10">
+										<p class="mb-0"><a href="#">@userthemesrel </a> HTML Version Out Now</p>
+										<label>10 Mins Ago</label>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+						<h5 class="mb-4 font-weight-bold">LATEST UPDATES</h5>
+						<ul class="recent-post">
+							<li>
+								<label class="mr-3">28 <br><span>APR</span></label>
+								<span>Rendomised words which dont look eveable.</span>
+							</li>
+							<li>
+								<label class="mr-3">29 <br><span>APR</span></label>
+								<span>Rendomised words which dont look eveable.</span>
+							</li>
+							<li>
+								<label class="mr-3">30 <br><span>APR</span></label>
+								<span>Rendomised words which dont look eveable.</span>
+							</li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+						<h5 class="mb-4 font-weight-bold">CONNECT WITH US</h5>
+						<div class="input-group">
+						  	<input type="text" class="form-control" placeholder="Your Email Address">
+						  	<span class="input-group-addon" id="basic-addon2"><i class="fas fa-check"></i></span>
+						</div>
+						<ul class="social-pet mt-4">
+							<li><a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" title="twitter"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" title="instagram"><i class="fab fa-instagram"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Copyright -->
+		<section class="copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 ">
+						<div class="text-center text-white">
+							&copy; 2019 All Rights Reserved For The Amazigh People Wherever They Are! Tanmirt-nwen!
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 </body>
 </html>
