@@ -1,0 +1,1 @@
+EATranslater is the first Amazigh Translater
