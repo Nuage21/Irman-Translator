@@ -7,7 +7,9 @@ body {
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
-    background-color: #f7f7f7;
+}
+.nav-item {
+	padding-right: 30px;
 }
 .navbar {
     display: -ms-flexbox;
@@ -25,7 +27,7 @@ body {
 headeer top
 */
 .topbar{
-  background-color: #212529;
+  background-color: black;
   padding: 0;
 }
 
@@ -163,9 +165,9 @@ li {
 }
 
 .mx-background-top-linear {
-    background: -webkit-linear-gradient(45deg, #131313 48%, #1b1e21 48%);
-    background: -webkit-linear-gradient(left, #131313 48%, #1b1e21 48%);
-    background: linear-gradient(45deg, #131313 48%, #1b1e21 48%);
+    background: -webkit-linear-gradient(45deg, black 48%, #1b1e21 48%);
+    background: -webkit-linear-gradient(left, black 48%, #1b1e21 48%); /* The Berber flag here */
+    background: linear-gradient(45deg, black 48%, #1b1e21 48%);
 }
 
 .input-txt
