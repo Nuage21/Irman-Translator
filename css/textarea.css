@@ -6,7 +6,15 @@ textarea
 	height: 250px !important;
 	font-size: 35px !important;
 }
+.input-legend
+{
+	color: white;
+}
+.input-txt-div{
+	border-top: 1px solid #f1f1f1;
+	border-bottom: 1px solid #f1f1f1;
+}
 #inputs-container
 {
-t
+
 }
