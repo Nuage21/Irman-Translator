@@ -9,6 +9,7 @@ textarea
 .input-legend
 {
 	color: white;
+	border-top: 1px solid white;
 }
 .input-txt-div{
 	border-top: 1px solid #f1f1f1;
