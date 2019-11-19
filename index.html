@@ -10,12 +10,29 @@
 	<link rel="stylesheet" type = "text/css" href="css/textarea.css" >
 	<link rel="stylesheet" type = "text/css" href="css/footer.css" >
 	<link rel="stylesheet" type = "text/css" href="css/header.css" >
+	<link rel="stylesheet" type = "text/css" href="css/berber-alpha.css" >
 	<!-- Footer's css -->
 	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> 
 	<!-- Bootstrap Scripts +jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	var berberAlphas = "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯ".split('');
+	var latinBerberAlphas = "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒw".split('');
+	var alphasLng = berberAlphas.length;
+	for(var i =0; i<alphasLng;i++)
+	{
+		var coupleHolder = "<div class = \"couple-alphas-holder\"><div class=\"alpha-box\"><button class = \"berber-alpha\">";
+		coupleHolder += latinBerberAlphas[i];
+		coupleHolder += "</button></div><div class=\"alpha-box\"><button class = \"berber-alpha\">";
+		coupleHolder += berberAlphas[i];
+		coupleHolder += "</button></div></div>";
+		$("#alphas-holder").append(coupleHolder);
+	}
+	});
+	</script>
 </head>
 <body>
 <div class="fixed-top">
@@ -66,8 +83,10 @@
 </div>
 </header>
 
+<div id = "alphas-holder">
+	</div>
 <!-- TEXTAREAS HERE -->
-<div id = "inputs-container" style="margin:100px 0px 0px 0px;">
+<div id = "inputs-container">
 	<div class = "input-txt-div">
 		<div class = "input-legend" style = "padding-bottom:5px;"> 
 		<a href = "https://en.wikipedia.org/wiki/Berber_flag">
@@ -93,8 +112,6 @@
 	</blockquote>
 	<hr color="white">
 </div>
-<!-- Left side footer's separator -->
-
 <!-- Left side quote's separator -->
 <div  style = "border-left: 1px solid white; height: 400px; width:5px;position:absolute;left:65%;top:18%;"></div>
 <!-- QUOTE HERE -->
