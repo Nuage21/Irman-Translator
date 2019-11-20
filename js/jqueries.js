@@ -3,6 +3,8 @@ $(document).ready(function(){
 	var berberAlphas = "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯ".split('');
 	var latinBerberAlphas = "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒw".split('');
 	var alphasLng = berberAlphas.length;
+	var textareasWidth = (($(window).width() - $(".quote").width())/2) - 100;
+	$("textarea").css({"width": textareasWidth  + "px"});
 	for(var i =0; i<alphasLng;i++)
 	{
 		var coupleHolder = "<div class = \"couple-alphas-holder\"><div class=\"alpha-box\"><button class = \"berber-alpha\">";

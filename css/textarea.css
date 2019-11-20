@@ -1,12 +1,17 @@
-textarea
+textarea.input
 {
-	background-color: #1d1d1d !important;
-	color: white !important;
-	width: 430px !important;
-	height: 250px !important;
-	font-size: 35px !important;
-	resize: none !important;
-	border-color: transparent !important;
+	background-color: transparent;
+	color: white;
+	width: 630px;
+	height: 250px;
+	font-size: 35px;
+	resize: none;
+	border: 0px solid #0269A4;
+}
+textarea.input:focus
+{
+	border-width: 1px;
+	border-radius: 1%;
 }
 .input-legend
 {
