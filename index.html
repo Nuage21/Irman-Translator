@@ -17,22 +17,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<script>
-	$(document).ready(function(){
-	var berberAlphas = "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯ".split('');
-	var latinBerberAlphas = "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒw".split('');
-	var alphasLng = berberAlphas.length;
-	for(var i =0; i<alphasLng;i++)
-	{
-		var coupleHolder = "<div class = \"couple-alphas-holder\"><div class=\"alpha-box\"><button class = \"berber-alpha\">";
-		coupleHolder += latinBerberAlphas[i];
-		coupleHolder += "</button></div><div class=\"alpha-box\"><button class = \"berber-alpha\">";
-		coupleHolder += berberAlphas[i];
-		coupleHolder += "</button></div></div>";
-		$("#alphas-holder").append(coupleHolder);
-	}
-	});
-	</script>
+	<script src = "js/jqueries.js"></script>
 </head>
 <body>
 <div class="fixed-top">

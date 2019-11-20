@@ -5,6 +5,8 @@ textarea
 	width: 430px !important;
 	height: 250px !important;
 	font-size: 35px !important;
+	resize: none !important;
+	border-color: transparent !important;
 }
 .input-legend
 {
