@@ -15,7 +15,7 @@ $(document).ready(function(){
 		$("#alphas-holder").append(coupleHolder);
 	}
 	$("#quote-slider").click(() => {
-		var quoteSlide = quoteIsDown?'-=17%':'+=17%';
+		var quoteSlide = quoteIsDown?'-=23%':'+=23%';
 		var quoteBorder = quoteIsDown?'-=1px':'+=1px';
 		$(".quote").animate({marginTop: quoteSlide});
 		$(".quote-core").animate({borderLeftWidth: quoteBorder});
