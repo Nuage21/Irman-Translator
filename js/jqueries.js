@@ -1,4 +1,5 @@
-	$(document).ready(function(){
+$(document).ready(function(){
+	var quoteIsDown = false;
 	var berberAlphas = "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯ".split('');
 	var latinBerberAlphas = "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒw".split('');
 	var alphasLng = berberAlphas.length;
@@ -11,4 +12,11 @@
 		coupleHolder += "</button></div></div>";
 		$("#alphas-holder").append(coupleHolder);
 	}
+	$("#quote-slider").click(() => {
+		var quoteSlide = quoteIsDown?'-=17%':'+=17%';
+		var quoteBorder = quoteIsDown?'-=1px':'+=1px';
+		$(".quote").animate({marginTop: quoteSlide});
+		$(".quote-core").animate({borderLeftWidth: quoteBorder});
+		quoteIsDown = !quoteIsDown; 
 	});
+});

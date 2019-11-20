@@ -6,7 +6,11 @@ body {
 {
 	width: 250px;
 	color: white;
+	top: 0%;
 	border-top: 1px solid white;
+	/* position adjustment */
+	float: right;
+	margin: -330px 3% 0 0;
 }
 .quote-title
 {
@@ -26,5 +30,9 @@ body {
 	padding: 5px 2px 0 5px;
 	margin-left: 17px;
 	font-size: 15px;
-	border-left: 1px solid white;
+	border-left: 0px solid white;
+}
+#quote-slider
+{
+	cursor: default;
 }
