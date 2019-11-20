@@ -1,10 +1,10 @@
 $(document).ready(function(){
 	var quoteIsDown = false;
-	var berberAlphas = "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯ".split('');
-	var latinBerberAlphas = "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒw".split('');
+	var berberAlphas = "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯⵞⴶ".split('');
+	var latinBerberAlphas = "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒwčǧ".split('');
 	var alphasLng = berberAlphas.length;
 	var textareasWidth = (($(window).width() - $(".quote").width())/2) - 100;
-	$("textarea").css({"width": textareasWidth  + "px"});
+	$(".input").css({"width": textareasWidth  + "px"});
 	for(var i =0; i<alphasLng;i++)
 	{
 		var coupleHolder = "<div class = \"couple-alphas-holder\"><div class=\"alpha-box\"><button class = \"berber-alpha\">";
@@ -20,5 +20,17 @@ $(document).ready(function(){
 		$(".quote").animate({marginTop: quoteSlide});
 		$(".quote-core").animate({borderLeftWidth: quoteBorder});
 		quoteIsDown = !quoteIsDown; 
+	});
+	$("#from-language").mouseenter(() => {
+		$("#from-language").animate({borderWidth: "3px"}, 150);
+	});
+	$("#from-language").mouseleave(() => {
+		$("#from-language").animate({borderWidth: "0px"}, 150);
+	});
+	$("#to-language").mouseenter(() => {
+		$("#to-language").animate({borderWidth: "3px"}, 150);
+	});
+	$("#to-language").mouseleave(() => {
+		$("#to-language").animate({borderWidth: "0px"}, 150);
 	});
 });
