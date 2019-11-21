@@ -5,7 +5,6 @@
 	<meta charset = "UTF-8" />
 	<link rel = "stylesheet" type = "text/css" href = "css/index_style.css" />
 	<link type = "text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type = "text/css" href="css/fontawesome.css" >
 	<link rel="stylesheet" type = "text/css" href="css/quote.css" >
 	<link rel="stylesheet" type = "text/css" href="css/textarea.css" >
 	<link rel="stylesheet" type = "text/css" href="css/footer.css" >
@@ -14,6 +13,7 @@
 	<!-- Footer's css -->
 	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> 
 	<!-- Bootstrap Scripts +jQuery -->
+	<link rel = "icon" href="img/berber-flag.png" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -25,7 +25,7 @@
       <div class="container">
         <div class="row">
           <!-- social icon-->
-          <div class="col-sm-12">
+          <div class="col-sm-12" id="" style="margin-left:180px;">
             <ul class="social-network">
               <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-facebook-f"></i></a></li>
               <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-twitter"></i></a></li>
@@ -36,12 +36,17 @@
         </div>
       </div>
   <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
-    <div class="container" style = "margin-left:0px; margin-right:0px;">
+    <div >
+	<div id="nav-container" style="float:left;padding-left:50px;">
 	<a href = "https://en.wikipedia.org/wiki/Berber_flag">
-		<img class = "rounded float-left" src = "img/berber-flag.png" style="width:90px;height:50px;"/>
+		<img class = "rounded float-left" src = "img/berber-flag.png" style="width:70px;height:35px;"/>
 	</a>
-      <a class="navbar-brand" href="index.html" style="padding-left: 30px;font-size: 25px;"> ⴷ-ⵟⵔⴰⴷⵓⴽⵜⴻⵔ ⴰⵎⴻⵣⵡⴰⵔⵓ ⵏ ⵜⵎⴰⵣⵉⵖⵜ ⴰⵎⴻⵏⵣⵓ</a>
-      <div class="collapse navbar-collapse" id="navbarResponsive"  style="margin-left:340px;">
+      <a class="navbar-brand" href="index.html" style="padding-left: 25px;font-size: 20px;"> 
+	  ⴷ-ⵟⵔⴰⴷⵓⴽⵜⴻⵔ ⴰⵎⴻⵣⵡⴰⵔⵓ ⵏ ⵜⵎⴰⵣⵉⵖⵜ ⴰⵎⴻⵏⵣⵓ
+	  </a>
+	</div>
+	
+      <div class="collapse navbar-collapse" id="navbarResponsive"  style="float:right;">
 
         <ul class="navbar-nav ml-auto" >
 
@@ -103,15 +108,14 @@
 		<textarea class = "input" id = "to-language" ></textarea>
 	</div>
 </div>
-<div style="margin-bottom:600px;margin-top:10px;font-family:rockwell;">
-	<blockquote class = "blockquote" style="color:white;font-size:30px;padding-left:700px;"> 
+<div style="margin-bottom:100px;margin-top:10px;font-family:rockwell;padding-right:50px;">
+	<blockquote class = "blockquote" style="color:white;font-size:20px;float:right;"> 
 	― And by this shall a language never die
 		</br>
-		<span style="padding-left:130px;">ⵉ ⵡⴰⴽⴽⴻⵏ ⵓⵜ ⵜⵜⴻⵎⴰⵜ-ⴰⵔⴰ ⵜⵎⴰⵣⵉⵖⵜ</span>
+		<span>― ⵉ ⵡⴰⴽⴽⴻⵏ ⵓⵜ ⵜⵜⴻⵎⴰⵜ-ⴰⵔⴰ ⵜⵎⴰⵣⵉⵖⵜ</span>
 	</blockquote>
 	<hr color="white">
 </div>
-<hr color="white">
 <!-- Footer -->
 		<footer class="pt-5 pb-4" id="contact">
 			<div class="container">

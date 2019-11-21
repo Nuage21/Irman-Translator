@@ -33,4 +33,6 @@ $(document).ready(function(){
 	$("#to-language").mouseleave(() => {
 		$("#to-language").animate({borderWidth: "0px"}, 150);
 	});
+	$("#nav-container").css({"width": $(window).width()/1.32 + "px"});
+	$("#social-topbar").css({"margin-left": $(window).width()/10 + "px"});
 });
