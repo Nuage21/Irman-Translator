@@ -28,7 +28,7 @@ textarea.input:hover
 	animation-timing-function: ease-out;
 }
 @keyframes borderIt{
-	from {border-width: 0px;}
+	from {border-width: 0px, box-shadow: 0%;}
 	to{border-width: 3px;}
 }
 .input-legend
