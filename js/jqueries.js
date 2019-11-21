@@ -8,7 +8,7 @@ $(document).ready(function(){
 		quoteIsDown = !quoteIsDown; 
 	};
 	quoteSlideFnc();
-	var quoteIsDown = false;
+	var quoteIsDown = true;
 	var berberAlphas = "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯⵞⴶ".split('');
 	var latinBerberAlphas = "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒwčǧ".split('');
 	var alphasLng = berberAlphas.length;
