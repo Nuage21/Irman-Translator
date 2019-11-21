@@ -6,7 +6,7 @@ Vue.component('txtinput',
 				<img class = "rounded float-left" v-bind:src = "flag" style="width:30px;height:15px;margin-top:4px;"/>
 				<span style="padding-left:10px;">{{ lng}}</span>
 				</div>
-				<textarea class = "input"> </textarea>
+				<textarea class = "input" spellcheck="false"> </textarea>
 			</div>`
 		,
 		props: ['lng', 'flag'],
