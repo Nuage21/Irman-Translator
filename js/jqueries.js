@@ -1,4 +1,13 @@
 $(document).ready(function(){
+	
+	var quoteSlideFnc = () => {
+		var quoteSlide = quoteIsDown?'-=23%':'+=23%';
+		var quoteBorder = quoteIsDown?'-=1px':'+=1px';
+		$(".quote").animate({marginTop: quoteSlide});
+		$(".quote-core").animate({borderLeftWidth: quoteBorder});
+		quoteIsDown = !quoteIsDown; 
+	};
+	quoteSlideFnc();
 	var quoteIsDown = false;
 	var berberAlphas = "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯⵞⴶ".split('');
 	var latinBerberAlphas = "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒwčǧ".split('');
@@ -15,11 +24,7 @@ $(document).ready(function(){
 		$("#alphas-holder").append(coupleHolder);
 	}
 	$("#quote-slider").click(() => {
-		var quoteSlide = quoteIsDown?'-=23%':'+=23%';
-		var quoteBorder = quoteIsDown?'-=1px':'+=1px';
-		$(".quote").animate({marginTop: quoteSlide});
-		$(".quote-core").animate({borderLeftWidth: quoteBorder});
-		quoteIsDown = !quoteIsDown; 
+		quoteSlideFnc();
 	});
 
 	$("#nav-container").css({"width": $(window).width()/1.32 + "px"});
