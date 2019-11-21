@@ -21,18 +21,7 @@ $(document).ready(function(){
 		$(".quote-core").animate({borderLeftWidth: quoteBorder});
 		quoteIsDown = !quoteIsDown; 
 	});
-	$("#from-language").mouseenter(() => {
-		$("#from-language").animate({borderWidth: "3px"}, 150);
-	});
-	$("#from-language").mouseleave(() => {
-		$("#from-language").animate({borderWidth: "0px"}, 150);
-	});
-	$("#to-language").mouseenter(() => {
-		$("#to-language").animate({borderWidth: "3px"}, 150);
-	});
-	$("#to-language").mouseleave(() => {
-		$("#to-language").animate({borderWidth: "0px"}, 150);
-	});
+
 	$("#nav-container").css({"width": $(window).width()/1.32 + "px"});
 	$("#social-topbar").css({"margin-left": $(window).width()/10 + "px"});
 });

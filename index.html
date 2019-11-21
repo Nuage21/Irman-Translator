@@ -15,6 +15,7 @@
 	<!-- Bootstrap Scripts +jQuery -->
 	<link rel = "icon" href="img/berber-flag.png" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src = "js/jqueries.js"></script>
@@ -90,31 +91,17 @@
   <br/>
 </div>
 <!-- TEXTAREAS HERE -->
-<div id = "inputs-container">
-	<div class = "input-txt-div">
-		<div class = "input-legend" style = "padding-bottom:5px;"> 
-		<a href = "https://en.wikipedia.org/wiki/Berber_flag">
-			<img class = "rounded float-left" src = "img/berber-flag.png" style="width:30px;height:15px;margin-top:4px;"/>
-		</a>
-			<span style="padding-left:10px;">Kabyle</span>
-		</div>
-		<textarea class = "input" id = "from-language" ></textarea>
-	</div>
-	<div class = "input-txt-div">
-		<div class = "input-legend" style = "padding-bottom:5px;"> 
-			<img class = "rounded float-left" src = "img/uk-flag.png" style="width:30px;height:15px;margin-top:4px;"/>
-		<span style="padding-left:10px;">English</span>
-		</div>
-		<textarea class = "input" id = "to-language" ></textarea>
-	</div>
+<div id = "translater" style="height:350px;padding-top:20px;">
+	<txtinput lng = 'Tamaziɣt' flag = 'img/berber-flag.png' > </txtinput>
+	<txtinput lng = 'English' flag = 'img/uk-flag.png'> </txtinput>
 </div>
+<hr color="white">
 <div style="margin-bottom:100px;margin-top:10px;font-family:rockwell;padding-right:50px;">
 	<blockquote class = "blockquote" style="color:white;font-size:20px;float:right;"> 
 	― And by this shall a language never die
 		</br>
 		<span>― ⵉ ⵡⴰⴽⴽⴻⵏ ⵓⵜ ⵜⵜⴻⵎⴰⵜ-ⴰⵔⴰ ⵜⵎⴰⵣⵉⵖⵜ</span>
 	</blockquote>
-	<hr color="white">
 </div>
 <!-- Footer -->
 		<footer class="pt-5 pb-4" id="contact">
@@ -205,5 +192,6 @@
 				</div>
 			</div>
 		</section>
+	<script src = "js/view.js"></script>
 </body>
 </html>

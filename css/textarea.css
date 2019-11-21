@@ -2,7 +2,7 @@ textarea.input
 {
 	background-color: transparent;
 	color: white;
-	width: 630px;
+	width: 300px;
 	height: 250px;
 	font-size: 35px;
 	resize: none;
@@ -14,16 +14,29 @@ textarea.input:focus
 	border-width: 1px;
 	border-radius: 1%;
 }
+
+textarea.input:focus
+{
+	border-width: 1px;
+	border-radius: 1%;
+}
+textarea.input:hover
+{
+	animation-name: borderIt;
+	animation-duration: 0.2s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out;
+}
+@keyframes borderIt{
+	from {border-width: 0px;}
+	to{border-width: 3px;}
+}
 .input-legend
 {
 	color: white;
 	border-top: 1px solid white;
 }
-.input-txt-div{
-	border-top: 1px solid #f1f1f1;
-	border-bottom: 1px solid #f1f1f1;
-}
-#inputs-container
+#translater
 {
 	
 }
