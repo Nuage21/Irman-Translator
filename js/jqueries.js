@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	
 	var quoteSlideFnc = () => {
 		var quoteSlide = quoteIsDown?'-=23%':'+=23%';
 		var quoteBorder = quoteIsDown?'-=1px':'+=1px';
@@ -9,20 +8,9 @@ $(document).ready(function(){
 	};
 	quoteSlideFnc();
 	var quoteIsDown = true;
-	var berberAlphas = "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯⵞⴶ".split('');
-	var latinBerberAlphas = "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒwčǧ".split('');
-	var alphasLng = berberAlphas.length;
 	var textareasWidth = (($(window).width() - $(".quote").width())/2) - 100;
 	$(".input").css({"width": textareasWidth  + "px"});
-	for(var i =0; i<alphasLng;i++)
-	{
-		var coupleHolder = "<div class = \"couple-alphas-holder\"><div class=\"alpha-box\"><button class = \"berber-alpha\">";
-		coupleHolder += latinBerberAlphas[i];
-		coupleHolder += "</button></div><div class=\"alpha-box\"><button class = \"berber-alpha\">";
-		coupleHolder += berberAlphas[i];
-		coupleHolder += "</button></div></div>";
-		$("#alphas-holder").append(coupleHolder);
-	}
+	
 	$("#quote-slider").click(() => {
 		quoteSlideFnc();
 	});
