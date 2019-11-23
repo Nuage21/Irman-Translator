@@ -75,16 +75,16 @@
   </nav>
 </div>
 </header>
-<div>
-<div class = "side-app">
+<div id="MainApp">
+<div id = "side-app">
 <div class="btn-group-vertical script-chooser">
 		<button id = "tifibtn" class = "btn btn-dark btn-sm side-app-btn"> Tifinaɣ </button>
 		<button id = "latinbtn" class = "btn btn-dark btn-sm side-app-btn"> Latin </button>
 </div>
 <hr color="3d3d3f">
-<div class="btn-group-vertical">
-	<button class = "btn btn-dark btn-sm side-app-btn"> Swap </button>
-	<button class = "btn btn-dark btn-sm side-app-btn"> Empty </button>
+<div class="btn-group-vertical app-btn-holder">
+	<button class = "btn btn-dark btn-sm side-app-btn" v-on:click="swapLngs()"> Swap </button>
+	<button class = "btn btn-dark btn-sm side-app-btn" v-on:click="emptyAreas()"> Empty </button>
 </div>
 </div>
 <div id="App" >
@@ -103,8 +103,8 @@
 <!-- TEXTAREAS HERE -->
 <div id = "translater" >
 
-	<txtinput lng = 'Tamaziɣt' flag = 'img/berber-flag.png' lngid = 'from-lng'> </txtinput>
-	<txtinput lng = 'English' flag = 'img/uk-flag.png' lngid = 'to-lng' isdisabled='true'> </txtinput>
+	<txtinput v-bind:lng = 'fromLng' v-bind:flag = 'fromFlag' lngid = 'from-lng'> </txtinput>
+	<txtinput v-bind:lng = 'toLng' v-bind:flag = 'toFlag' lngid = 'to-lng' isdisabled='true'> </txtinput>
 	
 	<div class="quote">
   <div class = "quote-mark" style="float:left;margin: -20px 0 0 3px;">“</div>

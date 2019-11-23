@@ -1,7 +1,7 @@
-.side-app
+#side-app
 {
 	float: left;
-	padding: 17px 2px 0 0;
+	padding: 17px 0 0 0;
 	margin: -30px 0 0 0;
 	background-color: #1f1f23;
 	height: 470px;

@@ -1,3 +1,4 @@
+
 Vue.component('txtinput',
 	{
 		template:
@@ -44,12 +45,33 @@ Vue.component('alpha',
 	}
 );
 
-var app = new Vue ({el: "#translater"});
 var alphasApp = new Vue ({
-	el: "#alphas-holder",
+	el: "#MainApp",
 	data: {
 		tifinaghAlphas: "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯⵞⴶ",
 		berberAlphas: "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒwčǧ",
+		fromLng: "Tamaziɣ",
+		toLng: "English",
+		fromFlag: 'img/berber-flag.png',
+		toFlag: 'img/uk-flag.png',
+	}
+	,
+	methods:
+	{
+		swapLngs()
+		{
+			let tmp = this.fromLng, tmpf = this.fromFlag;
+			this.fromLng = this.toLng;
+			this.fromFlag = this.toFlag;
+			this.toLng = tmp;
+			this.toFlag = tmpf;
+		}
+		,
+		emptyAreas()
+		{
+			$(".input").val('');
+		}
 	}
 });
+
 
