@@ -2,7 +2,8 @@
 <html lang = "en-US">
 <head>
 	<title>The First Amazigh Translater</title>
-	<meta charset = "UTF-8" />
+	<meta charset = "utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel = "stylesheet" type = "text/css" href = "css/index_style.css" />
 	<link type = "text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" type = "text/css" href="css/quote.css" >
@@ -12,6 +13,7 @@
 	<link rel="stylesheet" type = "text/css" href="css/berber-alpha.css" >
 	<link rel="stylesheet" type = "text/css" href="css/btn.css" >
 	<link rel="stylesheet" type = "text/css" href="css/side-app.css" >
+	<link rel="stylesheet" type = "text/css" href="css/coder-info.css" >
 	<!-- Footer's css -->
 	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> 
 	<!-- Bootstrap Scripts +jQuery -->
@@ -49,7 +51,7 @@
 	  </a>
 	</div>
 	
-      <div class="collapse navbar-collapse" id="navbarResponsive"  style="float:right;">
+      <div class="collapse navbar-collapse" id="navbarResponsive" >
 
         <ul class="navbar-nav ml-auto" >
 
@@ -88,7 +90,7 @@
 </div>
 </div>
 <div id="App" >
-<div id = "alphas-holder" >
+<div id = "alphas-holder">
 	<alpha v-for="i in berberAlphas.length" v-bind:key="i" v-bind:berberAlpha = "berberAlphas[i-1]" v-bind:tifinaghAlpha = "tifinaghAlphas[i-1]" >
 	</alpha>
 </div>
@@ -132,35 +134,10 @@
 					<div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
 						<h5 class="mb-4 font-weight-bold">ABOUT US</h5>
 						<p class="mb-4">ⵜⴰⵏⵎⵉⵔⵜ ⵉ ⵡ ⴰⴳⴷⵓⴷ ⵍⴻⵇⴱⴰⵢⴻⵍ ⵙⴻⴳ ⵡⵓⵍ, ⵅⴰⴷⵉⴵⴰ ⴰⴽⴽ ⴷ ⵃⴰⴽⵉⵎ</p>
-						<ul class="f-address">
-							<li>
-								<div class="row">
-									<div class="col-1"><i class="fas fa-map-marker"></i></div>
-									<div class="col-10">
-										<h6 class="font-weight-bold mb-0">Address:</h6>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="row">
-									<div class="col-1"><i class="far fa-envelope"></i></div>
-									<div class="col-10">
-										<h6 class="font-weight-bold mb-0">Have any questions?</h6>
-										<p><a href="#">Support@userthemes.com</a></p>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="row">
-									<div class="col-1"><i class="fas fa-phone-volume"></i></div>
-									<div class="col-10">
-										<h6 class="font-weight-bold mb-0">Address:</h6>
-										<p><a href="#">+XX (0) XX XX-XXXX-XXXX</a></p>
-									</div>
-								</div>
-							</li>
-						</ul>
+						<div class = "coder-info">
+							<img src = "img/coders/hbfree.jpg" class = "rounded-circle coder-img" />
+							<span> Hakim Beldjoudi</span>
+						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
 						<h5 class="mb-4 font-weight-bold">TODAY'S ARTICLE</h5>
