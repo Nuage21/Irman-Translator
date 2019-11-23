@@ -1,18 +1,18 @@
 $(document).ready(function(){
-	var quoteSlideFnc = () => {
-		var quoteSlide = quoteIsDown?'-=23%':'+=23%';
-		var quoteBorder = quoteIsDown?'-=1px':'+=1px';
-		$(".quote").animate({marginTop: quoteSlide});
-		$(".quote-core").animate({borderLeftWidth: quoteBorder});
-		quoteIsDown = !quoteIsDown; 
+	var quoteIsVisible = false;
+	var quoteToogleFade = () => {
+		if(quoteIsVisible)
+			$(".quote").fadeOut(700);
+		else $(".quote").fadeIn(700);
+		quoteIsVisible = !quoteIsVisible; 
 	};
-	quoteSlideFnc();
-	var quoteIsDown = true;
+	quoteToogleFade();
+	
 	var textareasWidth = (($(window).width() - $(".quote").width())/2) - 100;
 	$(".input").css({"width": textareasWidth  + "px"});
 	
 	$("#quote-slider").click(() => {
-		quoteSlideFnc();
+		quoteToogleFade();
 	});
 	$("#nav-container").css({"width": $(window).width()/1.32 + "px"});
 	$("#social-topbar").css({"margin-left": $(window).width()/10 + "px"});

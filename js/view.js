@@ -19,12 +19,12 @@ Vue.component('alpha',
 		template:
 		`<div class="couple-alphas-holder">
 			<div class="alpha-box, latinbox" >
-				<button class="berber-alpha latinalpha" v-on:click = "appendAlpha(berberalpha)" tabIndex="-1">
+				<button class="berber-alpha latinalpha" v-on:click = "appendAlpha(berberalpha)">
 				{{ berberalpha }}
 			</button>
 			</div>
 			<div class="alpha-box, tifibox">
-				<button class = "berber-alpha tifialpha" v-on:click = "appendAlpha(tifinaghalpha)" tabIndex="-1">
+				<button class = "berber-alpha tifialpha" v-on:click = "appendAlpha(tifinaghalpha)">
 				{{ tifinaghalpha }}
 				</button>
 			</div>
