@@ -18,11 +18,11 @@ Vue.component('alpha',
 	{
 		template:
 		`<div class="couple-alphas-holder">
-			<div class="alpha-box" >
-				<button class="berber-alpha" v-on:click = "appendAlpha(berberalpha)">{{ berberalpha }}</button>
+			<div class="alpha-box, latinbox" >
+				<button class="berber-alpha latinalpha" v-on:click = "appendAlpha(berberalpha)">{{ berberalpha }}</button>
 			</div>
-			<div class="alpha-box">
-				<button class = "berber-alpha" v-on:click = "appendAlpha(tifinaghalpha)">{{ tifinaghalpha }}</button>
+			<div class="alpha-box, tifibox">
+				<button class = "berber-alpha tifialpha" v-on:click = "appendAlpha(tifinaghalpha)">{{ tifinaghalpha }}</button>
 			</div>
 		</div>
 		`

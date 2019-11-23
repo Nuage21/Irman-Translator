@@ -5,20 +5,22 @@ div.couple-alphas-holder
 }
 button.berber-alpha
 {
-	width: 20px;
-	height: 20px;
 	background-color: transparent;
 	color: white;
 	margin: 0 5px 0 0;
 	border: 0;
 	border-bottom: 1px solid transparent;
-	font: bold 17px verdana;
+	font: bold 30px verdana;
 	margin-top: 10px !important;
 	cursor: default;
 }
 button.berber-alpha:hover
 {
 	border-bottom: 1px solid white;
+}
+
+.latinbox{
+	display: none;
 }
 div.alpha-box
 {

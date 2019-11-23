@@ -14,7 +14,14 @@ $(document).ready(function(){
 	$("#quote-slider").click(() => {
 		quoteSlideFnc();
 	});
-
 	$("#nav-container").css({"width": $(window).width()/1.32 + "px"});
 	$("#social-topbar").css({"margin-left": $(window).width()/10 + "px"});
+	
+	$('#tifibtn').click( () => {
+		$('.latinbox').fadeOut(500, ()=>$('.tifibox').show());
+
+	});
+	$('#latinbtn').click( () => {
+		$('.tifibox').fadeOut(500, ()=> $('.latinbox').show());
+	});
 });
