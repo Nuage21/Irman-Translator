@@ -52,3 +52,4 @@ var alphasApp = new Vue ({
 		berberAlphas: "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒwčǧ",
 	}
 });
+

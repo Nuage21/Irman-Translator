@@ -53,11 +53,10 @@ div.input-txt-div
 }
 #inputs-container 
 {
-	padding: 20px 0px 0px 20px;
+	padding: 0 0px 0px 20px;
 	height: 350px;
 }
 #translater
 {
 	height:350px;
-	padding-top:20px;
 }
