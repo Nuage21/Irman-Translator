@@ -2,11 +2,30 @@ div.coder-info
 {
 	background-color: #0d0d0f;
 	padding: 5px;
+	margin-left: -100px;
+	padding-left: 20px;
+	border-left: 50px solid white !important;
+	border: 1px solid white;
+}
+.coder-cred
+{
+	margin-top:10px;
+
+}
+.coder-descript
+{
+	font-size:10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+.coder-name-br
+{
+	font-size:10px;
 }
 img.coder-img
 {
-	width: 60px;
+	width: 65px;
 	height: 70px;
-	border: 3px solid #2d2d2d;
+	border: 3px solid white;
 	margin-right: 10px;
 }

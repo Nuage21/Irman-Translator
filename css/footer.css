@@ -1,15 +1,18 @@
 /*=-footer-=*/
-			footer {
-				color: #fff;
-				background-attachment: fixed;
-				background-color:#1d1d23;
-				padding-left: 70px;
-				background-size: cover;
-				background-position: bottom;
-			}
-			footer p {
-				color: #ccc;				
-			}
+footer
+{
+	color: #fff;
+	background-attachment: fixed;
+	background-color:#1d1d23;
+	padding-left: 70px;
+	background-size: cover;
+	background-position: bottom;
+	font-family: cursive;
+}
+footer p 
+{
+	color: #ccc;				
+}
 	   footer a {
 				color: #ccc;				
 			}
