@@ -7,7 +7,7 @@ button.berber-alpha
 {
 	width: 20px;
 	height: 20px;
-	background: #1d1d1d;
+	background-color: transparent;
 	color: white;
 	margin: 0 5px 0 0;
 	border: 0;
@@ -28,5 +28,4 @@ div.alpha-box
 {
 	padding-bottom:70px;
 	margin-top:110px;
-	padding-left: 50px;
 }

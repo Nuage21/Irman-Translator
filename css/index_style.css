@@ -170,24 +170,6 @@ li {
     background: linear-gradient(45deg, #191919 48%, #1b1e21 48%);
 }
 
-.input-txt
-{
-	width: 500px;
-	height: 300px;
-	border: 1px black edge;
-}
-div.input-txt-div 
-{
-	float: left;
-	padding: 25px;
-	border-top: 1px groove black;
-	border-bottom: 1px groove black;
-}
-#inputs-container 
-{
-	padding: 20px 0px 0px 20px;
-	height: 350px;
-}
 /*=-footer-=*/
 			footer {
 				color: #fff;

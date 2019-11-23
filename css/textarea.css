@@ -1,3 +1,7 @@
+#App
+{
+	margin-left: 50px;
+}
 textarea.input
 {
 	background-color: transparent;
@@ -36,7 +40,24 @@ textarea.input:hover
 	color: white;
 	border-top: 1px solid white;
 }
+.input-txt
+{
+	width: 500px;
+	height: 300px;
+	border: 1px black edge;
+}
+div.input-txt-div 
+{
+	float: left;
+	padding: 0 25px 0 10px;
+}
+#inputs-container 
+{
+	padding: 20px 0px 0px 20px;
+	height: 350px;
+}
 #translater
 {
-	
+	height:350px;
+	padding-top:20px;
 }

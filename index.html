@@ -73,7 +73,7 @@
   </nav>
 </div>
 </header>
-
+<div id="App" >
 <div id = "alphas-holder">
 	<alpha v-for="i in berberAlphas.length" v-bind:key="i" v-bind:berberAlpha = "berberAlphas[i]" v-bind:tifinaghAlpha = "tifinaghAlphas[i]" >
 	</alpha>
@@ -93,16 +93,17 @@
   <br/>
 </div>
 <!-- TEXTAREAS HERE -->
-<div id = "translater" style="height:350px;padding-top:20px;">
+<div id = "translater" >
 	<txtinput lng = 'Tamaziɣt' flag = 'img/berber-flag.png' > </txtinput>
 	<txtinput lng = 'English' flag = 'img/uk-flag.png'> </txtinput>
 </div>
+</div>
 <hr color="white">
 <div style="margin-bottom:100px;margin-top:10px;font-family:rockwell;padding-right:50px;">
-	<blockquote class = "blockquote" style="color:white;font-size:20px;float:right;"> 
+	<blockquote class = "blockquote" style="color:white;font-size:15px;float:right;"> 
 	― And by this shall a language never die
 		</br>
-		<span>― ⵉ ⵡⴰⴽⴽⴻⵏ ⵓⵜ ⵜⵜⴻⵎⴰⵜ-ⴰⵔⴰ ⵜⵎⴰⵣⵉⵖⵜ</span>
+		<span style="padding-left: 50px">(ⵉ ⵡⴰⴽⴽⴻⵏ ⵓⵜ ⵜⵜⴻⵎⴰⵜ-ⴰⵔⴰ ⵜⵎⴰⵣⵉⵖⵜ)</span>
 	</blockquote>
 </div>
 <!-- Footer -->
