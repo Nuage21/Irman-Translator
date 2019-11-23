@@ -2,8 +2,8 @@
 			footer {
 				color: #fff;
 				background-attachment: fixed;
-				background-color:#222;
-        background-image: url(https://s7.postimg.org/uyf0oioaz/footer-bg.png);
+				background-color:#1d1d23;
+				padding-left: 80px;
 				background-size: cover;
 				background-position: bottom;
 			}

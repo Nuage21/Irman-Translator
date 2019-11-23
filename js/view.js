@@ -7,7 +7,7 @@ Vue.component('txtinput',
 				<img class = "rounded float-left" v-bind:src = "flag" style="width:30px;height:15px;margin-top:4px;"/>
 				<span style="padding-left:10px;">{{ lng }}</span>
 				</div>
-				<textarea class = "input" spellcheck="false" v-bind:id="lngid" v-bind:disabled="isdisabled"> </textarea>
+				<textarea style="padding:10px;" class = "input" spellcheck="false" v-bind:id="lngid" v-bind:disabled="isdisabled"> </textarea>
 			</div>`
 		,
 		props: ['lng', 'flag', 'lngid', 'isdisabled'],
