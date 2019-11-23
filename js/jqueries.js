@@ -24,4 +24,9 @@ $(document).ready(function(){
 	$('#latinbtn').click( () => {
 		$('.tifibox').fadeOut(500, ()=> $('.latinbox').show());
 	});
+	$("#from-lng")
+		.focus() // set initial focus
+		.on('blur', function () { // on blur
+		$(this).focus(); // return focus	
+		});
 });

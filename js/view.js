@@ -6,10 +6,10 @@ Vue.component('txtinput',
 				<img class = "rounded float-left" v-bind:src = "flag" style="width:30px;height:15px;margin-top:4px;"/>
 				<span style="padding-left:10px;">{{ lng }}</span>
 				</div>
-	<textarea class = "input" spellcheck="false" v-bind:id="lngid"> </textarea>
+				<textarea class = "input" spellcheck="false" v-bind:id="lngid" v-bind:disabled="isdisabled"> </textarea>
 			</div>`
 		,
-		props: ['lng', 'flag', 'lngid'],
+		props: ['lng', 'flag', 'lngid', 'isdisabled'],
 
 	}
 );
@@ -19,10 +19,14 @@ Vue.component('alpha',
 		template:
 		`<div class="couple-alphas-holder">
 			<div class="alpha-box, latinbox" >
-				<button class="berber-alpha latinalpha" v-on:click = "appendAlpha(berberalpha)">{{ berberalpha }}</button>
+				<button class="berber-alpha latinalpha" v-on:click = "appendAlpha(berberalpha)" tabIndex="-1">
+				{{ berberalpha }}
+			</button>
 			</div>
 			<div class="alpha-box, tifibox">
-				<button class = "berber-alpha tifialpha" v-on:click = "appendAlpha(tifinaghalpha)">{{ tifinaghalpha }}</button>
+				<button class = "berber-alpha tifialpha" v-on:click = "appendAlpha(tifinaghalpha)" tabIndex="-1">
+				{{ tifinaghalpha }}
+				</button>
 			</div>
 		</div>
 		`
@@ -33,8 +37,8 @@ Vue.component('alpha',
 		{
 			appendAlpha(c)
 			{
-				let inner = $("#from-lng").html();
-				$("#from-lng").html(inner + c);
+				let inner = $("#from-lng").val();
+				$("#from-lng").val(inner + c);
 			}
 		}
 	}
