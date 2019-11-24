@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	
+	if(navigator.appVersion.indexOf("Edge") != -1){
+		$('body').css({zoom: "85%"});
+	}
+	
 	var quoteIsVisible = false;
 	var quoteToogleFade = () => {
 		if(quoteIsVisible)
@@ -8,14 +13,9 @@ $(document).ready(function(){
 	};
 	quoteToogleFade();
 	
-	var textareasWidth = (($(window).width() - $(".quote").width())/2) - 100;
-	$(".input").css({"width": textareasWidth  + "px"});
-	
 	$("#quote-slider").click(() => {
 		quoteToogleFade();
 	});
-	$("#nav-container").css({"width": $(window).width()/1.32 + "px"});
-	$("#social-topbar").css({"margin-left": $(window).width()/10 + "px"});
 	
 	$('#tifibtn').click( () => {
 		$('.latinbox').fadeOut(500, ()=>$('.tifibox').show());

@@ -1,9 +1,33 @@
 /* linked to index.html */
 
-html, body, {
-    position:fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
+body {
+	background-color: #212529 !important;
+	zoom: 85%;
+	overflow-x: hidden !important;
+	-webkit-text-size-adjust: auto !important;
+}
+
+#content-top-wrapper
+{
+	height: 100px;
+	float: top;
+}
+#MainApp
+{
+	border-top: 1px solid #3d3d3f;
+	height: 500px;
+}
+#App
+{
+	height: 100%;
+	width: 70%;
+	float: left;
+}
+#right-side-app
+{
+	width: 20%;
+	height: 100%;
+	float: right;
+	background-color: #1d1d1e;
+	border-left: 1px solid #3d3d3f;
 }

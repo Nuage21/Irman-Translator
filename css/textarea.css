@@ -2,8 +2,8 @@ textarea.input
 {
 	background-color: transparent;
 	color: white;
-	width: 300px;
-	height: 250px;
+	width: 100% !important;
+	height: 300px;
 	font-size: 35px;
 	resize: none;
 	border: 0px solid #0269A4;
@@ -35,24 +35,18 @@ textarea.input:hover
 {
 	color: white;
 	border-top: 1px solid #4d4d4f;
+	float: top;
 }
-.input-txt
-{
-	width: 500px;
-	height: 300px;
-	border: 1px black edge;
-}
+
 div.input-txt-div 
 {
 	float: left;
+	width: 50%;
 	padding: 0 25px 0 10px;
 }
-#inputs-container 
+#Translater
 {
-	padding: 0 0px 0px 20px;
-	height: 350px;
-}
-#translater
-{
-	height:350px;
+	margin-top: 50px;
+	width: 100%;
+	height: 100%;
 }

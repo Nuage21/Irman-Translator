@@ -27,10 +27,10 @@
 <body>
 <div class="fixed-top">
   <header class="topbar">
-      <div class="container">
+      <div  style="width:100% !important;">
         <div class="row">
           <!-- social icon-->
-          <div class="col-sm-12" id="" style="margin-left:180px;">
+          <div class="col-sm-12" style="float:right;">
             <ul class="social-network">
               <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-facebook-f"></i></a></li>
               <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-twitter"></i></a></li>
@@ -40,78 +40,82 @@
 
         </div>
       </div>
-  <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
-    <div >
-	<div id="nav-container" style="float:left;padding-left:0px;margin-top:-10px;">
+	  
+	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	 
 	<a href = "https://en.wikipedia.org/wiki/Berber_flag">
-		<img class = "rounded float-left" src = "img/berber-flag.png" style="width:70px;height:35px;"/>
+		<img class = "rounded float-left" src = "img/berber-flag.png" style="width:70px;height:35px;margin-right:20px;"/>
 	</a>
-      <a class="navbar-brand" href="index.html" style="padding-left: 25px;font-size: 20px;"> 
-	  ⴷ-ⵟⵔⴰⴷⵓⴽⵜⴻⵔ ⴰⵎⴻⵣⵡⴰⵔⵓ ⵏ ⵜⵎⴰⵣⵉⵖⵜ ⴰⵎⴻⵏⵣⵓ
-	  </a>
-	</div>
-	
-      <div class="collapse navbar-collapse" id="navbarResponsive" >
+  <a class="navbar-brand" href="#">Tamaziɣt Translater</a>
 
-        <ul class="navbar-nav ml-auto" >
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Blog</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" style="margin-top:5px;">
+      <li class="nav-item active" style="margin-left:-5px;">
+        <a class="nav-link" href="#">(-by this shall this language never die!) <span class="sr-only">(current)</span></a>
+      </li>
+       
+    </ul>
+	<ul class="nav navbar-nav navbar-right" style="margin-right:20px">
+           <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Help us ?
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"  href="#">Are you a Teacher of Tamaziɣt ? </a>
+          <a class="dropdown-item" href="#">Are you a Web/Mobile Developer ?</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><u>Send Feedback </u> </a>
+        </div>
+      </li>
         </ul>
-      </div>
-    </div>
-  </nav>
+		<ul class="nav navbar-nav navbar-right">
+	<li class="nav-item" style="color:white;">
+		<a class="nav-link" href="#">
+			<span class="fab fa-github" style="padding-right: 3px;"></span> Join us on Github !
+		</a>
+      </li>
+	</ul>
+
+  </div>
+</nav>
+  
 </div>
 </header>
-<div id="MainApp">
-<div id = "side-app">
-<div class="btn-group-vertical script-chooser">
+
+<div id="content-wrapper">
+<div id="content-top-wrapper"></div>
+	<div id = "MainApp">
+	<div id = "side-app">
+		<div class="btn-group-vertical script-chooser">
 		<button id = "tifibtn" class = "btn btn-dark btn-sm side-app-btn"> Tifinaɣ </button>
 		<button id = "latinbtn" class = "btn btn-dark btn-sm side-app-btn"> Latin </button>
-</div>
-<hr color="3d3d3f">
-<div class="btn-group-vertical app-btn-holder">
-	<button class = "btn btn-dark btn-sm side-app-btn" v-on:click="swapLngs()"> Swap </button>
-	<button class = "btn btn-dark btn-sm side-app-btn" v-on:click="emptyAreas()"> Empty </button>
-</div>
-</div>
-<div id="App" >
-<div id = "alphas-holder">
-	<alpha v-for="i in berberAlphas.length" v-bind:key="i" v-bind:berberAlpha = "berberAlphas[i-1]" v-bind:tifinaghAlpha = "tifinaghAlphas[i-1]" >
-	</alpha>
-</div>
-	<!-- QUOTE HERE -->
-<br/>
-<div style="padding-left:120px;font-family:rockwell;">
-	<blockquote class = "blockquote" style="color:white;font-size:10px;"> 
-	― And by this shall a language never die (ⵉ ⵡⴰⴽⴽⴻⵏ ⵓⵜ ⵜⵜⴻⵎⴰⵜ-ⴰⵔⴰ ⵜⵎⴰⵣⵉⵖⵜ)
-	</blockquote>
-</div>
-
-<!-- TEXTAREAS HERE -->
-<div id = "translater" >
-
-	<txtinput v-bind:lng = 'fromLng' v-bind:flag = 'fromFlag' lngid = 'from-lng'> </txtinput>
-	<txtinput v-bind:lng = 'toLng' v-bind:flag = 'toFlag' lngid = 'to-lng' isdisabled='true'> </txtinput>
-	
+	</div>
+	<hr color="3d3d3f" style="margin: 4px 0 6px 0;">
+	<div class="btn-group-vertical app-btn-holder">
+		<button class = "btn btn-dark btn-sm side-app-btn" v-on:click="swapLngs()"> Swap </button>
+		<button class = "btn btn-dark btn-sm side-app-btn" v-on:click="emptyAreas()"> Empty </button>
+	</div>
+	</div>
+	<div id = "App">
+	<div id = "alphas-holder">
+		<alpha v-for="i in berberAlphas.length" v-bind:key="i" v-bind:berberAlpha = "berberAlphas[i-1]" v-bind:tifinaghAlpha = "tifinaghAlphas[i-1]" >
+		</alpha>
+	</div>
+	</br>
+	<div id = "Translater">
+		<txtinput v-bind:lng = 'fromLng' v-bind:flag = 'fromFlag' lngid = 'from-lng'> </txtinput>
+		<txtinput v-bind:lng = 'toLng' v-bind:flag = 'toFlag' lngid = 'to-lng' isdisabled='true'> </txtinput>
+	</div>
+	</div>
+	<div id="right-side-app">
 	<div class="quote">
-  <div class = "quote-mark" style="float:left;margin: -20px 0 0 3px;">“</div>
+	<div class = "quote-mark" style="float:left;margin: -20px 0 0 3px;">“</div>
     <div class = "quote-title">Today's Quote</div>
-  <div class = "quote-core">
+	<div class = "quote-core">
 	<span id="quote-text" >
 		Il y a sûrement beaucoup de honte à être heureux, non pas à la vue de certaines misères mais lorsque le bonheur semble narguer .Ce défaut les Kabyles ne l'ont pas 
 	  .Par pudeur le riche se cache pour bien manger 
@@ -122,9 +126,8 @@
   <br/>
 </div>
 </div>
-
 </div>
-
+</div>
 </div>
 <hr color="3d3d3f" style="margin:0;padding:0;">
 <!-- Footer -->
@@ -139,7 +142,7 @@
 							<img src = "img/coders/hbfree.jpg" class = "rounded-circle coder-img" />
 						</div>
 						<div class = "coder-cred">
-						<div style="flot:top;">
+						<div style="float:top;">
 							<span class="coder-name" style="margin-left:-5px;"> Hakim Beldjoudi </span>
 							<span class="coder-name-br"> (ⵀⴰⴽⵉⵎ ⴱⴻⵍⴵⵓⴷⵉ) </span>
 						</div>
@@ -157,14 +160,14 @@
 						<blockquote class="blockquote">taken @Cap Bouak, Bejaia by Photographer</blockquote>
 						<p>Bejaia is the second largest Amazigh city today, from Naceria to ...</p>
 					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+					<div class="col-lg-3 col-sm-6 mt-2 mb-4">
 						<h5 class="mb-4 font-weight-bold">LATEST UPDATES</h5>
-						<ul class="recent-post">
-							<li>
+						<ul class="recent-post" style="margin-left:-30px;">
+							<li style="margin-bottom:40px;">
 								<label class="mr-3">28 <br><span>APR</span></label>
 								<span>Rendomised words which dont look eveable.</span>
 							</li>
-							<li>
+							<li style="margin-bottom:40px;">
 								<label class="mr-3">29 <br><span>APR</span></label>
 								<span>Rendomised words which dont look eveable.</span>
 							</li>
@@ -189,13 +192,8 @@
 				<div class="row">
 					<div class="col-md-12 ">
 						<div class="text-center text-white">
-						<a href = "https://en.wikipedia.org/wiki/Berber_flag">
-							<img class = "rounded float-left" src = "img/berber-flag.png" style="width:30px;height:15px;align:left;position:absolute"/>
-						</a>
 							<span style = "margin: 0 40px 0 65px;">&copy; 2019 All Rights Reserved For The Amazigh People Wherever They Are! Tanmirt-nwen!</span>
-						<a href = "https://en.wikipedia.org/wiki/Berber_flag">
-							<img class = "rounded float-left" src = "img/berber-flag.png" style="width:30px;height:15px;position:absolute;"/>
-						</a>
+
 						</div>
 					</div>
 				</div>

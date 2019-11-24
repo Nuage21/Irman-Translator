@@ -10,8 +10,9 @@ button.berber-alpha
 	margin: 0 5px 0 0;
 	border: 0;
 	border-bottom: 1px solid transparent;
-	font: bold 25px verdana;
+	font: bold 1.5vw verdana;
 	cursor: default;
+	
 }
 button.berber-alpha:hover
 {
@@ -27,7 +28,6 @@ div.alpha-box
 }
 #alphas-holder
 {
-	padding: 10px 0 20px 0;
-	margin-top:85px;
-	border-top: 1px solid #3d3d3f;
+	padding: 20px 0 0 10px;
+	float: top;
 }

@@ -2,12 +2,10 @@
 footer
 {
 	color: #fff;
-	background-attachment: fixed;
 	background-color:#1d1d23;
 	padding-left: 70px;
-	background-size: cover;
-	background-position: bottom;
 	font-family: cursive;
+	width: 100%;
 }
 footer p 
 {
