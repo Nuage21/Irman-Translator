@@ -9,13 +9,13 @@ button.berber-alpha {
     margin: 0 5px 0 0;
     border: 0;
     border-bottom: 1px solid transparent;
-    font: bold 1.5vw verdana;
+    font: bold 1.7vw verdana;
     cursor: default;
 
 }
 
 button.berber-alpha:hover {
-    border-bottom: 1px solid white;
+    margin-top: -2px;
 }
 
 .latinbox {
