@@ -1,35 +1,34 @@
-.quote
-{
-	width: 20vw !important;
-	color: white;
-	border-top: 1px solid #3d3d3f;
-	font-family: 'Montserrat', sans-serif !important;
-	/* position adjustment */
-	float: left;
-	margin: 30px 0 0 20px;
-	display: none;
+.quote {
+    width: 20vw !important;
+    color: white;
+    border-top: 1px solid #3d3d3f;
+    font-family: 'Montserrat', sans-serif !important;
+    /* position adjustment */
+    float: left;
+    margin: 30px 0 0 20px;
+    display: none;
 }
-.quote-title
-{
-	font-size: 1.8vw;
-	padding: 0.5vw 0 0 3vw;
-}
-.quote-mark
-{
 
-	height: 50px;
-	color: white;
-	font-size: 5vw;
-	
+.quote-title {
+    font-size: 1.8vw;
+    padding: 0.5vw 0 0 3vw;
 }
-.quote-core
-{
-	padding: 5px 2px 0 5px;
-	margin-left: 17px;
-	font-size: 1vw;
-	border-left: 0px solid #3d3d3f;
+
+.quote-mark {
+
+    height: 50px;
+    color: white;
+    font-size: 5vw;
+
 }
-#quote-slider
-{
-	cursor: default;
+
+.quote-core {
+    padding: 5px 2px 0 5px;
+    margin-left: 17px;
+    font-size: 1vw;
+    border-left: 0px solid #3d3d3f;
+}
+
+#quote-slider {
+    cursor: default;
 }

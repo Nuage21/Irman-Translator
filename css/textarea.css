@@ -1,52 +1,55 @@
-textarea.input
-{
-	background-color: transparent;
-	color: white;
-	width: 100% !important;
-	height: 300px;
-	font-size: 35px;
-	resize: none;
-	border: 0px solid #0269A4;
-	border-radius: 3%;
-}
-textarea.input:focus
-{
-	border-width: 1px;
-	border-radius: 1%;
+textarea.input {
+    background-color: transparent;
+    color: white;
+    width: 100% !important;
+    height: 300px;
+    font-size: 35px;
+    resize: none;
+    border: 0px solid #0269A4;
+    border-radius: 3%;
 }
 
-textarea.input:focus
-{
-	border-width: 1px;
-	border-radius: 1%;
-}
-textarea.input:hover
-{
-	animation-name: borderIt;
-	animation-duration: 0.2s;
-	animation-fill-mode: forwards;
-	animation-timing-function: ease-out;
-}
-@keyframes borderIt{
-	from {border-width: 0px, box-shadow: 0%;}
-	to{border-width: 3px;}
-}
-.input-legend
-{
-	color: white;
-	border-top: 1px solid #4d4d4f;
-	float: top;
+textarea.input:focus {
+    border-width: 1px;
+    border-radius: 1%;
 }
 
-div.input-txt-div 
-{
-	float: left;
-	width: 50%;
-	padding: 0 25px 0 10px;
+textarea.input:focus {
+    border-width: 1px;
+    border-radius: 1%;
 }
-#Translater
-{
-	margin-top: 50px;
-	width: 100%;
-	height: 100%;
+
+textarea.input:hover {
+    animation-name: borderIt;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+@keyframes borderIt {
+    from {
+        border-width: 0px,
+        box-shadow: 0%;
+    }
+    to {
+        border-width: 3px;
+    }
+}
+
+.input-legend {
+    color: white;
+    border-top: 1px solid #4d4d4f;
+    float: top;
+}
+
+div.input-txt-div {
+    float: left;
+    width: 50%;
+    padding: 0 25px 0 10px;
+}
+
+#Translater {
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
 }

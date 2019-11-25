@@ -1,33 +1,32 @@
-div.couple-alphas-holder
-{
-	float: left;
-	padding-left: 3px;
-}
-button.berber-alpha
-{
-	background-color: transparent;
-	color: white;
-	margin: 0 5px 0 0;
-	border: 0;
-	border-bottom: 1px solid transparent;
-	font: bold 1.5vw verdana;
-	cursor: default;
-	
-}
-button.berber-alpha:hover
-{
-	border-bottom: 1px solid white;
+div.couple-alphas-holder {
+    float: left;
+    padding-left: 3px;
 }
 
-.latinbox{
-	display: none;
-}
-div.alpha-box
-{
+button.berber-alpha {
+    background-color: transparent;
+    color: white;
+    margin: 0 5px 0 0;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    font: bold 1.5vw verdana;
+    cursor: default;
 
 }
-#alphas-holder
-{
-	padding: 20px 0 0 10px;
-	float: top;
+
+button.berber-alpha:hover {
+    border-bottom: 1px solid white;
+}
+
+.latinbox {
+    display: none;
+}
+
+div.alpha-box {
+
+}
+
+#alphas-holder {
+    padding: 20px 0 0 10px;
+    float: top;
 }

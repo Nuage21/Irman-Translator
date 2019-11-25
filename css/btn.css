@@ -1,9 +1,8 @@
-.side-app-btn
-{
-	color: white;
-	float:top !important;
-	width: 65px;
-	height: 40px;
-	font-size: 15px;
-	margin-bottom: 0;
+.side-app-btn {
+    color: white;
+    float: top !important;
+    width: 65px;
+    height: 40px;
+    font-size: 15px;
+    margin-bottom: 0;
 }
