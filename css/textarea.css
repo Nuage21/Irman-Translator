@@ -3,12 +3,11 @@ textarea.input {
     color: white;
     width: 100% !important;
     height: 300px;
-    font-size: 35px;
     resize: none;
+    font-size: calc(1.5vw + 1.5vh);
     border: 0px solid #0269A4;
     border-radius: 3%;
 }
-
 textarea.input:focus {
     border-width: 1px;
     border-radius: 1%;

@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #1f1f23 !important;">
 
             <a href="https://en.wikipedia.org/wiki/Berber_flag">
                 <img class="rounded float-left" src="img/berber-flag.png"
@@ -105,7 +105,7 @@
 
 <div id="content-wrapper">
     <div id="content-top-wrapper"></div>
-    <div id="MainApp">
+    <div id="MainApp" >
         <div id="side-app">
             <div class="btn-group-vertical script-chooser">
                 <button id="tifibtn" class="btn btn-dark btn-sm side-app-btn"> Tifinaɣ</button>
@@ -117,35 +117,19 @@
                 <button class="btn btn-dark btn-sm side-app-btn" v-on:click="emptyAreas()"> Empty</button>
             </div>
         </div>
-        <div id="App">
-            <div id="alphas-holder">
+        <div id="App" class="container-fluid">
+            <div id="alphas-holder" class="row">
                 <alpha v-for="i in berberAlphas.length" v-bind:key="i" v-bind:berberAlpha="berberAlphas[i-1]"
                        v-bind:tifinaghAlpha="tifinaghAlphas[i-1]">
                 </alpha>
             </div>
             </br>
-            <div id="Translater">
+            <div id="Translater" class="row mt-0">
                 <txtinput v-bind:lng='fromLng' v-bind:flag='fromFlag' lngid='from-lng'></txtinput>
                 <txtinput v-bind:lng='toLng' v-bind:flag='toFlag' lngid='to-lng' isdisabled='true'></txtinput>
             </div>
         </div>
-        <div id="right-side-app">
-            <div class="quote">
-                <div class="quote-mark" style="float:left;margin: -20px 0 0 3px;">“</div>
-                <div class="quote-title">Today's Quote</div>
-                <div class="quote-core">
-	<span id="quote-text">
-		Il y a sûrement beaucoup de honte à être heureux, non pas à la vue de certaines misères mais lorsque le bonheur semble narguer .Ce défaut les Kabyles ne l'ont pas 
-	  .Par pudeur le riche se cache pour bien manger 
-	  et le pauvre pour avoir faim à son aise.
-	 </span>
-                    <div id="quote-slider" class="quote-mark" style="float:right;margin:-10px 20px 0 0;">”</div>
-                </div>
-                <br/>
-            </div>
-        </div>
     </div>
-</div>
 </div>
 <hr color="3d3d3f" style="margin:0;padding:0;">
 <!-- Footer -->
@@ -170,6 +154,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
                 <h5 class="mb-4 font-weight-bold">READ WITH US</h5>
                 <a href="randomlink.com">
@@ -196,9 +181,15 @@
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
-                <h5 class="mb-4 font-weight-bold">&hearts; DONATE TO SAVE A CULTURE</h5>
-                <!-- INSERT CARD PAYMENT SNIPPET HERE -->
-
+                <a href="#" class="donate"><h5 class="mb-4 font-weight-bold">&hearts; DONATE TO SAVE A CULTURE</h5></a>
+                <p style="color: mistyrose; font-size: 17px;">
+                    We are working hard to make of this translator the
+                    best it can be,to meet all Tamazight's local dialects
+                    and much more! but that's not sufficient, to achieve that,
+                    your help will make a long step forward -
+                    you CAN contribute now. To
+                    save a culture, your culture!
+                </p>
 
             </div>
         </div>
@@ -210,7 +201,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <div class="text-center text-white">
-                    <span style="margin: 0 40px 0 65px;">&copy; 2019 All Rights Reserved For The Amazigh People Wherever They Are! Tanmirt-nwen!</span>
+                    <span style="margin: 0 40px 0 65px;">&copy; 2019 all rights reserved; made with L&hearts;ve</span>
 
                 </div>
             </div>
