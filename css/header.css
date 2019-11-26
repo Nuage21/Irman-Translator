@@ -1,12 +1,6 @@
 .nav-item {
     padding-right: 30px;
 }
-
-.navbar-icon
-{
-    width: 30px;
-    height: 30px;
-}
 .navbar {
     display: -ms-flexbox;
     display: flex;
@@ -17,6 +11,8 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 5px;
+    border-top: 2px solid #003f68;
+    border-bottom: 1px solid #123f68;
 }
 
 .navbar-nav > li > .dropdown-menu > .dropdown-item {
@@ -39,7 +35,6 @@
 headeer top
 */
 .topbar {
-    background-color: #101010;
     padding: 0;
 }
 

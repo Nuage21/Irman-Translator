@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="css/btn.css">
     <link rel="stylesheet" type="text/css" href="css/side-app.css">
     <link rel="stylesheet" type="text/css" href="css/coder-info.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
     <!-- Footer's css -->
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Bootstrap Scripts +jQuery -->
@@ -30,7 +31,7 @@
         <div style="width:100% !important;">
             <div class="row">
                 <!-- social icon-->
-                <div class="col-sm-12" style="float:right;">
+                <div class="col-sm-12" style="background-color: #131313;">
                     <ul class="social-network">
                         <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-twitter"></i></a></li>
@@ -92,14 +93,14 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item" style="color:white;">
                         <a class="nav-link" href="#">
-                           <img src="img/icons/read.png" class="navbar-icon"/> Read with us
+                            <img src="img/icons/read.png" class="navbar-icon"/> Read with us
                         </a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item" style="color:white;">
                         <a class="nav-link" href="#">
-                            <img src="img/icons/lyrics.png" class="navbar-icon"/>  Tamazɣa Lyrics
+                            <img src="img/icons/lyrics.png" class="navbar-icon"/> Tamazɣa Lyrics
                         </a>
                     </li>
                 </ul>
@@ -119,22 +120,22 @@
                 </button>
                 <button id="latinbtn" class="btn btn-dark side-app-btn" style="width:100%;">
                     <span class="side-app-btn-txt"><b style="font-size: calc(0.7vw + 0.7vh);">ǧ</b> <br/> Latin</span>
-                    </button>
+                </button>
                 <button class="btn btn-dark  side-app-btn" v-on:click="swapLngs()">
-                <img src="img/icons/swap.png" class="side-app-icon">
-                     <br/>
-                <span class="side-app-btn-txt">Swap</span>
+                    <img src="img/icons/swap.png" class="side-app-icon">
+                    <br/>
+                    <span class="side-app-btn-txt">Swap</span>
                 </button>
                 <button class="btn btn-dark side-app-btn" v-on:click="emptyAreas()">
                     <img src="img/icons/empty.png" class="side-app-icon">
-                     <br/>
+                    <br/>
                     <span class="side-app-btn-txt">Empty</span>
-                    </button>
+                </button>
                 <button class="btn btn-dark side-app-btn" v-on:click="copyArea()">
                     <img src="img/icons/copy.png" class="side-app-icon">
-                     <br/>
+                    <br/>
                     <span class="side-app-btn-txt">Copy</span>
-                    </button>
+                </button>
             </div>
         </div>
         <div id="AppContainer" class="d-inline-block">
@@ -165,7 +166,10 @@
     <div class="">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
-                <h5 class="mb-4 font-weight-bold">WHO ARE WE</h5>
+                <h5 class="mb-4 font-weight-bold">
+                    <img src="img/icons/contributor.png" class="footer-icon"/>
+                    WHO ARE WE
+                </h5>
                 <p class="mb-2">People who took part of developing this project</p>
                 <div class="coder-info">
                     <div style="float:left;">
@@ -184,7 +188,9 @@
             </div>
 
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
-                <h5 class="mb-4 font-weight-bold">READ WITH US</h5>
+                <h5 class="mb-4 font-weight-bold">
+                    <img src="img/icons/read.png" class="footer-icon"/>
+                    READ WITH US</h5>
                 <a href="randomlink.com">
                     <img class="img-thumbnail" src="img/Bejaia.jpg"/>
                 </a>
@@ -192,7 +198,9 @@
                 <p>Bejaia is the second largest Amazigh city today, from Naceria to ...</p>
             </div>
             <div class="col-lg-3 col-sm-6 mt-2 mb-4">
-                <h5 class="mb-4 font-weight-bold">LATEST UPDATES</h5>
+                <h5 class="mb-4 font-weight-bold">
+                    <img src="img/icons/update.png" class="footer-icon"/>
+                    LATEST UPDATES</h5>
                 <ul class="recent-post" style="margin-left:-30px;">
                     <li style="margin-bottom:40px;">
                         <label class="mr-3">28 <br><span>APR</span></label>
@@ -209,7 +217,11 @@
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
-                <a href="#" class="donate"><h5 class="mb-4 font-weight-bold">&hearts; DONATE TO SAVE A CULTURE</h5></a>
+                <a href="#" class="donate"><h5 class="mb-4 font-weight-bold">
+                    <img src="img/icons/heart.png" class="footer-icon"/>
+                    DONATE TO SAVE A CULTURE
+                </h5>
+                </a>
                 <p style="color: mistyrose; font-size: 17px; margin-left: -3%;">
                     We are working hard to make of this translator the
                     best it can be,to meet all Tamazight's local dialects
