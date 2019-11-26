@@ -7,6 +7,20 @@ Vue.component('txtinput',
 				<span style="padding-left:10px;">{{ lng }}</span>
 				</div>
 				<textarea style="padding:10px;" class = "input" spellcheck="false" v-bind:id="lngid" v-bind:disabled="isdisabled"> </textarea>
+			    <div class="btn-group-sm areabtnholder" role="group" style="float:right" aria-label="Basic example">
+                    <button type="button" class="btn btn-dark">
+                    <img src="img/icons/copy.png" class="down-app-icon">
+                    Copy
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                    <img src="img/icons/paste.png" class="down-app-icon">
+                    Paste
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                    <img src="img/icons/empty.png" class="down-app-icon">
+                    Empty
+                    </button>
+                </div>
 			</div>`
         ,
         props: ['lng', 'flag', 'lngid', 'isdisabled'],
