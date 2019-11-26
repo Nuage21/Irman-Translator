@@ -17,7 +17,7 @@
     <!-- Footer's css -->
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Bootstrap Scripts +jQuery -->
-    <link rel="icon" href="img/berber-flag.png"/>
+    <link rel="icon" href="img/icon.png"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #1f1f23 !important;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #131313 !important;">
 
             <a href="https://en.wikipedia.org/wiki/Berber_flag">
                 <img class="rounded float-left" src="img/berber-flag.png"
@@ -54,10 +54,10 @@
                     </a>
                 </div>
                 <div style="margin:-13px 0 0 10px !important;padding: 0 !important;">
-                    <span class="navbar-brand" style="margin:5px 0 0 2px;font-size:0.55rem;">
-                <span style="color:#0269A4;">[by this shall</span>
+                    <span class="navbar-brand" style="margin:5px 0 0 1px;font-size:0.59rem;font-family: cursive;">
+                <span style="color:#0269A4;">by this shall</span>
                 <span style="color:green"> a language </span>
-                <span style="color:yellow"> never die]</span>
+                <span style="color:yellow"> never die</span>
                 </span>
                     </span>
                 </div>
@@ -79,7 +79,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Help us
+                            <img src="img/icons/help.png" class="navbar-icon"/> Help us
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Are you a Teacher of Tamaziɣt ? </a>
@@ -92,11 +92,17 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item" style="color:white;">
                         <a class="nav-link" href="#">
-                            <span class="fab fa-github" style="padding-right: 3px;"></span> Join us on Github !
+                           <img src="img/icons/read.png" class="navbar-icon"/> Read with us
                         </a>
                     </li>
                 </ul>
-
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item" style="color:white;">
+                        <a class="nav-link" href="#">
+                            <img src="img/icons/lyrics.png" class="navbar-icon"/>  Tamazɣa Lyrics
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
 
@@ -105,28 +111,50 @@
 
 <div id="content-wrapper">
     <div id="content-top-wrapper"></div>
-    <div id="MainApp" >
-        <div id="side-app">
-            <div class="btn-group-vertical script-chooser">
-                <button id="tifibtn" class="btn btn-dark btn-sm side-app-btn"> Tifinaɣ</button>
-                <button id="latinbtn" class="btn btn-dark btn-sm side-app-btn"> Latin</button>
-            </div>
-            <hr color="3d3d3f" style="margin: 4px 0 6px 0;">
-            <div class="btn-group-vertical app-btn-holder">
-                <button class="btn btn-dark btn-sm side-app-btn" v-on:click="swapLngs()"> Swap</button>
-                <button class="btn btn-dark btn-sm side-app-btn" v-on:click="emptyAreas()"> Empty</button>
+    <div id="MainApp">
+        <div id="side-app" class="d-inline-block">
+            <div class="btn-group-vertical">
+                <button id="tifibtn" class="btn btn-dark side-app-btn">
+                    <span class="side-app-btn-txt"><b>ⵣ</b> <br/> Tifinaɣ</span>
+                </button>
+                <button id="latinbtn" class="btn btn-dark side-app-btn" style="width:100%;">
+                    <span class="side-app-btn-txt"><b style="font-size: calc(0.7vw + 0.7vh);">ǧ</b> <br/> Latin</span>
+                    </button>
+                <button class="btn btn-dark  side-app-btn" v-on:click="swapLngs()">
+                <img src="img/icons/swap.png" class="side-app-icon">
+                     <br/>
+                <span class="side-app-btn-txt">Swap</span>
+                </button>
+                <button class="btn btn-dark side-app-btn" v-on:click="emptyAreas()">
+                    <img src="img/icons/empty.png" class="side-app-icon">
+                     <br/>
+                    <span class="side-app-btn-txt">Empty</span>
+                    </button>
+                <button class="btn btn-dark side-app-btn" v-on:click="copyArea()">
+                    <img src="img/icons/copy.png" class="side-app-icon">
+                     <br/>
+                    <span class="side-app-btn-txt">Copy</span>
+                    </button>
             </div>
         </div>
-        <div id="App" class="container-fluid">
-            <div id="alphas-holder" class="row">
-                <alpha v-for="i in berberAlphas.length" v-bind:key="i" v-bind:berberAlpha="berberAlphas[i-1]"
-                       v-bind:tifinaghAlpha="tifinaghAlphas[i-1]">
-                </alpha>
+        <div id="AppContainer" class="d-inline-block">
+            <div class="shadow rounded" id="App">
+                <div id="alphas-holder" class="row">
+                    <alpha v-for="i in berberAlphas.length" v-bind:key="i" v-bind:berberAlpha="berberAlphas[i-1]"
+                           v-bind:tifinaghAlpha="tifinaghAlphas[i-1]">
+                    </alpha>
+                </div>
+                </br>
+                <div id="Translater" class="row mt-0">
+                    <txtinput v-bind:lng='fromLng' v-bind:flag='fromFlag' lngid='from-lng'></txtinput>
+                    <txtinput v-bind:lng='toLng' v-bind:flag='toFlag' lngid='to-lng' isdisabled='true'></txtinput>
+                </div>
             </div>
-            </br>
-            <div id="Translater" class="row mt-0">
-                <txtinput v-bind:lng='fromLng' v-bind:flag='fromFlag' lngid='from-lng'></txtinput>
-                <txtinput v-bind:lng='toLng' v-bind:flag='toFlag' lngid='to-lng' isdisabled='true'></txtinput>
+
+        </div>
+        <div id="AdsAppContainer" class="d-inline-block">
+            <div id="AdsApp" class="shadow rounded">
+
             </div>
         </div>
     </div>
@@ -182,7 +210,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
                 <a href="#" class="donate"><h5 class="mb-4 font-weight-bold">&hearts; DONATE TO SAVE A CULTURE</h5></a>
-                <p style="color: mistyrose; font-size: 17px;">
+                <p style="color: mistyrose; font-size: 17px; margin-left: -3%;">
                     We are working hard to make of this translator the
                     best it can be,to meet all Tamazight's local dialects
                     and much more! but that's not sufficient, to achieve that,

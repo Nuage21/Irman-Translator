@@ -2,6 +2,11 @@
     padding-right: 30px;
 }
 
+.navbar-icon
+{
+    width: 30px;
+    height: 30px;
+}
 .navbar {
     display: -ms-flexbox;
     display: flex;
@@ -34,7 +39,7 @@
 headeer top
 */
 .topbar {
-    background-color: #191919;
+    background-color: #101010;
     padding: 0;
 }
 
@@ -60,10 +65,6 @@ headeer top
 
 .topbar p:last-child {
     text-align: right;
-}
-
-header .navbar {
-    margin-bottom: 0;
 }
 
 .topbar li.topbar {
@@ -160,23 +161,4 @@ a {
 
 li {
     list-style-type: none;
-}
-
-.bg-image-full {
-    background-position: center center;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-
-.bg-dark {
-    background-color: #222 !important;
-}
-
-.mx-background-top-linear {
-    background: -webkit-linear-gradient(45deg, #191919 48%, #1b1e21 48%);
-    background: -webkit-linear-gradient(left, #191919 48%, #1b1e21 48%); /* The Berber flag here */
-    background: linear-gradient(45deg, #191919 48%, #1b1e21 48%);
 }

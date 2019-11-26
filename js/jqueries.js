@@ -18,11 +18,11 @@ $(document).ready(function () {
     });
 
     $('#tifibtn').click(() => {
-        $('.latinbox').fadeOut(500, () => $('.tifibox').show());
+        $('.latinbox').fadeOut(300, () => $('.tifibox').show());
 
     });
     $('#latinbtn').click(() => {
-        $('.tifibox').fadeOut(500, () => $('.latinbox').show());
+        $('.tifibox').fadeOut(300, () => $('.latinbox').show());
     });
     $("#from-lng")
         .focus() // set initial focus

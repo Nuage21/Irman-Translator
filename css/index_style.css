@@ -16,14 +16,36 @@ body {
 #MainApp {
     border-top: 1px solid #3d3d3f;
     height: 500px;
+    margin-top: -5px;
+    background-color: #003f68;
+}
+
+#AppContainer {
+    width: 73%;
+    height: 100%;
+    float: left;
+    padding: 2px;
+    height: 100%;
 }
 
 #App {
+    background-color: #181819;
+    padding: 5px 0 10px 20px;
     height: 100%;
-    width: 73%;
-    float: left;
 }
-
 a.donate:hover {
     color: mediumvioletred;
+}
+
+#AdsApp {
+    background-color: #181819;
+    height: 100%;
+}
+
+#AdsAppContainer {
+    height: 100%;
+    width: 22.4%;
+    margin-left: 1px;
+    margin-top: 1px;
+    padding: 2px 0 3px 0;
 }
