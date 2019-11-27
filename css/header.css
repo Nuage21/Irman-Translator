@@ -1,3 +1,23 @@
+.lng-sel-flag
+{
+    width: 25px;
+    height: 15px;
+    border-radius: 20%;
+}
+.lng-sel
+{
+    color: white;
+    font-size: 14px;
+}
+.lng-sel-holder
+{
+    margin-right: 15px;
+}
+.lng-selector
+{
+    float:left;
+    padding: 5px 0 0 10px;
+}
 .nav-item {
     padding-right: 30px;
 }

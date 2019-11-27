@@ -34,6 +34,32 @@
             <div class="row">
                 <!-- social icon-->
                 <div class="col-sm-12" style="background-color: #131313;">
+                    <div class="lng-selector">
+                        <div class="d-inline lng-sel-holder">
+                            <img class="lng-sel-flag" src="img/flags/uk.png">
+                            <a href="#" class="lng-sel"> English </a>
+                        </div>
+                        <div class="d-inline lng-sel-holder">
+                            <img class="lng-sel-flag" src="img/flags/spain.gif">
+                            <a href="#" class="lng-sel"> Español </a>
+                        </div>
+                        <div class="d-inline lng-sel-holder">
+                           <img class="lng-sel-flag" src="img/flags/france.gif">
+                            <a href="#" class="lng-sel"> Français </a>
+                        </div>
+                        <div class="d-inline lng-sel-holder">
+                            <img class="lng-sel-flag" src="img/flags/arab.png">
+                            <a href="#" class="lng-sel"> العربية </a>
+                        </div>
+                        <div class="d-inline lng-sel-holder">
+                           <img class="lng-sel-flag" src="img/flags/berber.png">
+                            <a href="#" class="lng-sel"> Tamaziɣt (Latin) </a>
+                        </div>
+                        <div class="d-inline lng-sel-holder">
+                           <img class="lng-sel-flag" src="img/flags/berber.png">
+                            <a href="#" class="lng-sel"> Tamaziɣt (ⵜⵍⴼⵍⵏⴰⵖ) </a>
+                        </div>
+                    </div>
                     <ul class="social-network">
                         <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-twitter"></i></a></li>
@@ -47,7 +73,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #131313 !important;">
 
             <a href="https://en.wikipedia.org/wiki/Berber_flag">
-                <img class="rounded float-left" src="img/berber-flag.png"
+                <img class="rounded float-left" src="img/flags/berber.png"
                      style="width:70px;height:35px;margin-right:20px;"/>
             </a>
             <div>
@@ -133,7 +159,7 @@
                     <br/>
                     <span class="side-app-btn-txt">Empty</span>
                 </button>
-                <button class="btn btn-dark side-app-btn" v-on:click="copyArea()">
+                <button class="btn btn-dark side-app-btn" v-on:click="this.copyTranslation()">
                     <img src="img/icons/copy.png" class="side-app-icon">
                     <br/>
                     <span class="side-app-btn-txt">Copy</span>
@@ -150,7 +176,7 @@
                 </br>
                 <div id="Translater" class="row mt-0">
                     <txtinput v-bind:lng='fromLng' v-bind:flag='fromFlag' lngid='from-lng'></txtinput>
-                    <txtinput v-bind:lng='toLng' v-bind:flag='toFlag' lngid='to-lng' isdisabled='true'></txtinput>
+                    <txtinput v-bind:lng='toLng' v-bind:flag='toFlag' lngid='to-lng' isdisabled='false'></txtinput>
                 </div>
             </div>
 
@@ -214,9 +240,9 @@
                     </div>
                 </div>
                 <br/>
-                    <div id="lngs-holder" style="margin:-40px 0 0 10px !important;">
-                        <img class="html-css-js" src="img/lngs/html-css-js.png">
-                    </div>
+                <div id="lngs-holder" style="margin:-40px 0 0 10px !important;">
+                    <img class="html-css-js" src="img/lngs/html-css-js.png">
+                </div>
             </div>
 
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">

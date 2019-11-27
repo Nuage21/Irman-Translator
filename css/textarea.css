@@ -51,3 +51,7 @@ div.input-txt-div {
     border-bottom: 1px solid #0269A4;
     border-top: 1px solid #0269A4;
 }
+#to-lng
+{
+    cursor: default;
+}

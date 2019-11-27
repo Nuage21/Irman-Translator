@@ -6,7 +6,9 @@ Vue.component('txtinput',
 				<img class = "rounded float-left" v-bind:src = "flag" style="width:30px;height:15px;margin-top:4px;"/>
 				<span style="padding-left:10px;">{{ lng }}</span>
 				</div>
-				<textarea style="padding:10px;" class = "input" spellcheck="false" v-bind:id="lngid" v-bind:disabled="isdisabled"> </textarea>
+				<textarea style="padding:10px;" class = "input" spellcheck="false" v-bind:id="lngid" v-bind:readonly="isdisabled">
+				
+                </textarea>
 			    <div class="rate" v-if="isdisabled">
 			        <div class="ratephrase">
 			        <span> Rate this translation </span>
@@ -135,11 +137,10 @@ var alphasApp = new Vue({
     data: {
         tifinaghAlphas: "ⴰⴱⵛⵞⴷⴹⴻⴼⴳⴶⵀⵃⵉⵊⴽⵍⵎⵏⵄⵇⵔⵕⵙⵚⵜⵓⵖⵡⵅⵢⵣⵥ",
         berberAlphas: "abcčdḍefgǧhḥijklmnɛqrṛsṢtṭuɣwxyzẓ",
-        // ṬḌḤṚẒ
         fromLng: "Tamaziɣt",
         toLng: "English",
-        fromFlag: 'img/berber-flag.png',
-        toFlag: 'img/uk-flag.png',
+        fromFlag: 'img/flags/berber.png',
+        toFlag: 'img/flags/uk.png',
     }
     ,
     methods:
@@ -156,4 +157,9 @@ var alphasApp = new Vue({
 
 function emptyAreas() {
     $(".input").val('');
+}
+
+function copyTranslation() {
+    $('#to-lng').select();
+    document.execCommand('copy');
 }
