@@ -7,24 +7,43 @@ Vue.component('txtinput',
 				<span style="padding-left:10px;">{{ lng }}</span>
 				</div>
 				<textarea style="padding:10px;" class = "input" spellcheck="false" v-bind:id="lngid" v-bind:disabled="isdisabled"> </textarea>
+			    <div class="rate" v-if="isdisabled">
+			        <div class="ratephrase">
+			        <span> Rate this translation </span>
+			        </div>
+                        <input type="radio" id="star5" name="rate" value="5"/>
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4"/>
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3"/>
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2"/>
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1"/>
+                        <label for="star1" title="text">1 star</label>
+                    </div>
 			    <div class="btn-group-sm areabtnholder" role="group" style="float:right" aria-label="Basic example">
+                    <!-- star rater -->
                     <button type="button" class="btn btn-dark">
                     <img src="img/icons/copy.png" class="down-app-icon">
                     Copy
                     </button>
-                    <button type="button" class="btn btn-dark">
+                    <button type="button" class="btn btn-dark" v-if="!isdisabled">
                     <img src="img/icons/paste.png" class="down-app-icon">
                     Paste
                     </button>
-                    <button type="button" class="btn btn-dark">
+                    <button type="button" class="btn btn-dark" v-if="!isdisabled" v-on:click="this.emptyAreas()">
                     <img src="img/icons/empty.png" class="down-app-icon">
                     Empty
+                    </button>
+                    <button type="button" class="btn btn-dark" v-if="lng==='Tamaziɣt'">
+                    <img src="img/icons/correct.png" class="down-app-icon">
+                    Correct
                     </button>
                 </div>
 			</div>`
         ,
         props: ['lng', 'flag', 'lngid', 'isdisabled'],
-
     }
 );
 
@@ -62,7 +81,7 @@ var alphasApp = new Vue({
     data: {
         tifinaghAlphas: "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯⵞⴶ",
         berberAlphas: "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒwčǧ",
-        fromLng: "Tamaziɣ",
+        fromLng: "Tamaziɣt",
         toLng: "English",
         fromFlag: 'img/berber-flag.png',
         toFlag: 'img/uk-flag.png',
@@ -77,11 +96,9 @@ var alphasApp = new Vue({
                 this.toLng = tmp;
                 this.toFlag = tmpf;
             }
-            ,
-            emptyAreas() {
-                $(".input").val('');
-            }
         }
 });
 
-
+function emptyAreas(){
+    $(".input").val('');
+}

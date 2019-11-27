@@ -10,12 +10,11 @@ button.berber-alpha {
     border: 0;
     border-bottom: 1px solid transparent;
     font: bold calc(1.2vw + 1.2vh) verdana;
-    cursor: default;
-
 }
 
 button.berber-alpha:hover {
     margin-top: -2px;
+    color: #0269A4;
 }
 
 .latinbox {

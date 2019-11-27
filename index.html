@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="css/side-app.css">
     <link rel="stylesheet" type="text/css" href="css/coder-info.css">
     <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/star-rater.css">
+    <link rel="stylesheet" type="text/css" href="css/powered-lngs.css">
     <!-- Footer's css -->
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Bootstrap Scripts +jQuery -->
@@ -71,7 +73,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="active" >
+                    <li class="active">
                         <span style="color:white;"></span><span class="sr-only">(current)</span></a>
                     </li>
 
@@ -126,7 +128,7 @@
                     <br/>
                     <span class="side-app-btn-txt">Swap</span>
                 </button>
-                <button class="btn btn-dark side-app-btn" v-on:click="emptyAreas()">
+                <button class="btn btn-dark side-app-btn" v-on:click="this.emptyAreas()">
                     <img src="img/icons/empty.png" class="side-app-icon">
                     <br/>
                     <span class="side-app-btn-txt">Empty</span>
@@ -177,14 +179,44 @@
                     </div>
                     <div class="coder-cred">
                         <div style="float:top;">
-                            <span class="coder-name" style="margin-left:-5px;"> Hakim Beldjoudi </span>
-                            <span class="coder-name-br"> (ⵀⴰⴽⵉⵎ ⴱⴻⵍⴵⵓⴷⵉ) </span>
+                            <span class="coder-name" style="margin-left:-5px;"> <span
+                                    class="top-contributor-star">★</span> Hakim (hbFree) </span>
+                            <span class="coder-name-br"> (ⵀⴰⴽⵉⵎ) </span>
                         </div>
                         <div class="coder-descript">
                             Student @Higher National School of Computer Science ESI ex. INI
                         </div>
                     </div>
                 </div>
+                <div class="powered-by inline-group">
+                    <span id="powered-title"> A great thanks to those too </span>
+                    <br/>
+                    <div id="lngs-holder">
+                        <div class="d-inline pow-lng">
+                            <img class="lng-icon" src="img/lngs/python.png">
+                            <span> Python </span>
+                        </div>
+                        <div class="d-inline pow-lng">
+                            <img class="lng-icon" src="img/lngs/vue.png">
+                            <span> Vue.js </span>
+                        </div>
+                    </div>
+                    <br/>
+                    <div id="lngs-holder" style="margin-top:-30px !important;">
+                        <div class="d-inline pow-lng">
+                            <img class="lng-icon" src="img/lngs/jquery.png">
+                            <span> jQuery </span>
+                        </div>
+                        <div class="d-inline pow-lng">
+                            <img class="lng-icon" src="img/lngs/django.png">
+                            <span> Django </span>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                    <div id="lngs-holder" style="margin:-40px 0 0 -10px !important;">
+                        <img class="html-css-js" src="img/lngs/html-css-js.png">
+                    </div>
             </div>
 
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
