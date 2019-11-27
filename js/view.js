@@ -52,7 +52,7 @@ Vue.component('alpha',
         template:
             `<div class="couple-alphas-holder">
 			<div class="alpha-box, latinbox" >
-				<button class="berber-alpha latinalpha" v-on:click = "appendAlpha(berberalpha)">
+				<button class="berber-alpha latinalpha" @click.right.prevent ="appendAlpha(uppercase(berberalpha))" @click.left  = "appendAlpha(berberalpha)">
 				{{ berberalpha }}
 			</button>
 			</div>
@@ -72,6 +72,40 @@ Vue.component('alpha',
                     let inner = $("#from-lng").val();
                     $("#from-lng").val(inner + c);
                 }
+                ,
+                uppercase(c) {
+                    switch (c) {
+                        case 'č':
+                            return 'Č';
+                            break;
+                        case 'ḍ':
+                            return 'Ḍ';
+                            break;
+                        case 'ǧ':
+                            return 'Ǧ';
+                            break;
+                        case 'ḥ':
+                            return 'Ḥ';
+                            break;
+                        case 'ɛ':
+                            return 'Ḥ';
+                            break;
+                        case 'ṛ':
+                            return 'Ṛ';
+                            break;
+                        case 'ṭ':
+                            return 'Ṭ';
+                            break;
+                        case 'ɣ':
+                            return 'Γ';
+                            break;
+                        case 'ẓ':
+                            return 'Ẓ';
+                            break;
+                        default: return c.toUpperCase();
+
+                    }
+                }
             }
     }
 );
@@ -79,8 +113,9 @@ Vue.component('alpha',
 var alphasApp = new Vue({
     el: "#MainApp",
     data: {
-        tifinaghAlphas: "ⴰⴱⴳⴷⴹⴻⴼⴽⵀⵃⵄⵅⵇⵉⵊⵍⵎⵏⵓⵔⵕⵖⵙⵚⵛⵜⵟⵡⵢⵣⵥⵯⵞⴶ",
-        berberAlphas: "abgdḌefkhḤɛxqijlmnurṚɣsṢctṬwyzẒwčǧ",
+        tifinaghAlphas: "ⴰⴱⵛⵞⴷⴹⴻⴼⴳⴶⵀⵃⵉⵊⴽⵍⵎⵏⵄⵇⵔⵕⵙⵚⵜⵓⵖⵡⵅⵢⵣⵥ",
+        berberAlphas: "abcčdḍefgǧhḥijklmnɛqrṛsṢtṭuɣwxyzẓ",
+        // ṬḌḤṚẒ
         fromLng: "Tamaziɣt",
         toLng: "English",
         fromFlag: 'img/berber-flag.png',
@@ -99,6 +134,6 @@ var alphasApp = new Vue({
         }
 });
 
-function emptyAreas(){
+function emptyAreas() {
     $(".input").val('');
 }
