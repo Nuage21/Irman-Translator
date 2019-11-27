@@ -24,11 +24,11 @@ Vue.component('txtinput',
                     </div>
 			    <div class="btn-group-sm areabtnholder" role="group" style="float:right" aria-label="Basic example">
                     <!-- star rater -->
-                    <button type="button" class="btn btn-dark">
+                    <button type="button" class="btn btn-dark" @click="copytxt(lngid)">
                     <img src="img/icons/copy.png" class="down-app-icon">
                     Copy
                     </button>
-                    <button type="button" class="btn btn-dark" v-if="!isdisabled">
+                    <button type="button" class="btn btn-dark" v-if="!isdisabled" @click="pastetxt(lngid)">
                     <img src="img/icons/paste.png" class="down-app-icon">
                     Paste
                     </button>
@@ -43,7 +43,26 @@ Vue.component('txtinput',
                 </div>
 			</div>`
         ,
-        props: ['lng', 'flag', 'lngid', 'isdisabled'],
+        props: ['lng', 'flag', 'lngid', 'isdisabled']
+        ,
+        methods:
+            {
+                copytxt(id) {
+                    $('#' + id).select();
+                    document.execCommand('copy');
+                }
+                ,
+                async pastetxt(id) {
+                    const txt = await navigator.clipboard.readText();
+                    var cursorPos = $('#' + id).prop('selectionStart');
+                    var v = $('#' + id).val();
+                    var textBefore = v.substring(0, cursorPos);
+                    var textAfter = v.substring(cursorPos, v.length);
+
+                    $('#' + id).val(textBefore + txt + textAfter);
+                }
+
+            }
     }
 );
 
@@ -102,7 +121,8 @@ Vue.component('alpha',
                         case 'ẓ':
                             return 'Ẓ';
                             break;
-                        default: return c.toUpperCase();
+                        default:
+                            return c.toUpperCase();
 
                     }
                 }
