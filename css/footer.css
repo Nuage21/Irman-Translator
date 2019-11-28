@@ -94,3 +94,18 @@ footer .input-group-addon {
     padding: 12px 0;
     font-size: 14px;
 }
+
+.footer-read-img
+{
+    width: 500px;
+    height: 300px;
+    opacity: 60%;
+}
+.footer-read-img:hover
+{
+    opacity: 100%;
+}
+.footer-img-lgd
+{
+    color: #0269A4;
+}

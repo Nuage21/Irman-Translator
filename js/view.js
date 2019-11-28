@@ -77,12 +77,12 @@ Vue.component('alpha',
         template:
             `<div class="couple-alphas-holder">
 			<div class="alpha-box, latinbox" >
-				<button class="berber-alpha latinalpha" @click.right.prevent ="appendAlpha(uppercase(berberalpha))" @click.left  = "appendAlpha(berberalpha)">
+				<button class="berber-alpha latinalpha"  v-bind:disabled="this.isFromLngNotBerber()" @click.right.prevent ="appendAlpha(uppercase(berberalpha))" @click.left  = "appendAlpha(berberalpha)">
 				{{ berberalpha }}
 			</button>
 			</div>
 			<div class="alpha-box, tifibox">
-				<button class = "berber-alpha tifialpha" v-on:click = "appendAlpha(tifinaghalpha)">
+				<button class = "berber-alpha tifialpha" v-bind:disabled="this.isFromLngNotBerber()" v-on:click = "appendAlpha(tifinaghalpha)">
 				{{ tifinaghalpha }}
 				</button>
 			</div>
@@ -93,6 +93,10 @@ Vue.component('alpha',
         ,
         methods:
             {
+                isFromLngNotBerber() {
+                    return (this.$parent.$data.fromLng == 'Tamaziɣt')?null:1;
+                }
+                ,
                 appendAlpha(c) {
                     let inner = $("#from-lng").val();
                     $("#from-lng").val(inner + c);
@@ -264,7 +268,7 @@ function correct() {
                     else if (txt[i + 1].toLowerCase() == 'c' && i < len - 2)
                         if (txt[i + 2].toLowerCase() == 'h') {
                             c0 = 'č';
-                            i+=2;
+                            i += 2;
                         }
                 }
                 break;
