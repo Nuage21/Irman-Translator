@@ -1,49 +1,53 @@
 Vue.component('txtinput',
     {
+        // language=HTML
         template:
-            `<div class = 'input-txt-div'>
-				<div class = "input-legend" style = "padding-bottom:5px;"> 
-				<img class = "rounded float-left" v-bind:src = "flag" style="width:30px;height:15px;margin-top:4px;"/>
-				<span style="padding-left:10px;">{{ lng }}</span>
-				</div>
-				<textarea style="padding:10px;" class = "input" spellcheck="false" v-bind:id="lngid" v-bind:readonly="isdisabled">
+                `
+            <div class='input-txt-div'>
+                <div class="input-legend" style="padding-bottom:5px;">
+                    <img class="rounded float-left" v-bind:src="flag" style="width:30px;height:15px;margin-top:4px;"/>
+                    <span style="padding-left:10px;">{{ lng }}</span>
+                </div>
+                <textarea style="padding:10px;" class="input" spellcheck="false" v-bind:id="lngid"
+                          v-bind:readonly="isdisabled">
 				
                 </textarea>
-			    <div class="rate" v-if="isdisabled">
-			        <div class="ratephrase">
-			        <span> Rate this translation </span>
-			        </div>
-                        <input type="radio" id="star5" name="rate" value="5"/>
-                        <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4"/>
-                        <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3"/>
-                        <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2"/>
-                        <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1"/>
-                        <label for="star1" title="text">1 star</label>
+                <div class="rate" v-if="isdisabled">
+                    <div class="ratephrase">
+                        <span> Rate this translation </span>
                     </div>
-			    <div class="btn-group-sm areabtnholder" role="group" style="float:right" aria-label="Basic example">
+                    <input type="radio" id="star5" name="rate" value="5"/>
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4"/>
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3"/>
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2"/>
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1"/>
+                    <label for="star1" title="text">1 star</label>
+                </div>
+                <div class="btn-group-sm areabtnholder" role="group" style="float:right" aria-label="Basic example">
                     <!-- star rater -->
                     <button type="button" class="btn btn-dark" @click="copytxt(lngid)">
-                    <img src="img/icons/copy.png" class="down-app-icon">
-                    Copy
+                        <img src="img/icons/copy.png" class="down-app-icon">
+                        Copy
                     </button>
                     <button type="button" class="btn btn-dark" v-if="!isdisabled" @click="pastetxt(lngid)">
-                    <img src="img/icons/paste.png" class="down-app-icon">
-                    Paste
+                        <img src="img/icons/paste.png" class="down-app-icon">
+                        Paste
                     </button>
                     <button type="button" class="btn btn-dark" v-if="!isdisabled" v-on:click="this.emptyAreas()">
-                    <img src="img/icons/empty.png" class="down-app-icon">
-                    Empty
+                        <img src="img/icons/empty.png" class="down-app-icon">
+                        Empty
                     </button>
-                    <button type="button" class="btn btn-dark" v-if="lng==='Tamaziɣt' && !isdisabled">
-                    <img src="img/icons/correct.png" class="down-app-icon">
-                    Correct
+                    <button type="button" class="btn btn-dark" v-if="(lng==='Tamaziɣt') && !isdisabled"
+                            @click="this.correct()">
+                        <img src="img/icons/correct.png" class="down-app-icon">
+                        Correct
                     </button>
                 </div>
-			</div>`
+            </div>`
         ,
         props: ['lng', 'flag', 'lngid', 'isdisabled']
         ,
@@ -108,8 +112,11 @@ Vue.component('alpha',
                         case 'ḥ':
                             return 'Ḥ';
                             break;
+                        case 'ṣ':
+                            return 'Ṣ';
+                            break;
                         case 'ɛ':
-                            return 'Ḥ';
+                            return 'Ԑ';
                             break;
                         case 'ṛ':
                             return 'Ṛ';
@@ -135,8 +142,8 @@ Vue.component('alpha',
 var alphasApp = new Vue({
     el: "#MainApp",
     data: {
-        tifinaghAlphas: "ⴰⴱⵛⵞⴷⴹⴻⴼⴳⴶⵀⵃⵉⵊⴽⵍⵎⵏⵄⵇⵔⵕⵙⵚⵜⵓⵖⵡⵅⵢⵣⵥ",
-        berberAlphas: "abcčdḍefgǧhḥijklmnɛqrṛsṢtṭuɣwxyzẓ",
+        tifinaghAlphas: "ⴰⴱⵛⵞⴷⴹⴻⴼⴳⴶⵀⵃⵉⵊⴽⵍⵎⵏⵄⵇⵔⵕⵙⵚⵜⵟⵓⵖⵡⵅⵢⵣⵥ",
+        berberAlphas: "abcčdḍefgǧhḥijklmnɛqrṛsṣtṭuɣwxyzẓ",
         fromLng: "Tamaziɣt",
         toLng: "English",
         fromFlag: 'img/flags/berber.png',
@@ -145,7 +152,7 @@ var alphasApp = new Vue({
     ,
     methods:
         {
-            swapLngs() {
+            swapLngs: function () {
                 let tmp = this.fromLng, tmpf = this.fromFlag;
                 this.fromLng = this.toLng;
                 this.fromFlag = this.toFlag;
@@ -153,52 +160,124 @@ var alphasApp = new Vue({
                 this.toFlag = tmpf;
             }
             ,
-            toLatin()
-            {
+            toLatin: function () {
                 // converting from Tfng to Latin chars
-                let berberInputID = (this.fromLng==='Tamaziɣt')?'from-lng':'to-lng';
-                let txt = $('#' +  berberInputID).val();
+                let berberInputID = (this.fromLng === 'Tamaziɣt') ? 'from-lng' : 'to-lng';
+                let txt = $('#' + berberInputID).val();
                 // conversion algorithm
                 let converted = '';
-                for(let i = 0; i<txt.length; i++)
-                {
+                for (let i = 0; i < txt.length; i++) {
                     let c = txt[i];
-                    let cPos = this.tifinaghAlphas.indexOf(c)
-                    let cLatin  = '0';
-                    if(cPos >= 0)
-                        cLatin = this.berberAlphas[cPos];
-                    else cLatin = c;
-
-                    converted += cLatin;
+                    let cPos = this.tifinaghAlphas.indexOf(c);
+                    if (cPos >= 0)
+                        c = this.berberAlphas[cPos];
+                    converted += c;
                 }
-               $('#' +  berberInputID).val(converted);
+                $('#' + berberInputID).val(converted);
             }
             ,
-            toTfng()
-            {
+            toTfng: function () {
                 // converting from Latin chars to Tfng
-                let berberInputID = (this.fromLng==='Tamaziɣt')?'from-lng':'to-lng';
-                let txt = $('#' +  berberInputID).val();
+                let berberInputID = (this.fromLng === 'Tamaziɣt') ? 'from-lng' : 'to-lng';
+                let txt = $('#' + berberInputID).val();
                 // conversion algorithm
                 let converted = '';
-                for(let i = 0; i<txt.length; i++)
-                {
+                for (let i = 0; i < txt.length; i++) {
                     let c = txt[i];
                     let cPos = this.berberAlphas.indexOf(c.toLowerCase());
-                    let cLatin  = '0';
-                    if(cPos >= 0)
-                        cLatin = this.tifinaghAlphas[cPos];
-                    else cLatin = c;
-
-                    converted += cLatin;
+                    if (cPos >= 0)
+                        c = this.tifinaghAlphas[cPos];
+                    converted += c;
                 }
-               $('#' +  berberInputID).val(converted);
+                $('#' + berberInputID).val(converted);
             }
         }
 });
 
 function emptyAreas() {
     $(".input").val('');
+}
+
+function correct() {
+    // correct common written Tamazight;
+    if (alphasApp.fromLng != 'Tamaziɣt') return;
+    let txt = $('#from-lng').val();
+    // conversion algorithm
+    let converted = '';
+    let len = txt.length;
+    for (let i = 0; i < len; i++) {
+        let c = txt[i];
+        let c0 = c;
+        switch (c.toLowerCase()) {
+            case 'd':
+                if (i < len - 1)
+                    if (txt[i + 1].toLowerCase() == 'j') {
+                        c0 = 'ǧ';
+                        i++;
+                    }
+                break;
+            case 'k':
+                if (i < len - 1)
+                    if (txt[i + 1].toLowerCase() == 'h') {
+                        c0 = 'x';
+                        i++;
+                    }
+                break;
+            case 'h':
+                if (i < len - 1)
+                    if (txt[i + 1].toLowerCase() == 'h') {
+                        c0 = 'ḥ';
+                        i++;
+                    }
+                break;
+            case 'g':
+                if (i < len - 1)
+                    if (txt[i + 1].toLowerCase() == 'h') {
+                        c0 = 'ɣ';
+                        i++;
+                    }
+                break;
+            case 'o':
+                if (i < len - 1)
+                    if (txt[i + 1].toLowerCase() == 'u') {
+                        c0 = 'u';
+                        i++;
+                    }
+                break;
+            case 'c':
+                if (i < len - 1)
+                    if (txt[i + 1].toLowerCase() == 'h') {
+                        c0 = 'c';
+                        i++;
+                    }
+                break;
+            case 't':
+                if (i < len - 1) {
+                    if (txt[i + 1].toLowerCase() == 's') {
+                        c0 = 'tt';
+                        i++;
+                    }
+                    else if (txt[i + 1].toLowerCase() == 'h') {
+                        c0 = 't';
+                        i++;
+                    }
+                    else if (txt[i + 1].toLowerCase() == 'c' && i < len - 2)
+                        if (txt[i + 2].toLowerCase() == 'h') {
+                            c0 = 'č';
+                            i+=2;
+                        }
+                }
+                break;
+            case
+            '3'
+            :
+                c0 = 'ɛ';
+                break;
+        }
+        converted += c0;
+    }
+    console.log(converted);
+    $('#from-lng').val(converted);
 }
 
 function copyTranslation() {
