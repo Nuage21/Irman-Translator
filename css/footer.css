@@ -103,7 +103,14 @@ footer .input-group-addon {
 }
 .footer-read-img:hover
 {
-    opacity: 100%;
+    animation-name: opacimg;
+    animation-duration: 800ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes opacimg {
+    from{opacity:60%;}
+    to{opacity: 100%;}
 }
 .footer-img-lgd
 {

@@ -9,6 +9,11 @@
     color: white;
     font-size: 14px;
 }
+.lng-sel:hover
+{
+    color: #2995de;
+    text-decoration: none;
+}
 .lng-sel-holder
 {
     margin-right: 15px;
