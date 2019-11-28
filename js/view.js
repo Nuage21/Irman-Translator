@@ -152,6 +152,48 @@ var alphasApp = new Vue({
                 this.toLng = tmp;
                 this.toFlag = tmpf;
             }
+            ,
+            toLatin()
+            {
+                // converting from Tfng to Latin chars
+                let berberInputID = (this.fromLng==='Tamaziɣt')?'from-lng':'to-lng';
+                let txt = $('#' +  berberInputID).val();
+                // conversion algorithm
+                let converted = '';
+                for(let i = 0; i<txt.length; i++)
+                {
+                    let c = txt[i];
+                    let cPos = this.tifinaghAlphas.indexOf(c)
+                    let cLatin  = '0';
+                    if(cPos >= 0)
+                        cLatin = this.berberAlphas[cPos];
+                    else cLatin = c;
+
+                    converted += cLatin;
+                }
+               $('#' +  berberInputID).val(converted);
+            }
+            ,
+            toTfng()
+            {
+                // converting from Latin chars to Tfng
+                let berberInputID = (this.fromLng==='Tamaziɣt')?'from-lng':'to-lng';
+                let txt = $('#' +  berberInputID).val();
+                // conversion algorithm
+                let converted = '';
+                for(let i = 0; i<txt.length; i++)
+                {
+                    let c = txt[i];
+                    let cPos = this.berberAlphas.indexOf(c.toLowerCase());
+                    let cLatin  = '0';
+                    if(cPos >= 0)
+                        cLatin = this.tifinaghAlphas[cPos];
+                    else cLatin = c;
+
+                    converted += cLatin;
+                }
+               $('#' +  berberInputID).val(converted);
+            }
         }
 });
 

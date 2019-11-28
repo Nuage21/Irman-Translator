@@ -143,10 +143,10 @@
     <div id="MainApp">
         <div id="side-app" class="d-inline-block">
             <div class="btn-group-vertical">
-                <button id="tifibtn" class="btn btn-dark side-app-btn">
+                <button id="tifibtn" class="btn btn-dark side-app-btn" v-on:click="toTfng();">
                     <span class="side-app-btn-txt"><b>ⵣ</b> <br/> Tifinaɣ</span>
                 </button>
-                <button id="latinbtn" class="btn btn-dark side-app-btn" style="width:100%;">
+                <button id="latinbtn" class="btn btn-dark side-app-btn" style="width:100%;" v-on:click="toLatin();">
                     <span class="side-app-btn-txt"><b style="font-size: calc(0.7vw + 0.7vh);">ǧ</b> <br/> Latin</span>
                 </button>
                 <button class="btn btn-dark  side-app-btn" v-on:click="swapLngs()">
