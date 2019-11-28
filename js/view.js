@@ -38,7 +38,7 @@ Vue.component('txtinput',
                     <img src="img/icons/empty.png" class="down-app-icon">
                     Empty
                     </button>
-                    <button type="button" class="btn btn-dark" v-if="lng==='Tamaziɣt'">
+                    <button type="button" class="btn btn-dark" v-if="lng==='Tamaziɣt' && !isdisabled">
                     <img src="img/icons/correct.png" class="down-app-icon">
                     Correct
                     </button>
