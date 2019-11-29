@@ -34,6 +34,8 @@ $(document).ready(function () {
         $('textarea.input').toggleClass('dark');
         $('.side-app-btn').toggleClass('dark');
         $('.input-legend').toggleClass('dark');
+        $('.down-input').toggleClass('dark');
+        $('#Translater').toggleClass('dark');
         $('.areabtnholder > button').toggleClass('btn-dark');
     });
         $("#from-lng")

@@ -12,40 +12,42 @@ Vue.component('txtinput',
                           v-bind:readonly="isdisabled">
 				
                 </textarea>
-                <div class="rate" v-if="isdisabled">
-                    <div class="ratephrase">
-                        <span> Rate this translation </span>
+                <div class="down-input">
+                    <div class="rate" v-if="isdisabled">
+                        <div class="ratephrase">
+                            <span> Rate this translation </span>
+                        </div>
+                        <input type="radio" id="star5" name="rate" value="5"/>
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4"/>
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3"/>
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2"/>
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1"/>
+                        <label for="star1" title="text">1 star</label>
                     </div>
-                    <input type="radio" id="star5" name="rate" value="5"/>
-                    <label for="star5" title="text">5 stars</label>
-                    <input type="radio" id="star4" name="rate" value="4"/>
-                    <label for="star4" title="text">4 stars</label>
-                    <input type="radio" id="star3" name="rate" value="3"/>
-                    <label for="star3" title="text">3 stars</label>
-                    <input type="radio" id="star2" name="rate" value="2"/>
-                    <label for="star2" title="text">2 stars</label>
-                    <input type="radio" id="star1" name="rate" value="1"/>
-                    <label for="star1" title="text">1 star</label>
-                </div>
-                <div class="btn-group-sm areabtnholder" role="group" style="float:right" aria-label="Basic example">
-                    <!-- star rater -->
-                    <button type="button" class="btn btn-light" @click="copytxt(lngid)">
-                        <img src="img/icons/copy.png" class="down-app-icon">
-                        Copy
-                    </button>
-                    <button type="button" class="btn btn-light" v-if="!isdisabled" @click="pastetxt(lngid)">
-                        <img src="img/icons/paste.png" class="down-app-icon">
-                        Paste
-                    </button>
-                    <button type="button" class="btn btn-light" v-if="!isdisabled" v-on:click="this.emptyAreas()">
-                        <img src="img/icons/empty.png" class="down-app-icon">
-                        Empty
-                    </button>
-                    <button type="button" class="btn btn-light" v-if="(lng==='Tamaziɣt') && !isdisabled"
-                            @click="this.correct()">
-                        <img src="img/icons/correct.png" class="down-app-icon">
-                        Correct
-                    </button>
+                    <div class="btn-group-sm areabtnholder" role="group" style="float:right" aria-label="Basic example">
+                        <!-- star rater -->
+                        <button type="button" class="btn btn-light" @click="copytxt(lngid)">
+                            <img src="img/icons/copy.png" class="down-app-icon">
+                            Copy
+                        </button>
+                        <button type="button" class="btn btn-light" v-if="!isdisabled" @click="pastetxt(lngid)">
+                            <img src="img/icons/paste.png" class="down-app-icon">
+                            Paste
+                        </button>
+                        <button type="button" class="btn btn-light" v-if="!isdisabled" v-on:click="this.emptyAreas()">
+                            <img src="img/icons/empty.png" class="down-app-icon">
+                            Empty
+                        </button>
+                        <button type="button" class="btn btn-light" v-if="(lng==='Tamaziɣt') && !isdisabled"
+                                @click="this.correct()">
+                            <img src="img/icons/correct.png" class="down-app-icon">
+                            Correct
+                        </button>
+                    </div>
                 </div>
             </div>`
         ,
@@ -94,7 +96,7 @@ Vue.component('alpha',
         methods:
             {
                 isFromLngNotBerber() {
-                    return (this.$parent.$data.fromLng == 'Tamaziɣt')?null:1;
+                    return (this.$parent.$data.fromLng == 'Tamaziɣt') ? null : 1;
                 }
                 ,
                 appendAlpha(c) {

@@ -5,7 +5,7 @@ textarea.input {
     height: 300px;
     resize: none;
     font-size: calc(1.5vw + 1.5vh);
-    border: 0px solid #0269A4;
+    border: 0px solid #1bbde8;
     border-radius: 3%;
 }
 textarea.input.dark {
@@ -54,10 +54,31 @@ div.input-txt-div {
 }
 .areabtnholder
 {
-    border-bottom: 1px solid #0269A4;
-    border-top: 1px solid #0269A4;
+
 }
 #to-lng
 {
     cursor: default;
+}
+#Translater
+{
+    margin: -17px 5px 0 -15px !important;
+    border-radius: 1%;
+    padding: 10px 0;
+}
+#Translater.dark
+{
+    background-color: transparent;
+}
+.down-input
+{
+    width: 100%;
+    height: 10%;
+    background-color: #e7e7e7;
+    border-bottom: 1px solid #2995de;
+}
+.down-input.dark
+{
+    background-color: transparent;
+    border-bottom: 0px solid #3d3d3f;
 }
