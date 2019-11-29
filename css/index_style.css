@@ -17,6 +17,9 @@ body {
     border-top: 1px solid #3d3d3f;
     height: 500px;
     margin-top: -3px;
+    background-color: #2d2d2f;
+}
+div#MainApp.dark{
     background-color: #003f68;
 }
 
@@ -29,17 +32,23 @@ body {
 }
 
 #App {
-    background-color: #181819;
+    background-color: #f0f0f0;
     padding: 5px 0 10px 20px;
     height: 100%;
+}
+#App.dark{
+    background-color: #181819;
 }
 a.donate:hover {
     color: mediumvioletred;
 }
 
 #AdsApp {
-    background-color: #181819;
+    background-color: #e3e3e3;
     height: 100%;
+}
+#AdsApp.dark{
+    background-color: #181819;
 }
 
 #AdsAppContainer {

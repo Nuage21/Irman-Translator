@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/icon.css">
     <link rel="stylesheet" type="text/css" href="css/star-rater.css">
     <link rel="stylesheet" type="text/css" href="css/powered-lngs.css">
+    <link rel="stylesheet" type="text/css" href="css/topbar-switcher.css">
     <!-- Footer's css -->
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Bootstrap Scripts +jQuery -->
@@ -60,6 +61,11 @@
                         </div>
                     </div>
                     <ul class="social-network">
+                        <li class="switch-phrase"> darkmode</li>
+                            <label class="switch" >
+                                <input type="checkbox">
+                                <span class="slider round" id="modeSwitcher"></span>
+                            </label>
                         <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-twitter"></i></a></li>
                         <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-linkedin"></i></a></li>
@@ -127,7 +133,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item" style="color:white;">
                         <a class="nav-link" href="#">
-                            <img src="img/icons/lyrics.png" class="navbar-icon"/> Tamazɣa Lyrics
+                            <img src="img/icons/lyrics.png" class="navbar-icon"/> Irman Lyrics
                         </a>
                     </li>
                 </ul>
@@ -142,23 +148,23 @@
     <div id="MainApp">
         <div id="side-app" class="d-inline-block">
             <div class="btn-group-vertical">
-                <button id="tifibtn" class="btn btn-dark side-app-btn" v-on:click="toTfng();">
+                <button id="tifibtn" class="btn btn-light side-app-btn" v-on:click="toTfng();">
                     <span class="side-app-btn-txt"><b>ⵣ</b> <br/> Tifinaɣ</span>
                 </button>
-                <button id="latinbtn" class="btn btn-dark side-app-btn" style="width:100%;" v-on:click="toLatin();">
+                <button id="latinbtn" class="btn btn-light side-app-btn" style="width:100%;" v-on:click="toLatin();">
                     <span class="side-app-btn-txt"><b style="font-size: calc(0.7vw + 0.7vh);">ǧ</b> <br/> Latin</span>
                 </button>
-                <button class="btn btn-dark  side-app-btn" v-on:click="swapLngs()">
+                <button class="btn btn-light side-app-btn" v-on:click="swapLngs()">
                     <img src="img/icons/swap.png" class="side-app-icon">
                     <br/>
                     <span class="side-app-btn-txt">Swap</span>
                 </button>
-                <button class="btn btn-dark side-app-btn" v-on:click="this.emptyAreas()">
+                <button class="btn btn-light side-app-btn" v-on:click="this.emptyAreas()">
                     <img src="img/icons/empty.png" class="side-app-icon">
                     <br/>
                     <span class="side-app-btn-txt">Empty</span>
                 </button>
-                <button class="btn btn-dark side-app-btn" v-on:click="this.copyTranslation()">
+                <button class="btn btn-light side-app-btn" v-on:click="this.copyTranslation()">
                     <img src="img/icons/copy.png" class="side-app-icon">
                     <br/>
                     <span class="side-app-btn-txt">Copy</span>

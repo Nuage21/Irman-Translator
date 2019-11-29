@@ -5,13 +5,16 @@ div.couple-alphas-holder {
 
 button.berber-alpha {
     background-color: transparent;
-    color: white;
+    color: #2d2d2f;
     margin: 0 5px 0 0;
     border: 0;
     border-bottom: 1px solid transparent;
     font: bold calc(1.2vw + 1.2vh) verdana;
 }
 
+button.berber-alpha.dark {
+    color:white;
+}
 button.berber-alpha:hover {
     margin-top: -2px;
     color: #0269A4;

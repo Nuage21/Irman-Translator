@@ -29,19 +29,19 @@ Vue.component('txtinput',
                 </div>
                 <div class="btn-group-sm areabtnholder" role="group" style="float:right" aria-label="Basic example">
                     <!-- star rater -->
-                    <button type="button" class="btn btn-dark" @click="copytxt(lngid)">
+                    <button type="button" class="btn btn-light" @click="copytxt(lngid)">
                         <img src="img/icons/copy.png" class="down-app-icon">
                         Copy
                     </button>
-                    <button type="button" class="btn btn-dark" v-if="!isdisabled" @click="pastetxt(lngid)">
+                    <button type="button" class="btn btn-light" v-if="!isdisabled" @click="pastetxt(lngid)">
                         <img src="img/icons/paste.png" class="down-app-icon">
                         Paste
                     </button>
-                    <button type="button" class="btn btn-dark" v-if="!isdisabled" v-on:click="this.emptyAreas()">
+                    <button type="button" class="btn btn-light" v-if="!isdisabled" v-on:click="this.emptyAreas()">
                         <img src="img/icons/empty.png" class="down-app-icon">
                         Empty
                     </button>
-                    <button type="button" class="btn btn-dark" v-if="(lng==='Tamaziɣt') && !isdisabled"
+                    <button type="button" class="btn btn-light" v-if="(lng==='Tamaziɣt') && !isdisabled"
                             @click="this.correct()">
                         <img src="img/icons/correct.png" class="down-app-icon">
                         Correct
