@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     if (navigator.appVersion.indexOf("Edge") != -1) {
@@ -5,18 +6,6 @@ $(document).ready(function () {
     }
     adjustElements();
     $(window).on('resize', adjustElements);
-    var quoteIsVisible = false;
-    var quoteToogleFade = () => {
-        if (quoteIsVisible)
-            $(".quote").fadeOut(700);
-        else $(".quote").fadeIn(700);
-        quoteIsVisible = !quoteIsVisible;
-    };
-    quoteToogleFade();
-
-    $("#quote-slider").click(() => {
-        quoteToogleFade();
-    });
 
     $('#tifibtn').click(() => {
         $('.latinbox').fadeOut(300, () => $('.tifibox').show());
@@ -39,11 +28,8 @@ $(document).ready(function () {
         $('#Translater').toggleClass('dark');
         $('.areabtnholder > button').toggleClass('btn-dark');
     });
-    $("#from-lng")
-        .focus() // set initial focus
-        .on('blur', function () { // on blur
-            $(this).focus(); // return focus
-        });
+
+
 });
 
 var isAdsAppDown = false;

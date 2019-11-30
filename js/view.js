@@ -11,7 +11,7 @@ Vue.component('txtinput',
                 <textarea style="padding:10px;float:left;" class="input" spellcheck="false" v-bind:id="lngid"
                           v-bind:readonly="isdisabled">
                 </textarea>
-                <div  style="display: inline-block;float:left;width:75% !important;" v-if="isdisabled" >
+                <div style="display: inline-block;float:left;width:75% !important;" v-if="isdisabled">
                     <div class="ratep-holder rate-el">
                         <span class="ratep"> Rate this translation </span>
                     </div>
@@ -101,8 +101,13 @@ Vue.component('alpha',
                 }
                 ,
                 appendAlpha(c) {
-                    let inner = $("#from-lng").val();
-                    $("#from-lng").val(inner + c);
+                    var cursorPos = $("#from-lng").prop('selectionStart');
+                    var v = $("#from-lng").val();
+                    var textBefore = v.substring(0, cursorPos);
+                    var textAfter = v.substring(cursorPos, v.length);
+
+                    $("#from-lng").val(textBefore + c + textAfter);
+                    setCursorPos(document.getElementById('from-lng'),cursorPos+1, cursorPos+1);
                 }
                 ,
                 uppercase(c) {
@@ -290,4 +295,21 @@ function correct() {
 function copyTranslation() {
     $('#to-lng').select();
     document.execCommand('copy');
+}
+
+function setCursorPos(input, start, end) {
+    if (arguments.length < 3) end = start;
+    if ("selectionStart" in input) {
+        setTimeout(function() {
+            input.selectionStart = start;
+            input.selectionEnd = end;
+        }, 1);
+    }
+    else if (input.createTextRange) {
+        var rng = input.createTextRange();
+        rng.moveStart("character", start);
+        rng.collapse();
+        rng.moveEnd("character", end - start);
+        rng.select();
+    }
 }
