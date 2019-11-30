@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/berber-alpha.css">
-    <link rel="stylesheet" type="text/css" href="css/btn.css">
     <link rel="stylesheet" type="text/css" href="css/side-app.css">
     <link rel="stylesheet" type="text/css" href="css/coder-info.css">
     <link rel="stylesheet" type="text/css" href="css/icon.css">
@@ -36,36 +35,48 @@
                 <div class="col-sm-12" style="background-color: #131313;">
                     <div class="lng-selector">
                         <div class="d-inline lng-sel-holder">
-                            <img class="lng-sel-flag" src="img/flags/uk.png">
-                            <a href="#" class="lng-sel"> English </a>
+                            <a href="#" class="lng-sel">
+                                <img class="lng-sel-flag" src="img/flags/uk.png">
+                                <span class="lng-sel-txt"> English </span>
+                            </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
-                            <img class="lng-sel-flag" src="img/flags/spain.gif">
-                            <a href="#" class="lng-sel"> Español </a>
+                            <a href="#" class="lng-sel">
+                                <img class="lng-sel-flag" src="img/flags/spain.gif">
+                                <span class="lng-sel-txt"> Español </span>
+                            </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
-                            <img class="lng-sel-flag" src="img/flags/france.gif">
-                            <a href="#" class="lng-sel"> Français </a>
+                            <a href="#" class="lng-sel">
+                                <img class="lng-sel-flag" src="img/flags/france.gif">
+                                <span class="lng-sel-txt"> Français </span>
+                            </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
-                            <img class="lng-sel-flag" src="img/flags/arab.png">
-                            <a href="#" class="lng-sel"> العربية </a>
+                            <a href="#" class="lng-sel">
+                                <img class="lng-sel-flag" src="img/flags/arab.png">
+                                <span class="lng-sel-txt"> العربية </span>
+                            </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
-                            <img class="lng-sel-flag" src="img/flags/berber.png">
-                            <a href="#" class="lng-sel"> Tamaziɣt (Latin) </a>
+                            <a href="#" class="lng-sel">
+                                <img class="lng-sel-flag" src="img/flags/berber.png">
+                                <span class="lng-sel-txt"> Tamaziɣt (Latin) </span>
+                            </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
-                            <img class="lng-sel-flag" src="img/flags/berber.png">
-                            <a href="#" class="lng-sel"> Tamaziɣt (ⵜⵍⴼⵍⵏⴰⵖ) </a>
+                            <a href="#" class="lng-sel">
+                                <img class="lng-sel-flag" src="img/flags/berber.png">
+                                <span class="lng-sel-txt"> Tamaziɣt (ⵜⵍⴼⵍⵏⴰⵖ) </span>
+                            </a>
                         </div>
                     </div>
                     <ul class="social-network">
                         <li class="switch-phrase"> darkmode</li>
-                            <label class="switch" >
-                                <input type="checkbox">
-                                <span class="slider round" id="modeSwitcher"></span>
-                            </label>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round" id="modeSwitcher"></span>
+                        </label>
                         <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-twitter"></i></a></li>
                         <li><a class="waves-effect waves-dark" href="#"><i class="fab fa-linkedin"></i></a></li>
@@ -145,9 +156,9 @@
 
 <div id="content-wrapper">
     <div id="content-top-wrapper"></div>
-    <div id="MainApp">
-        <div id="side-app" class="d-inline-block">
-            <div class="btn-group-vertical">
+    <div id="MainApp" class="d-inline-block">
+        <div id="side-app">
+            <div>
                 <button id="tifibtn" class="btn btn-light side-app-btn" v-on:click="toTfng();">
                     <span class="side-app-btn-txt"><b>ⵣ</b> <br/> Tifinaɣ</span>
                 </button>
@@ -181,6 +192,8 @@
                 </br>
                 <div id="Translater" class="row mt-0">
                     <txtinput v-bind:lng='fromLng' v-bind:flag='fromFlag' lngid='from-lng'></txtinput>
+
+                    <div class="clear" style="display:none;">.</div>
                     <txtinput v-bind:lng='toLng' v-bind:flag='toFlag' lngid='to-lng' isdisabled='false'></txtinput>
                 </div>
             </div>
@@ -219,10 +232,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="powered-by inline-group">
-                    <span id="powered-title"> A great thanks to those too </span>
+                <div class="powered-by d-inline">
+                    <div id="powered-title"> A great thanks to those too! </div>
                     <br/>
-                    <div id="lngs-holder">
+                    <div class="lngs-holder">
                         <div class="d-inline pow-lng">
                             <img class="lng-icon" src="img/lngs/python.png">
                             <span> Python </span>
@@ -233,7 +246,7 @@
                         </div>
                     </div>
                     <br/>
-                    <div id="lngs-holder" style="margin-top:-30px !important;">
+                    <div class="lngs-holder">
                         <div class="d-inline pow-lng">
                             <img class="lng-icon" src="img/lngs/jquery.png">
                             <span> jQuery </span>
@@ -245,12 +258,18 @@
                     </div>
                 </div>
                 <br/>
-                <div id="lngs-holder" style="margin:-40px 0 0 10px !important;">
-                    <img class="html-css-js" src="img/lngs/html-css-js.png">
+                <div class="lngs-holder" style="margin:-10px 0 0 -10px !important;">
+                    <div class="d-inline pow-lng" style="margin-top:-30px !important;">
+                        <img class="lng-icon" src="img/lngs/bootstrap.png">
+                        <span> Bootstrap </span>
+                    </div>
+                    <div class="d-inline pow-lng">
+                        <img class="html-css-js" src="img/lngs/html-css-js.png">
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+            <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4 unmarginit">
                 <h5 class="mb-4 font-weight-bold">
                     <img src="img/icons/read.png" class="footer-icon"/>
                     READ WITH US</h5>
@@ -262,7 +281,7 @@
                     <p>Bejaia is the second largest Amazigh city today, from Naceria to ...</p>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6 mt-2 mb-4">
+            <div class="col-lg-3 col-sm-6 mt-2 mb-4 unmarginit">
                 <h5 class="mb-4 font-weight-bold">
                     <img src="img/icons/update.png" class="footer-icon"/>
                     LATEST UPDATES</h5>
@@ -281,7 +300,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+            <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4 unmarginit">
                 <a href="#" class="donate"><h5 class="mb-4 font-weight-bold">
                     <img src="img/icons/heart.png" class="footer-icon"/>
                     DONATE TO SAVE A CULTURE
@@ -306,8 +325,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <div class="text-center text-white">
-                    <span style="margin: 0 40px 0 65px;">&copy; 2019 all rights reserved; made with L&hearts;ve</span>
-
+                    <span>&copy; 2019 all rights reserved; made with L&hearts;ve</span>
                 </div>
             </div>
         </div>

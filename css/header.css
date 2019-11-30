@@ -4,14 +4,17 @@
     height: 15px;
     border-radius: 20%;
 }
-.lng-sel
+.lng-sel-txt
 {
     color: white;
     font-size: 14px;
 }
-.lng-sel:hover
+.lng-sel-txt:hover
 {
     color: #2995de;
+    text-decoration: none;
+}
+.lng-sel:hover{
     text-decoration: none;
 }
 .lng-sel-holder
@@ -143,9 +146,9 @@ ul.social-network li {
     border: 0px solid #2D2D2D;
     padding: 0;
     width: 32px;
+    height: 32px;
     display: inline-block;
     text-align: center;
-    height: 32px;
     vertical-align: baseline;
     color: #000;
 }

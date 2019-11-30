@@ -7,15 +7,11 @@ textarea.input {
     font-size: calc(1.5vw + 1.5vh);
     border: 0px solid #1bbde8;
     border-radius: 3%;
+    margin-bottom: 5px;
 }
 textarea.input.dark {
     color: white;
 }
-textarea.input:focus {
-    border-width: 1px;
-    border-radius: 1%;
-}
-
 textarea.input:focus {
     border-width: 1px;
     border-radius: 1%;
@@ -48,13 +44,8 @@ textarea.input:hover {
 }
 
 div.input-txt-div {
-    float: left;
-    width: 50%;
+    width: 50%; /* 50 */
     padding: 0 25px 0 10px;
-}
-.areabtnholder
-{
-
 }
 #to-lng
 {
@@ -70,15 +61,8 @@ div.input-txt-div {
 {
     background-color: transparent;
 }
-.down-input
-{
-    width: 100%;
-    height: 10%;
-    background-color: #e7e7e7;
-    border-bottom: 1px solid #2995de;
-}
-.down-input.dark
-{
-    background-color: transparent;
-    border-bottom: 0px solid #3d3d3f;
+.areabtnholder > button {
+    margin-left: 1px !important;
+    float: right;
+    shodow: none !important;
 }

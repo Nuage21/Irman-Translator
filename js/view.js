@@ -8,46 +8,47 @@ Vue.component('txtinput',
                     <img class="rounded float-left" v-bind:src="flag" style="width:30px;height:15px;margin-top:4px;"/>
                     <span style="padding-left:10px;">{{ lng }}</span>
                 </div>
-                <textarea style="padding:10px;" class="input" spellcheck="false" v-bind:id="lngid"
+                <textarea style="padding:10px;float:left;" class="input" spellcheck="false" v-bind:id="lngid"
                           v-bind:readonly="isdisabled">
-				
                 </textarea>
-                <div class="down-input">
-                    <div class="rate" v-if="isdisabled">
-                        <div class="ratephrase">
-                            <span> Rate this translation </span>
-                        </div>
+                <div  style="display: inline-block;float:left;width:75% !important;" v-if="isdisabled" >
+                    <div class="ratep-holder rate-el">
+                        <span class="ratep"> Rate this translation </span>
+                    </div>
+                    <div class="rate rate-el">
                         <input type="radio" id="star5" name="rate" value="5"/>
-                        <label for="star5" title="text">5 stars</label>
+                        <label for="star5" title="5 stars">5 stars</label>
                         <input type="radio" id="star4" name="rate" value="4"/>
-                        <label for="star4" title="text">4 stars</label>
+                        <label for="star4" title="4 stars">4 stars</label>
                         <input type="radio" id="star3" name="rate" value="3"/>
-                        <label for="star3" title="text">3 stars</label>
+                        <label for="star3" title="3 stars">3 stars</label>
                         <input type="radio" id="star2" name="rate" value="2"/>
-                        <label for="star2" title="text">2 stars</label>
+                        <label for="star2" title="2 stars">2 stars</label>
                         <input type="radio" id="star1" name="rate" value="1"/>
-                        <label for="star1" title="text">1 star</label>
+                        <label for="star1" title="5 stars">1 star</label>
                     </div>
-                    <div class="btn-group-sm areabtnholder" role="group" style="float:right" aria-label="Basic example">
-                        <!-- star rater -->
-                        <button type="button" class="btn btn-light" @click="copytxt(lngid)">
-                            <img src="img/icons/copy.png" class="down-app-icon">
-                            Copy
-                        </button>
-                        <button type="button" class="btn btn-light" v-if="!isdisabled" @click="pastetxt(lngid)">
-                            <img src="img/icons/paste.png" class="down-app-icon">
-                            Paste
-                        </button>
-                        <button type="button" class="btn btn-light" v-if="!isdisabled" v-on:click="this.emptyAreas()">
-                            <img src="img/icons/empty.png" class="down-app-icon">
-                            Empty
-                        </button>
-                        <button type="button" class="btn btn-light" v-if="(lng==='Tamaziɣt') && !isdisabled"
-                                @click="this.correct()">
-                            <img src="img/icons/correct.png" class="down-app-icon">
-                            Correct
-                        </button>
-                    </div>
+                </div>
+                <div class="areabtnholder" role="group" style="padding: 0 !important;" aria-label="down-app-btns">
+                    <button type="button" class="btn btn-sm shadow-none btn-light" @click="copytxt(lngid)">
+                        <img src="img/icons/copy.png" class="down-app-icon">
+                        <span class="down-btn-txt">Copy</span>
+                    </button>
+                    <button type="button" class="btn btn-sm shadow-none btn-light" v-if="!isdisabled"
+                            @click="pastetxt(lngid)">
+                        <img src="img/icons/paste.png" class="down-app-icon">
+                        <span class="down-btn-txt">Paste</span>
+                    </button>
+                    <button type="button" class="btn btn-sm shadow-none btn-light" v-if="!isdisabled"
+                            v-on:click="this.emptyAreas()">
+                        <img src="img/icons/empty.png" class="down-app-icon">
+                        <span class="down-btn-txt">Empty</span>
+                    </button>
+                    <button type="button" class="btn btn-sm shadow-none btn-light"
+                            v-show="(lng==='Tamaziɣt') && !isdisabled"
+                            @click="this.correct()">
+                        <img src="img/icons/correct.png" class="down-app-icon">
+                        <span class="down-btn-txt">Correct</span>
+                    </button>
                 </div>
             </div>`
         ,
@@ -158,7 +159,7 @@ var alphasApp = new Vue({
     ,
     methods:
         {
-            swapLngs: function () {
+            swapLngs() {
                 let tmp = this.fromLng, tmpf = this.fromFlag;
                 this.fromLng = this.toLng;
                 this.fromFlag = this.toFlag;
@@ -166,7 +167,7 @@ var alphasApp = new Vue({
                 this.toFlag = tmpf;
             }
             ,
-            toLatin: function () {
+            toLatin() {
                 // converting from Tfng to Latin chars
                 let berberInputID = (this.fromLng === 'Tamaziɣt') ? 'from-lng' : 'to-lng';
                 let txt = $('#' + berberInputID).val();
@@ -182,7 +183,7 @@ var alphasApp = new Vue({
                 $('#' + berberInputID).val(converted);
             }
             ,
-            toTfng: function () {
+            toTfng() {
                 // converting from Latin chars to Tfng
                 let berberInputID = (this.fromLng === 'Tamaziɣt') ? 'from-lng' : 'to-lng';
                 let txt = $('#' + berberInputID).val();

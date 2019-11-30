@@ -1,6 +1,7 @@
 .rate {
-    float: left !important;
     height: 46px;
+    margin-bottom:-5px;
+    padding-left: 5px;
 }
 .rate:not(:checked) > input {
     position:absolute;
@@ -12,7 +13,7 @@
     overflow:hidden;
     white-space:nowrap;
     cursor:pointer;
-    font-size:30px;
+    font-size: 30px;
     color:#ccc;
 }
 .rate:not(:checked) > label:before {
@@ -33,10 +34,17 @@
     color: #c59b08;
 }
 
-.ratephrase
+.ratep-holder
 {
     color: #0269A4;
     padding: 13px 5px 0 !important;
     float: left;
+}
+.ratep{
+    font-size: 17px;
+}
+.rate-el{
+    float: left !important;;
+    margin-top: -10px;
 }
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */

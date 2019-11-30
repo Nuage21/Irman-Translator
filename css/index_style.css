@@ -7,6 +7,9 @@ body {
     -webkit-text-size-adjust: auto !important;
 
 }
+html, body{
+    height: 100%;
+}
 
 #content-top-wrapper {
     height: 100px;
@@ -14,8 +17,8 @@ body {
 }
 
 #MainApp {
+    width: 100%;
     border-top: 1px solid #3d3d3f;
-    height: 500px;
     margin-top: -3px;
     background-color: #2d2d2f;
 }
@@ -24,8 +27,8 @@ div#MainApp.dark{
 }
 
 #AppContainer {
-    width: 73%;
     height: 100%;
+    width: 75%;
     float: left;
     padding: 2px;
     height: 100%;
@@ -53,8 +56,12 @@ a.donate:hover {
 
 #AdsAppContainer {
     height: 100%;
-    width: 22.4%;
+    width: 20.5%;
     margin-left: 1px;
     margin-top: 1px;
     padding: 2px 0 3px 0;
+}
+
+.clear{
+    clear: both;
 }

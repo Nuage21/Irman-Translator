@@ -1,17 +1,16 @@
 #side-app {
     float: left;
     padding: 5px 3px 0 3px;
-    margin-top: -1px;
     width: 4%;
-    height: 100%;
     background-color: #a2a2a2;
+    border-radius: 1%;
 }
 #side-app.dark {
     background-color: #181818;
 }
 .side-app-icon {
-    width: 50%;
-    height: 50%;
+    width: 20px;
+    height: 20px;
 }
 
 .side-app-btn {
@@ -21,10 +20,12 @@
     color: black !important;
     margin-bottom: 6%;
     border-radius: 5% !important;
+    float: top !important;
+    font-size: 15px;
 }
 .side-app-btn.dark {
     color: white !important;
 }
 .side-app-btn-txt {
-    font: calc(0.5vw + 0.5vh) cursive;
+    font: 12px cursive;
 }
