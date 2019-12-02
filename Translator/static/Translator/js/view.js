@@ -128,7 +128,7 @@ Vue.component('alpha',
                             return 'Ṣ';
                             break;
                         case 'ɛ':
-                            return 'Ԑ';
+                            return 'Σ';
                             break;
                         case 'ṛ':
                             return 'Ṛ';
@@ -156,8 +156,8 @@ var alphasApp = new Vue({
     data: {
         tifinaghAlphas: "ⴰⴱⵛⵞⴷⴹⴻⴼⴳⴶⵀⵃⵉⵊⴽⵍⵎⵏⵄⵇⵔⵕⵙⵚⵜⵟⵓⵖⵡⵅⵢⵣⵥ",
         berberAlphas: "abcčdḍefgǧhḥijklmnɛqrṛsṣtṭuɣwxyzẓ",
-        fromLng: "Tamaziɣt",
-        toLng: "English",
+        fromLng: brbr,
+        toLng: eng,
         fromFlag: '/static/Translator/img/flags/berber.png',
         toFlag: '/static/Translator/img/flags/uk.png',
         correctBtnTxt: correct_btn_txt,

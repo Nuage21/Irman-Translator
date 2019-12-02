@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <languages>
     <en>
+        <page_title>The first Tamaziɣt translator!</page_title>
+        <english>English</english>
+        <berber>Tamaziɣt</berber>
         <donate>DONATE TO SAVE A CULTURE</donate>
         <help_us>Help us</help_us>
         <read_with_us>Read with us</read_with_us>
@@ -24,7 +27,11 @@
             contribute now. To save a culture, your culture!
         </donate_txt>
     </en>
+
     <fr>
+        <page_title>Le premier traducteur de Tamaziɣt!</page_title>
+        <english>Anglais</english>
+        <berber>Tamaziɣt</berber>
         <donate>SAUVER UNE CULTURE</donate>
         <help_us>Aidez nous</help_us>
         <read_with_us>LIRE AVEC NOUS</read_with_us>
@@ -48,36 +55,43 @@
             fera un longs pas en avant- vous POUVEZ contribuer maintenant. Pour sauver une culture, VOTRE culture !
         </donate_txt>
     </fr>
+
     <ar>
+        <page_title>أول مترجم للأمازيغية!</page_title>
+        <english>الإنجليزية</english>
+        <berber>الأمازيغية</berber>
         <donate>تبرع لإنقاذ ثقافة</donate>
         <help_us>ساعدونا</help_us>
         <read_with_us>طالع معنا</read_with_us>
         <swap_btn>تبديل</swap_btn>
-        <empty_btn> تفريغ</empty_btn>
-        <copy_btn> نسخ</copy_btn>
+        <empty_btn>تفريغ</empty_btn>
+        <copy_btn>نسخ</copy_btn>
         <correct_btn>تصحيح</correct_btn>
         <paste_btn>لصق</paste_btn>
-        <who_are_we> نحن من</who_are_we>
-        <coders_title>الأفراد المساهمة في هذا المشروع </coders_title>
+        <who_are_we>من نحن</who_are_we>
+        <coders_title>الأفراد المساهمة في هذا المشروع</coders_title>
         <updates>آخر التحديثات</updates>
         <send_feedback>شاركونا بآرائكم</send_feedback>
         <are_you_teacher>هل أنت معلم الأمازيغية؟</are_you_teacher>
-        <are_you_dev>  (web/mobile) هل أنت مبرمج ؟</are_you_dev>
-        <prg_lng_thanks>! شكرا جزيلا لهؤلاء أيضا </prg_lng_thanks>
+        <are_you_dev>هل أنت مبرمج (شبكة/المحمول) ؟</are_you_dev>
+        <prg_lng_thanks>! شكرا جزيلا لهؤلاء أيضا</prg_lng_thanks>
         <rate_translation>تقييم هذه الترجمة</rate_translation>
         <darkmode>داكن</darkmode>
         <donate_txt>
-              نحن نعمل بجد لجعل هذا المترجم أفضل ما يمكن ، لتلبية جميع لهجات الأمازيغية المحلية و
+            نحن نعمل بجد لجعل هذا المترجم أفضل ما يمكن ، لتلبية جميع لهجات الأمازيغية المحلية و
             أكثر بكثير! ولكن هذا لا يكفي ، لتحقيق ذلك، فإن مساعدتك ستخطو بنا خطوة كبيرة الى الأمام - يمكنك
-                                     !المساهمة الآن. لحفظ الثقافة ، ثقافتك
+            !المساهمة الآن. لحفظ الثقافة ، ثقافتك
         </donate_txt>
-        </ar>
+    </ar>
 
-	<es>
-        <donate>Salvar una cultura</donate>
+    <es>
+        <page_title>¡El primer traductor de Tamaziɣt!</page_title>
+        <english>Inglesa</english>
+        <berber>beréber</berber>
+        <donate>SALVAR UNA CULTURA</donate>
         <help_us>Ayúdanos</help_us>
         <read_with_us>Lee con nosotros</read_with_us>
-        <swap_btn>Intercambio</swap_btn>
+        <swap_btn>canjear</swap_btn>
         <empty_btn>Vaciar</empty_btn>
         <copy_btn>Copia</copy_btn>
         <correct_btn>Correcto</correct_btn>
@@ -87,48 +101,53 @@
         <updates>ÚLTIMAS ACTUALIZACIONES</updates>
         <send_feedback>Enviar comentarios</send_feedback>
         <are_you_teacher>¿Eres profesor de Tamaziɣt?</are_you_teacher>
-        <are_you_dev>¿Eres un desarrollador web / móvil?</are_you_dev>
+        <are_you_dev>¿Eres un desarrollador (web/móvil) ?</are_you_dev>
         <prg_lng_thanks>Un gran agradecimiento a aquellos también!</prg_lng_thanks>
         <rate_translation>Califica esta traducción</rate_translation>
         <darkmode>Oscuro</darkmode>
         <donate_txt>
-           Estamos trabajando arduamente para hacer de este traductor lo mejor posible, para conocer todos los dialectos locales de Tamazight y
+            Estamos trabajando arduamente para hacer de este traductor lo mejor posible, para conocer todos los
+            dialectos locales de Tamazight y
             ¡mucho más! pero eso no es suficiente, para lograr eso, su ayuda dará un gran paso adelante: PUEDE
             contribuir ahora ¡Para salvar una cultura, tu cultura!
         </donate_txt>
-        </es>
+    </es>
 
-
-
-	<tz_lat>
-	<donate>Sselket yidles</donate>
-        <help_us>Ɛawnet-aɣ</help_us>
-        <read_with_us>ƔRET YIDNEƔ</read_with_us>
+    <tz_lat>
+        <page_title>Anemmegrud Amezwaru n Tamaziɣt!</page_title>
+        <english>Tagnizit</english>
+        <berber>Tamaziɣt</berber>
+        <donate>SSELKET IDLES-NEΓ</donate>
+        <help_us>Σawnet-aɣ</help_us>
+        <read_with_us>Γret yidneɣ</read_with_us>
         <swap_btn>Beddel</swap_btn>
         <empty_btn>Sufeɣ</empty_btn>
-        <copy_btn>Ɛaned</copy_btn>
+        <copy_btn>Σaned</copy_btn>
         <correct_btn>Seɣti</correct_btn>
         <paste_btn>Senteḍ</paste_btn>
-        <who_are_we>Menhu-aɣ</who_are_we>
-        <coders_title>Wid ittekkan deg uslal n usenfaṛ  ayi </coders_title>
-        <updates>IMUCCAḍ INEGGURA</updates>
+        <who_are_we>MENHU-AΓ</who_are_we>
+        <coders_title>Wid ittekkan deg uslal n usenfaṛ ayi</coders_title>
+        <updates>IMUCCAḌ INEGGURA</updates>
         <send_feedback>Ciyεet-aɣ-d alɣuten-nwen</send_feedback>
-        <are_you_teacher>D aselmad n tmaziɣt?</are_you_teacher>
-        <are_you_dev>D aneflay web/mobile?</are_you_dev>
+        <are_you_teacher>D aselmad n tmaziɣt ?</are_you_teacher>
+        <are_you_dev>D aneflay (web/mobile) ?</are_you_dev>
         <prg_lng_thanks>Tanmirt tameqrant i wiyi daɣen!</prg_lng_thanks>
-        <rate_translation>Sawem asegzi-ayi</rate_translation>
+        <rate_translation>Sawem asegzi-agi</rate_translation>
         <darkmode>Sulles</darkmode>
         <donate_txt>
-           Aqlaɣ nxeddem aṭas iwakken ad nerr asegzawal ayi am axir yal ass,
-          iwakken ad nessemlil ak tintaliyin n tmaziɣt akked akter n tmental!
-           Maca anecta ur yicad ara.. iwakken an awed ɣer tqacuct n usenfaṛ ayi,
-          lemɛawna nwen teswa aquddim ameqran ɣer zzat- TZAMREM ad tekkim seg tura
-          yidneɣ iw sellek n yidles. IDLES NWEN !
+            Aqlaɣ nxeddem aṭas iwakken ad nerr asegzawal ayi am axir yal ass,
+            iwakken ad nessemlil ak tintaliyin n tmaziɣt akked akter n tmental!
+            Maca anecta ur yicad ara.. iwakken an awed ɣer tqacuct n usenfaṛ ayi,
+            lemɛawna nwen teswa aquddim ameqran ɣer zzat- TZAMREM ad tekkim seg tura
+            yidneɣ iw sellek n yidles. IDLES-NWEN !
         </donate_txt>
-	</tz_lat>
+    </tz_lat>
 
-	<tz_tfng>
-	<donate>ⵙⵙⴻⵍⴽⴻⵜ ⵢⵉⴷⵍⴻⵙ</donate>
+    <tz_tfng>
+        <page_title>ⴰⵏⴻⵎⵎⴻⴳⵔⵓⴷ ⴰⵎⴻⵣⵡⴰⵔⵓ ⵏ ⵜⴰⵎⴰⵣⵉⵖⵜ!</page_title>
+        <english>ⵜⴰⴳⵏⵉⵣⵉⵜ</english>
+        <berber>ⵜⴰⵎⴰⵣⵉⵖⵜ</berber>
+        <donate>ⵙⵙⴻⵍⴽⴻⵜ ⵢⵉⴷⵍⴻⵙ</donate>
         <help_us>ⵄⴰⵡⵏⴻⵜ-ⴰⵖ</help_us>
         <read_with_us>ⵖⵔⴻⵜ ⵢⵉⴷⵏⴻⵖ</read_with_us>
         <swap_btn>ⴱⴻⴷⴷⴻⵍ</swap_btn>
@@ -143,14 +162,14 @@
         <are_you_teacher>ⴷ ⴰⵙⴻⵍⵎⴰⴷ ⵏ ⵜⵎⴰⵣⵉⵖⵜ?</are_you_teacher>
         <are_you_dev>ⴷ ⴰⵏⴻⴼⵍⴰⵢ ⵡⴻⴱ/ⵎoⴱⵉⵍⴻ?</are_you_dev>
         <prg_lng_thanks>ⵜⴰⵏⵎⵉⵔⵜ ⵜⴰⵎⴻⵇⵔⴰⵏⵜ ⵉ ⵡⵉⵢⵉ ⴷⴰⵖⴻⵏ!</prg_lng_thanks>
-        <rate_translation>ⵙⴰⵡⴻⵎ ⴰⵙⴻⴳⵣⵉ-ⴰⵢⵉ</rate_translation>
+        <rate_translation>ⵙⴰⵡⴻⵎ ⴰⵙⴻⴳⵣⵉ-ⴰⴳⵉ</rate_translation>
         <darkmode>ⵙⵓⵍⵍⴻⵙ</darkmode>
         <donate_txt>
-          ⴰⵇⵍⴰⵖ ⵏⵅⴻⴷⴷⴻⵎ ⴰⵟⴰⵙ ⵉⵡⴰⴽⴽⴻⵏ ⴰⴷ ⵏⴻⵔⵔ ⴰⵙⴻⴳⵣⴰⵡⴰⵍ ⴰⵢⵉ ⴰⵎ ⴰⵅⵉⵔ ⵢⴰⵍ ⴰⵙⵙ,
-          ⵉⵡⴰⴽⴽⴻⵏ ⴰⴷ ⵏⴻⵙⵙⴻⵎⵍⵉⵍ ⴰⴽ ⵜⵉⵏⵜⴰⵍⵉⵢⵉⵏ ⵏ ⵜⵎⴰⵣⵉⵖⵜ ⴰⴽⴽⴻⴷ ⴰⴽⵜⴻⵔ ⵏ ⵜⵎⴻⵏⵜⴰⵍ!
-           ⵎⴰⵛⴰ ⴰⵏⴻⵛⵜⴰ ⵓⵔ ⵢⵉⵛⴰⴷ ⴰⵔⴰ.. ⵉⵡⴰⴽⴽⴻⵏ ⴰⵏ ⴰⵡⴻⴷ ⵖⴻⵔ ⵜⵇⴰⵛⵓⵛⵜ ⵏ ⵓⵙⴻⵏⴼⴰⵕ ⴰⵢⵉ,
-          ⵍⴻⵎⵄⴰⵡⵏⴰ ⵏⵡⴻⵏ ⵜⴻⵙⵡⴰ ⴰⵇⵓⴷⴷⵉⵎ ⴰⵎⴻⵇⵔⴰⵏ ⵖⴻⵔ ⵣⵣⴰⵜ- ⵜⵣⴰⵎⵔⴻⵎ ⴰⴷ ⵜⴻⴽⴽⵉⵎ ⵙⴻⴳ ⵜⵓⵔⴰ
-          ⵢⵉⴷⵏⴻⵖ ⵉⵡ ⵙⴻⵍⵍⴻⴽ ⵏ ⵢⵉⴷⵍⴻⵙ. ⵉⴷⵍⴻⵙ ⵏⵡⴻⵏ !
+            ⴰⵇⵍⴰⵖ ⵏⵅⴻⴷⴷⴻⵎ ⴰⵟⴰⵙ ⵉⵡⴰⴽⴽⴻⵏ ⴰⴷ ⵏⴻⵔⵔ ⴰⵙⴻⴳⵣⴰⵡⴰⵍ ⴰⵢⵉ ⴰⵎ ⴰⵅⵉⵔ ⵢⴰⵍ ⴰⵙⵙ,
+            ⵉⵡⴰⴽⴽⴻⵏ ⴰⴷ ⵏⴻⵙⵙⴻⵎⵍⵉⵍ ⴰⴽ ⵜⵉⵏⵜⴰⵍⵉⵢⵉⵏ ⵏ ⵜⵎⴰⵣⵉⵖⵜ ⴰⴽⴽⴻⴷ ⴰⴽⵜⴻⵔ ⵏ ⵜⵎⴻⵏⵜⴰⵍ!
+            ⵎⴰⵛⴰ ⴰⵏⴻⵛⵜⴰ ⵓⵔ ⵢⵉⵛⴰⴷ ⴰⵔⴰ.. ⵉⵡⴰⴽⴽⴻⵏ ⴰⵏ ⴰⵡⴻⴷ ⵖⴻⵔ ⵜⵇⴰⵛⵓⵛⵜ ⵏ ⵓⵙⴻⵏⴼⴰⵕ ⴰⵢⵉ,
+            ⵍⴻⵎⵄⴰⵡⵏⴰ ⵏⵡⴻⵏ ⵜⴻⵙⵡⴰ ⴰⵇⵓⴷⴷⵉⵎ ⴰⵎⴻⵇⵔⴰⵏ ⵖⴻⵔ ⵣⵣⴰⵜ- ⵜⵣⴰⵎⵔⴻⵎ ⴰⴷ ⵜⴻⴽⴽⵉⵎ ⵙⴻⴳ ⵜⵓⵔⴰ
+            ⵢⵉⴷⵏⴻⵖ ⵉⵡ ⵙⴻⵍⵍⴻⴽ ⵏ ⵢⵉⴷⵍⴻⵙ. ⵉⴷⵍⴻⵙ ⵏⵡⴻⵏ !
         </donate_txt>
-	</tz_tfng>
+    </tz_tfng>
 </languages>

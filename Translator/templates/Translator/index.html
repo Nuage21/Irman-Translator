@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-US">
 <head>
-    <title>The first Tamaziɣt translator!</title>
+    <title>{% get_item LNG lng=cur_lng attr='page_title' %}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load staticfiles %}
@@ -30,7 +30,9 @@
             copy_btn_txt = "{% get_item LNG lng=cur_lng attr='copy_btn' %}",
             paste_btn_txt = "{% get_item LNG lng=cur_lng attr='paste_btn' %}",
             empty_btn_txt = "{% get_item LNG lng=cur_lng attr='empty_btn' %}",
-            rate_translation_txt = "{% get_item LNG lng=cur_lng attr='rate_translation' %}";
+            rate_translation_txt = "{% get_item LNG lng=cur_lng attr='rate_translation' %}",
+            brbr = "{% get_item LNG lng=cur_lng attr='berber' %}",
+            eng = "{% get_item LNG lng=cur_lng attr='english' %}";
     </script>
     <script src="{% static 'Translator/js/jqueries.js' %}"></script>
 </head>
