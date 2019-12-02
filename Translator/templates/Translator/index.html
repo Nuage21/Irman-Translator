@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <ul class="social-network">
-                        <li class="switch-phrase"> {% get_item LNG lng=cur_lng attr='darkmode' %} </li>
+                        <li class="switch-phrase"> {% get_item LNG lng=cur_lng attr='darkmode' %}</li>
                         <label class="switch">
                             <input type="checkbox">
                             <span class="slider round" id="modeSwitcher"></span>
@@ -135,7 +135,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="{% static 'Translator/img/icons/help.png' %}" class="navbar-icon"/>
-                                {% get_item LNG lng=cur_lng attr='help_us' %}
+                            {% get_item LNG lng=cur_lng attr='help_us' %}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">
@@ -155,7 +155,7 @@
                     <li class="nav-item" style="color:white;">
                         <a class="nav-link" href="#">
                             <img src="{% static 'Translator/img/icons/read.png' %}" class="navbar-icon"/>
-                             {% get_item LNG lng=cur_lng attr='read_with_us' %}
+                            {% get_item LNG lng=cur_lng attr='read_with_us' %}
                         </a>
                     </li>
                 </ul>
@@ -254,13 +254,27 @@
                             <span class="coder-name-br"> (ⵀⴰⴽⵉⵎ) </span>
                         </div>
                         <div class="coder-descript">
-                            Student @Higher National School of Computer Science ESI ex. INI
+                            ⚡ Fast as Thunder ⚡
                         </div>
                     </div>
                 </div>
+
+                <div class="coder-info">
+                    <div style="float:left;">
+                        <img src="{% static 'Translator/img/coders/kafree.jpg' %}" class="rounded-circle coder-img"/>
+                    </div>
+                    <div style="float:top;">
+                        <span class="coder-name" style="margin-left:-5px;"> Khadidja (Jiji) </span>
+                        <span class="coder-name-br"> (ⵅⴰⴷⵉⴶⴰ) </span>
+                    </div>
+                    <div class="coder-descript">
+                        ❤️ Anyway with him ❤️
+                    </div>
+                </div>
+
                 <div class="powered-by d-inline">
                     <div id="powered-title" class="footer-title">
-                                {% get_item LNG lng=cur_lng attr='prg_lng_thanks' %}
+                        {% get_item LNG lng=cur_lng attr='prg_lng_thanks' %}
                     </div>
                     <br/>
                     <div class="lngs-holder">
@@ -285,63 +299,63 @@
                         </div>
                     </div>
                 </div>
-                <br/>
-                <div class="lngs-holder" style="margin:-10px 0 0 -10px !important;">
-                    <div class="d-inline pow-lng" style="margin-top:-30px !important;">
-                        <img class="lng-icon" src="{% static 'Translator/img/lngs/bootstrap.png' %}">
-                        <span> Bootstrap </span>
-                    </div>
-                    <div class="d-inline pow-lng">
-                        <img class="html-css-js" src="{% static 'Translator/img/lngs/html-css-js.png' %}">
-                    </div>
+            <br/>
+            <div class="lngs-holder" style="margin:-10px 0 0 -10px !important;">
+                <div class="d-inline pow-lng" style="margin-top:-30px !important;">
+                    <img class="lng-icon" src="{% static 'Translator/img/lngs/bootstrap.png' %}">
+                    <span> Bootstrap </span>
                 </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4 unmarginit">
-                <h5 class="mb-4 font-weight-bold footer-title">
-                    <img src="{% static 'Translator/img/icons/read.png' %}" class="footer-icon"/>
-                    {% filter upper %}
-                    {% get_item LNG lng=cur_lng attr='read_with_us' %}
-                    {% endfilter %}
-                </h5>
-                <div class="footer-article-holder">
-                    <a href="randomlink.com">
-                        <img class="img-thumbnail footer-read-img" src="{% static 'Translator/img/Bejaia.jpg' %}"/>
-                    </a>
-                    <blockquote class="blockquote footer-img-lgd">taken @Cap Bouak, Bejaia by Photographer</blockquote>
-                    <p>Bejaia is the second largest Amazigh city today, from Naceria to ...</p>
+                <div class="d-inline pow-lng">
+                    <img class="html-css-js" src="{% static 'Translator/img/lngs/html-css-js.png' %}">
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 mt-2 mb-4 unmarginit">
-                <h5 class="mb-4 font-weight-bold footer-title">
-                    <img src="{% static 'Translator/img/icons/update.png' %}" class="footer-icon"/>
-                    {% get_item LNG lng=cur_lng attr='updates' %}
-                </h5>
-                <ul class="recent-post" style="margin-left:-30px;">
-                    <li>
-                        <label class="mr-3">12 <br><span>DEC</span></label>
-                        <span>Set up Django !</span>
-                    </li>
-                    <br/>
-                    <li>
-                        <label class="mr-3">18 <br><span>NOV</span></label>
-                        <span>First commit of something going to be great</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4 unmarginit">
-                <a href="#" class="donate">
-                    <h5 class="mb-4 font-weight-bold footer-title">
-                        <img src="{% static 'Translator/img/icons/heart.png' %}" class="footer-icon"/>
-                        {% get_item LNG lng=cur_lng attr='donate' %}
-                    </h5>
-                </a>
-                <p style="color: mistyrose; font-size: 17px; margin-left: -3%;">
-                        {% get_item LNG lng=cur_lng attr='donate_txt' %}
-                </p>
-
             </div>
         </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4 unmarginit">
+            <h5 class="mb-4 font-weight-bold footer-title">
+                <img src="{% static 'Translator/img/icons/read.png' %}" class="footer-icon"/>
+                {% filter upper %}
+                {% get_item LNG lng=cur_lng attr='read_with_us' %}
+                {% endfilter %}
+            </h5>
+            <div class="footer-article-holder">
+                <a href="randomlink.com">
+                    <img class="img-thumbnail footer-read-img" src="{% static 'Translator/img/Bejaia.jpg' %}"/>
+                </a>
+                <blockquote class="blockquote footer-img-lgd">taken @Cap Bouak, Bejaia by Photographer</blockquote>
+                <p>Bejaia is the second largest Amazigh city today, from Naceria to ...</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mt-2 mb-4 unmarginit">
+            <h5 class="mb-4 font-weight-bold footer-title">
+                <img src="{% static 'Translator/img/icons/update.png' %}" class="footer-icon"/>
+                {% get_item LNG lng=cur_lng attr='updates' %}
+            </h5>
+            <ul class="recent-post" style="margin-left:-30px;">
+                <li>
+                    <label class="mr-3">12 <br><span>DEC</span></label>
+                    <span>Set up Django !</span>
+                </li>
+                <br/>
+                <li>
+                    <label class="mr-3">18 <br><span>NOV</span></label>
+                    <span>First commit of something going to be great</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4 unmarginit">
+            <a href="#" class="donate">
+                <h5 class="mb-4 font-weight-bold footer-title">
+                    <img src="{% static 'Translator/img/icons/heart.png' %}" class="footer-icon"/>
+                    {% get_item LNG lng=cur_lng attr='donate' %}
+                </h5>
+            </a>
+            <p style="color: mistyrose; font-size: 17px; margin-left: -3%;">
+                {% get_item LNG lng=cur_lng attr='donate_txt' %}
+            </p>
+
+        </div>
+    </div>
     </div>
 </footer>
 <!-- Copyright -->
@@ -356,6 +370,6 @@
         </div>
     </div>
 </section>
-<script src="{% static 'Translator/js/view.js' %}"> </script>
+<script src="{% static 'Translator/js/view.js' %}"></script>
 </body>
 </html>
