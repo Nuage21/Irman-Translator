@@ -177,10 +177,10 @@
     <div id="MainApp" class="d-inline-block">
         <div id="side-app">
             <div>
-                <button id="tifibtn" class="btn btn-light side-app-btn" v-on:click="toTfng();">
+                <button id="tifibtn" class="btn btn-light side-app-btn" v-on:click="toTfng()">
                     <span class="side-app-btn-txt"><b>ⵣ</b> <br/> {% get_item LNG lng=cur_lng attr='tfng' %}</span>
                 </button>
-                <button id="latinbtn" class="btn btn-light side-app-btn" style="width:100%;" v-on:click="toLatin();">
+                <button id="latinbtn" class="btn btn-light side-app-btn" style="width:100%;" v-on:click="toLatin()">
                     <span class="side-app-btn-txt"><b style="font-size: calc(0.7vw + 0.7vh);">ǧ</b> <br/> {% get_item LNG lng=cur_lng attr='latin' %}</span>
                 </button>
                 <button class="btn btn-light side-app-btn" v-on:click="swapLngs()">

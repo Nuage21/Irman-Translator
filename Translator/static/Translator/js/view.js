@@ -180,7 +180,7 @@ var alphasApp = new Vue({
             ,
             toLatin() {
                 // converting from Tfng to Latin chars
-                let berberInputID = (this.fromLng === 'Tamaziɣt') ? 'from-lng' : 'to-lng';
+                let berberInputID = (this.fromLng === brbr) ? 'from-lng' : 'to-lng';
                 let txt = $('#' + berberInputID).val();
                 // conversion algorithm
                 let converted = '';
@@ -196,7 +196,7 @@ var alphasApp = new Vue({
             ,
             toTfng() {
                 // converting from Latin chars to Tfng
-                let berberInputID = (this.fromLng === 'Tamaziɣt') ? 'from-lng' : 'to-lng';
+                let berberInputID = (this.fromLng === brbr) ? 'from-lng' : 'to-lng';
                 let txt = $('#' + berberInputID).val();
                 // conversion algorithm
                 let converted = '';
