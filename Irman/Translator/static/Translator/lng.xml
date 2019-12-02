@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+    <en>
+        <donate>DONATE TO SAVE A CULTURE</donate>
+        <help_us>Help us</help_us>
+        <read_with_us>Read with us</read_with_us>
+        <swap_btn>Swap</swap_btn>
+        <empty_btn>Empty</empty_btn>
+        <copy_btn>Copy</copy_btn>
+        <correct_btn>Correct</correct_btn>
+        <paste_btn>Paste</paste_btn>
+        <who_are_we>WHO ARE WE</who_are_we>
+        <coders_title>People who took part of developing this project</coders_title>
+        <updates>LATEST UPDATES</updates>
+        <send_feedback>Send feedback</send_feedback>
+        <are_you_teacher>Are you a Teacher of Tamaziɣt ?</are_you_teacher>
+        <are_you_dev>Are you a Web/Mobile developer ?</are_you_dev>
+        <prg_lng_thanks>A great thanks to those too!</prg_lng_thanks>
+        <rate_translation>Rate this translation</rate_translation>
+        <darkmode>Darkmode</darkmode>
+        <donate_txt>
+            We are working hard to make of this translator the best it can be,to meet all Tamazight's local dialects and
+            much more! but that's not sufficient, to achieve that, your help will make a long step forward - you CAN
+            contribute now. To save a culture, your culture!
+        </donate_txt>
+    </en>
+    <fr>
+        <donate>SAUVER UNE CULTURE</donate>
+        <help_us>Aidez nous</help_us>
+        <read_with_us>LIRE AVEC NOUS</read_with_us>
+        <swap_btn>Echanger</swap_btn>
+        <empty_btn>Vider</empty_btn>
+        <copy_btn>Copier</copy_btn>
+        <correct_btn>Corriger</correct_btn>
+        <paste_btn>Coller</paste_btn>
+        <who_are_we>QUI SOMMES NOUS</who_are_we>
+        <coders_title>Les personnes qui ont prit part au développement de ce projet</coders_title>
+        <updates>DERNIERES MISES A JOUR</updates>
+        <send_feedback>Envoyer un feedback</send_feedback>
+        <are_you_teacher>Etes-vous Professeur of Tamaziɣt ?</are_you_teacher>
+        <are_you_dev>Etes-vous un developpeur Web/Mobile ?</are_you_dev>
+        <prg_lng_thanks>Un grand merci a ceux-la aussi!</prg_lng_thanks>
+        <rate_translation>Notez cette traduction</rate_translation>
+        <darkmode>Sombre</darkmode>
+        <donate_txt>
+            Nous travaillons dur afin de faire de ce traducteur le meilleur qui soit, afin de de renconter tout les
+            dialectes Amazigh locaux et bien plus! Mais ce n’est pas suffisant, afin d’achever cela, votre aide nous
+            fera un longs pas en avant- vous POUVEZ contribuer maintenant. Pour sauver une culture, VOTRE culture !
+        </donate_txt>
+    </fr>
+</languages>

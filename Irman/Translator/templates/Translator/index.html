@@ -4,27 +4,35 @@
     <title>The first Tamaziɣt translator!</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/index_style.css"/>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/index_style.css' %}"/>
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/textarea.css">
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-    <link rel="stylesheet" type="text/css" href="css/berber-alpha.css">
-    <link rel="stylesheet" type="text/css" href="css/side-app.css">
-    <link rel="stylesheet" type="text/css" href="css/coder-info.css">
-    <link rel="stylesheet" type="text/css" href="css/icon.css">
-    <link rel="stylesheet" type="text/css" href="css/star-rater.css">
-    <link rel="stylesheet" type="text/css" href="css/powered-lngs.css">
-    <link rel="stylesheet" type="text/css" href="css/topbar-switcher.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/textarea.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/header.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/berber-alpha.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/side-app.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/coder-info.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/icon.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/star-rater.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/powered-lngs.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/topbar-switcher.css' %}">
     <!-- Footer's css -->
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Bootstrap Scripts +jQuery -->
-    <link rel="icon" href="img/icon.png"/>
+    <link rel="icon" href="{% static 'Translator/img/icon.png' %}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="js/jqueries.js"></script>
+    <script>
+        var correct_btn_txt = "{% get_item LNG lng=cur_lng attr='correct_btn' %}",
+            copy_btn_txt = "{% get_item LNG lng=cur_lng attr='copy_btn' %}",
+            paste_btn_txt = "{% get_item LNG lng=cur_lng attr='paste_btn' %}",
+            empty_btn_txt = "{% get_item LNG lng=cur_lng attr='empty_btn' %}",
+            rate_translation_txt = "{% get_item LNG lng=cur_lng attr='rate_translation' %}";
+    </script>
+    <script src="{% static 'Translator/js/jqueries.js' %}"></script>
 </head>
 <body>
 <div class="fixed-top">
@@ -35,44 +43,44 @@
                 <div class="col-sm-12" style="background-color: #131313;">
                     <div class="lng-selector">
                         <div class="d-inline lng-sel-holder">
-                            <a href="#" class="lng-sel">
-                                <img class="lng-sel-flag" src="img/flags/uk.png">
+                            <a href="?lng=en" class="lng-sel">
+                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/uk.png' %}">
                                 <span class="lng-sel-txt"> English </span>
                             </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
-                            <a href="#" class="lng-sel">
-                                <img class="lng-sel-flag" src="img/flags/spain.gif">
+                            <a href="?lng=es" class="lng-sel">
+                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/spain.gif' %}">
                                 <span class="lng-sel-txt"> Español </span>
                             </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
-                            <a href="#" class="lng-sel">
-                                <img class="lng-sel-flag" src="img/flags/france.gif">
+                            <a href="?lng=fr" class="lng-sel">
+                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/france.gif' %}">
                                 <span class="lng-sel-txt"> Français </span>
                             </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
-                            <a href="#" class="lng-sel">
-                                <img class="lng-sel-flag" src="img/flags/arab.png">
+                            <a href="?lng=ar" class="lng-sel">
+                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/arab.png' %}">
                                 <span class="lng-sel-txt"> العربية </span>
                             </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
-                            <a href="#" class="lng-sel">
-                                <img class="lng-sel-flag" src="img/flags/berber.png">
+                            <a href="?lng=tz_lat" class="lng-sel">
+                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/berber.png' %}">
                                 <span class="lng-sel-txt"> Tamaziɣt (Latin) </span>
                             </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
-                            <a href="#" class="lng-sel">
-                                <img class="lng-sel-flag" src="img/flags/berber.png">
+                            <a href="?lng=tz_tfng" class="lng-sel">
+                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/berber.png' %}">
                                 <span class="lng-sel-txt"> Tamaziɣt (ⵜⵍⴼⵍⵏⴰⵖ) </span>
                             </a>
                         </div>
                     </div>
                     <ul class="social-network">
-                        <li class="switch-phrase"> darkmode</li>
+                        <li class="switch-phrase"> {% get_item LNG lng=cur_lng attr='darkmode' %} </li>
                         <label class="switch">
                             <input type="checkbox">
                             <span class="slider round" id="modeSwitcher"></span>
@@ -89,7 +97,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #131313 !important;">
 
             <a href="https://en.wikipedia.org/wiki/Berber_flag">
-                <img class="rounded float-left" src="img/flags/berber.png"
+                <img class="rounded float-left" src="{% static 'Translator/img/flags/berber.png' %}"
                      style="width:70px;height:35px;margin-right:20px;"/>
             </a>
             <div>
@@ -124,27 +132,35 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="img/icons/help.png" class="navbar-icon"/> Help us
+                            <img src="{% static 'Translator/img/icons/help.png' %}" class="navbar-icon"/>
+                                {% get_item LNG lng=cur_lng attr='help_us' %}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Are you a Teacher of Tamaziɣt ? </a>
-                            <a class="dropdown-item" href="#">Are you a Web/Mobile Developer ?</a>
+                            <a class="dropdown-item" href="#">
+                                {% get_item LNG lng=cur_lng attr='are_you_teacher' %}
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                {% get_item LNG lng=cur_lng attr='are_you_dev' %}
+                            </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><b>Send Feedback </b> </a>
+                            <a class="dropdown-item" href="#">
+                                {% get_item LNG lng=cur_lng attr='send_feedback' %}
+                            </a>
                         </div>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item" style="color:white;">
                         <a class="nav-link" href="#">
-                            <img src="img/icons/read.png" class="navbar-icon"/> Read with us
+                            <img src="{% static 'Translator/img/icons/read.png' %}" class="navbar-icon"/>
+                             {% get_item LNG lng=cur_lng attr='read_with_us' %}
                         </a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item" style="color:white;">
                         <a class="nav-link" href="#">
-                            <img src="img/icons/lyrics.png" class="navbar-icon"/> Irman Lyrics
+                            <img src="{% static 'Translator/img/icons/lyrics.png' %}" class="navbar-icon"/> Irman Lyrics
                         </a>
                     </li>
                 </ul>
@@ -166,19 +182,25 @@
                     <span class="side-app-btn-txt"><b style="font-size: calc(0.7vw + 0.7vh);">ǧ</b> <br/> Latin</span>
                 </button>
                 <button class="btn btn-light side-app-btn" v-on:click="swapLngs()">
-                    <img src="img/icons/swap.png" class="side-app-icon">
+                    <img src="{% static 'Translator/img/icons/swap.png' %}" class="side-app-icon">
                     <br/>
-                    <span class="side-app-btn-txt">Swap</span>
+                    <span class="side-app-btn-txt">
+                        {% get_item LNG lng=cur_lng attr='swap_btn' %}
+                    </span>
                 </button>
                 <button class="btn btn-light side-app-btn" v-on:click="this.emptyAreas()">
-                    <img src="img/icons/empty.png" class="side-app-icon">
+                    <img src="{% static 'Translator/img/icons/empty.png' %}" class="side-app-icon">
                     <br/>
-                    <span class="side-app-btn-txt">Empty</span>
+                    <span class="side-app-btn-txt">
+                        {% get_item LNG lng=cur_lng attr='empty_btn' %}
+                    </span>
                 </button>
                 <button class="btn btn-light side-app-btn" v-on:click="this.copyTranslation()">
-                    <img src="img/icons/copy.png" class="side-app-icon">
+                    <img src="{% static 'Translator/img/icons/copy.png' %}" class="side-app-icon">
                     <br/>
-                    <span class="side-app-btn-txt">Copy</span>
+                    <span class="side-app-btn-txt">
+                        {% get_item LNG lng=cur_lng attr='copy_btn' %}
+                    </span>
                 </button>
             </div>
         </div>
@@ -213,13 +235,15 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
                 <h5 class="mb-4 font-weight-bold footer-title">
-                    <img src="img/icons/contributor.png" class="footer-icon"/>
-                    WHO ARE WE
+                    <img src="{% static 'Translator/img/icons/contributor.png' %}" class="footer-icon"/>
+                    {% get_item LNG lng=cur_lng attr='who_are_we' %}
                 </h5>
-                <p class="mb-2">People who took part of developing this project</p>
+                <p class="mb-2">
+                    {% get_item LNG lng=cur_lng attr='coders_title' %}
+                </p>
                 <div class="coder-info">
                     <div style="float:left;">
-                        <img src="img/coders/hbfree.jpg" class="rounded-circle coder-img"/>
+                        <img src="{% static 'Translator/img/coders/hbfree.jpg' %}" class="rounded-circle coder-img"/>
                     </div>
                     <div class="coder-cred">
                         <div style="float:top;">
@@ -233,26 +257,28 @@
                     </div>
                 </div>
                 <div class="powered-by d-inline">
-                    <div id="powered-title" class="footer-title"> A great thanks to those too!</div>
+                    <div id="powered-title" class="footer-title">
+                                {% get_item LNG lng=cur_lng attr='prg_lng_thanks' %}
+                    </div>
                     <br/>
                     <div class="lngs-holder">
                         <div class="d-inline pow-lng">
-                            <img class="lng-icon" src="img/lngs/python.png">
+                            <img class="lng-icon" src="{% static 'Translator/img/lngs/python.png' %}">
                             <span> Python </span>
                         </div>
                         <div class="d-inline pow-lng">
-                            <img class="lng-icon" src="img/lngs/vue.png">
+                            <img class="lng-icon" src="{% static 'Translator/img/lngs/vue.png' %}">
                             <span> Vue.js </span>
                         </div>
                     </div>
                     <br/>
                     <div class="lngs-holder">
                         <div class="d-inline pow-lng">
-                            <img class="lng-icon" src="img/lngs/jquery.png">
+                            <img class="lng-icon" src="{% static 'Translator/img/lngs/jquery.png' %}">
                             <span> jQuery </span>
                         </div>
                         <div class="d-inline pow-lng">
-                            <img class="lng-icon" src="img/lngs/django.png">
+                            <img class="lng-icon" src="{% static 'Translator/img/lngs/django.png' %}">
                             <span> Django </span>
                         </div>
                     </div>
@@ -260,22 +286,23 @@
                 <br/>
                 <div class="lngs-holder" style="margin:-10px 0 0 -10px !important;">
                     <div class="d-inline pow-lng" style="margin-top:-30px !important;">
-                        <img class="lng-icon" src="img/lngs/bootstrap.png">
+                        <img class="lng-icon" src="{% static 'Translator/img/lngs/bootstrap.png' %}">
                         <span> Bootstrap </span>
                     </div>
                     <div class="d-inline pow-lng">
-                        <img class="html-css-js" src="img/lngs/html-css-js.png">
+                        <img class="html-css-js" src="{% static 'Translator/img/lngs/html-css-js.png' %}">
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4 unmarginit">
                 <h5 class="mb-4 font-weight-bold footer-title">
-                    <img src="img/icons/read.png" class="footer-icon"/>
-                    READ WITH US</h5>
+                    <img src="{% static 'Translator/img/icons/read.png' %}" class="footer-icon"/>
+                    {% get_item LNG lng=cur_lng attr='read_with_us' %}
+                </h5>
                 <div class="footer-article-holder">
                     <a href="randomlink.com">
-                        <img class="img-thumbnail footer-read-img" src="img/Bejaia.jpg"/>
+                        <img class="img-thumbnail footer-read-img" src="{% static 'Translator/img/Bejaia.jpg' %}"/>
                     </a>
                     <blockquote class="blockquote footer-img-lgd">taken @Cap Bouak, Bejaia by Photographer</blockquote>
                     <p>Bejaia is the second largest Amazigh city today, from Naceria to ...</p>
@@ -283,37 +310,30 @@
             </div>
             <div class="col-lg-3 col-sm-6 mt-2 mb-4 unmarginit">
                 <h5 class="mb-4 font-weight-bold footer-title">
-                    <img src="img/icons/update.png" class="footer-icon"/>
-                    LATEST UPDATES</h5>
+                    <img src="{% static 'Translator/img/icons/update.png' %}" class="footer-icon"/>
+                    {% get_item LNG lng=cur_lng attr='updates' %}
+                </h5>
                 <ul class="recent-post" style="margin-left:-30px;">
-                    <li style="margin-bottom:40px;">
-                        <label class="mr-3">28 <br><span>APR</span></label>
-                        <span>Rendomised words which dont look eveable.</span>
+                    <li>
+                        <label class="mr-3">12 <br><span>DEC</span></label>
+                        <span>Set up Django !</span>
                     </li>
-                    <li style="margin-bottom:40px;">
-                        <label class="mr-3">29 <br><span>APR</span></label>
-                        <span>Rendomised words which dont look eveable.</span>
-                    </li>
+                    <br/>
                     <li>
                         <label class="mr-3">18 <br><span>NOV</span></label>
-                        <span>First commit of something great</span>
+                        <span>First commit of something going to be great</span>
                     </li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4 unmarginit">
                 <a href="#" class="donate">
                     <h5 class="mb-4 font-weight-bold footer-title">
-                        <img src="img/icons/heart.png" class="footer-icon"/>
-                        DONATE TO SAVE A CULTURE
+                        <img src="{% static 'Translator/img/icons/heart.png' %}" class="footer-icon"/>
+                        {% get_item LNG lng=cur_lng attr='donate' %}
                     </h5>
                 </a>
                 <p style="color: mistyrose; font-size: 17px; margin-left: -3%;">
-                    We are working hard to make of this translator the
-                    best it can be,to meet all Tamazight's local dialects
-                    and much more! but that's not sufficient, to achieve that,
-                    your help will make a long step forward -
-                    you CAN contribute now. To
-                    save a culture, your culture!
+                        {% get_item LNG lng=cur_lng attr='donate_txt' %}
                 </p>
 
             </div>
@@ -332,6 +352,6 @@
         </div>
     </div>
 </section>
-<script src="js/view.js"></script>
+<script src="{% static 'Translator/js/view.js' %}"> </script>
 </body>
 </html>

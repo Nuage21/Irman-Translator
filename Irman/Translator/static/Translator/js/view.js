@@ -13,7 +13,7 @@ Vue.component('txtinput',
                 </textarea>
                 <div style="display: inline-block;float:left;width:75% !important;" v-if="isdisabled">
                     <div class="ratep-holder rate-el">
-                        <span class="ratep"> Rate this translation </span>
+                        <span class="ratep"> {{this.$parent.$data.rateTranslationTxt}} </span>
                     </div>
                     <div class="rate rate-el">
                         <input type="radio" id="star5" name="rate" value="5"/>
@@ -30,24 +30,24 @@ Vue.component('txtinput',
                 </div>
                 <div class="areabtnholder" role="group" style="padding: 0 !important;" aria-label="down-app-btns">
                     <button type="button" class="btn btn-sm shadow-none btn-light" @click="copytxt(lngid)">
-                        <img src="img/icons/copy.png" class="down-app-icon">
-                        <span class="down-btn-txt">Copy</span>
+                        <img src="/static/Translator/img/icons/copy.png" class="down-app-icon">
+                        <span class="down-btn-txt">{{this.$parent.$data.copyBtnTxt}}</span>
                     </button>
                     <button type="button" class="btn btn-sm shadow-none btn-light" v-if="!isdisabled"
                             @click="pastetxt(lngid)">
-                        <img src="img/icons/paste.png" class="down-app-icon">
-                        <span class="down-btn-txt">Paste</span>
+                        <img src="/static/Translator/img/icons/paste.png" class="down-app-icon">
+                        <span class="down-btn-txt">{{this.$parent.$data.pasteBtnTxt}}</span>
                     </button>
                     <button type="button" class="btn btn-sm shadow-none btn-light" v-if="!isdisabled"
                             v-on:click="this.emptyAreas()">
-                        <img src="img/icons/empty.png" class="down-app-icon">
-                        <span class="down-btn-txt">Empty</span>
+                        <img src="/static/Translator/img/icons/empty.png" class="down-app-icon">
+                        <span class="down-btn-txt">{{this.$parent.$data.emptyBtnTxt}}</span>
                     </button>
                     <button type="button" class="btn btn-sm shadow-none btn-light"
                             v-show="(lng==='Tamaziɣt') && !isdisabled"
                             @click="this.correct()">
-                        <img src="img/icons/correct.png" class="down-app-icon">
-                        <span class="down-btn-txt">Correct</span>
+                        <img src="/static/Translator/img/icons/correct.png" class="down-app-icon">
+                        <span class="down-btn-txt">{{this.$parent.$data.correctBtnTxt}}</span>
                     </button>
                 </div>
             </div>`
@@ -158,8 +158,13 @@ var alphasApp = new Vue({
         berberAlphas: "abcčdḍefgǧhḥijklmnɛqrṛsṣtṭuɣwxyzẓ",
         fromLng: "Tamaziɣt",
         toLng: "English",
-        fromFlag: 'img/flags/berber.png',
-        toFlag: 'img/flags/uk.png',
+        fromFlag: '/static/Translator/img/flags/berber.png',
+        toFlag: '/static/Translator/img/flags/uk.png',
+        correctBtnTxt: correct_btn_txt,
+        copyBtnTxt: copy_btn_txt,
+        pasteBtnTxt: paste_btn_txt,
+        emptyBtnTxt: empty_btn_txt,
+        rateTranslationTxt: rate_translation_txt,
     }
     ,
     methods:
