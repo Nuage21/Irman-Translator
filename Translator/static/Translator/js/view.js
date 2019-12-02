@@ -44,7 +44,7 @@ Vue.component('txtinput',
                         <span class="down-btn-txt">{{this.$parent.$data.emptyBtnTxt}}</span>
                     </button>
                     <button type="button" class="btn btn-sm shadow-none btn-light"
-                            v-show="(lng==='Tamaziɣt') && !isdisabled"
+                            v-show="(lng==this.$parent.$data.berberWritten) && !isdisabled"
                             @click="this.correct()">
                         <img src="/static/Translator/img/icons/correct.png" class="down-app-icon">
                         <span class="down-btn-txt">{{this.$parent.$data.correctBtnTxt}}</span>
@@ -97,7 +97,7 @@ Vue.component('alpha',
         methods:
             {
                 isFromLngNotBerber() {
-                    return (this.$parent.$data.fromLng == 'Tamaziɣt') ? null : 1;
+                    return (this.$parent.$data.fromLng == brbr ) ? null : 1;
                 }
                 ,
                 appendAlpha(c) {
@@ -156,6 +156,7 @@ var alphasApp = new Vue({
     data: {
         tifinaghAlphas: "ⴰⴱⵛⵞⴷⴹⴻⴼⴳⴶⵀⵃⵉⵊⴽⵍⵎⵏⵄⵇⵔⵕⵙⵚⵜⵟⵓⵖⵡⵅⵢⵣⵥ",
         berberAlphas: "abcčdḍefgǧhḥijklmnɛqrṛsṣtṭuɣwxyzẓ",
+        berberWritten: brbr,
         fromLng: brbr,
         toLng: eng,
         fromFlag: '/static/Translator/img/flags/berber.png',

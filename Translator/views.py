@@ -34,11 +34,6 @@ def get_item(obj, lng, attr):
     return obj.get(lng, attr)
 
 
-@register.filter()
-def hasany(dictionary):
-    return any(dictionary)
-
-
 def index(req):
     context = {
         'GET_LIST': req.GET,

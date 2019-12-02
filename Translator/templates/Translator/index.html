@@ -178,10 +178,10 @@
         <div id="side-app">
             <div>
                 <button id="tifibtn" class="btn btn-light side-app-btn" v-on:click="toTfng();">
-                    <span class="side-app-btn-txt"><b>ⵣ</b> <br/> Tifinaɣ</span>
+                    <span class="side-app-btn-txt"><b>ⵣ</b> <br/> {% get_item LNG lng=cur_lng attr='tfng' %}</span>
                 </button>
                 <button id="latinbtn" class="btn btn-light side-app-btn" style="width:100%;" v-on:click="toLatin();">
-                    <span class="side-app-btn-txt"><b style="font-size: calc(0.7vw + 0.7vh);">ǧ</b> <br/> Latin</span>
+                    <span class="side-app-btn-txt"><b style="font-size: calc(0.7vw + 0.7vh);">ǧ</b> <br/> {% get_item LNG lng=cur_lng attr='latin' %}</span>
                 </button>
                 <button class="btn btn-light side-app-btn" v-on:click="swapLngs()">
                     <img src="{% static 'Translator/img/icons/swap.png' %}" class="side-app-icon">
@@ -300,7 +300,9 @@
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4 unmarginit">
                 <h5 class="mb-4 font-weight-bold footer-title">
                     <img src="{% static 'Translator/img/icons/read.png' %}" class="footer-icon"/>
+                    {% filter upper %}
                     {% get_item LNG lng=cur_lng attr='read_with_us' %}
+                    {% endfilter %}
                 </h5>
                 <div class="footer-article-holder">
                     <a href="randomlink.com">
