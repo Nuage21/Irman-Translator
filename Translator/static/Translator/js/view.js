@@ -218,7 +218,7 @@ function emptyAreas() {
 
 function correct() {
     // correct common written Tamazight;
-    if (alphasApp.fromLng != 'Tamaziɣt') return;
+    if (alphasApp.fromLng != brbr) return;
     let txt = $('#from-lng').val();
     // conversion algorithm
     let converted = '';
