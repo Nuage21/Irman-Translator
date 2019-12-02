@@ -48,4 +48,109 @@
             fera un longs pas en avant- vous POUVEZ contribuer maintenant. Pour sauver une culture, VOTRE culture !
         </donate_txt>
     </fr>
+    <ar>
+        <donate>تبرع لإنقاذ ثقافة</donate>
+        <help_us>ساعدونا</help_us>
+        <read_with_us>طالع معنا</read_with_us>
+        <swap_btn>تبديل</swap_btn>
+        <empty_btn> تفريغ</empty_btn>
+        <copy_btn> نسخ</copy_btn>
+        <correct_btn>تصحيح</correct_btn>
+        <paste_btn>لصق</paste_btn>
+        <who_are_we> نحن من</who_are_we>
+        <coders_title>الأفراد المساهمة في هذا المشروع </coders_title>
+        <updates>آخر التحديثات</updates>
+        <send_feedback>شاركونا بآرائكم</send_feedback>
+        <are_you_teacher>هل أنت معلم الأمازيغية؟</are_you_teacher>
+        <are_you_dev>  (web/mobile) هل أنت مبرمج ؟</are_you_dev>
+        <prg_lng_thanks>! شكرا جزيلا لهؤلاء أيضا </prg_lng_thanks>
+        <rate_translation>تقييم هذه الترجمة</rate_translation>
+        <darkmode>داكن</darkmode>
+        <donate_txt>
+              نحن نعمل بجد لجعل هذا المترجم أفضل ما يمكن ، لتلبية جميع لهجات الأمازيغية المحلية و
+            أكثر بكثير! ولكن هذا لا يكفي ، لتحقيق ذلك، فإن مساعدتك ستخطو بنا خطوة كبيرة الى الأمام - يمكنك
+                                     !المساهمة الآن. لحفظ الثقافة ، ثقافتك
+        </donate_txt>
+        </ar>
+
+	<es>
+        <donate>Salvar una cultura</donate>
+        <help_us>Ayúdanos</help_us>
+        <read_with_us>Lee con nosotros</read_with_us>
+        <swap_btn>Intercambio</swap_btn>
+        <empty_btn>Vaciar</empty_btn>
+        <copy_btn>Copia</copy_btn>
+        <correct_btn>Correcto</correct_btn>
+        <paste_btn>Pegar</paste_btn>
+        <who_are_we>QUIÉNES SOMOS</who_are_we>
+        <coders_title>Las personas que participaron en el desarrollo de este proyecto.</coders_title>
+        <updates>ÚLTIMAS ACTUALIZACIONES</updates>
+        <send_feedback>Enviar comentarios</send_feedback>
+        <are_you_teacher>¿Eres profesor de Tamaziɣt?</are_you_teacher>
+        <are_you_dev>¿Eres un desarrollador web / móvil?</are_you_dev>
+        <prg_lng_thanks>Un gran agradecimiento a aquellos también!</prg_lng_thanks>
+        <rate_translation>Califica esta traducción</rate_translation>
+        <darkmode>Oscuro</darkmode>
+        <donate_txt>
+           Estamos trabajando arduamente para hacer de este traductor lo mejor posible, para conocer todos los dialectos locales de Tamazight y
+            ¡mucho más! pero eso no es suficiente, para lograr eso, su ayuda dará un gran paso adelante: PUEDE
+            contribuir ahora ¡Para salvar una cultura, tu cultura!
+        </donate_txt>
+        </es>
+
+
+
+	<tz_lat>
+	<donate>Sselket yidles</donate>
+        <help_us>Ɛawnet-aɣ</help_us>
+        <read_with_us>ƔRET YIDNEƔ</read_with_us>
+        <swap_btn>Beddel</swap_btn>
+        <empty_btn>Sufeɣ</empty_btn>
+        <copy_btn>Ɛaned</copy_btn>
+        <correct_btn>Seɣti</correct_btn>
+        <paste_btn>Senteḍ</paste_btn>
+        <who_are_we>Menhu-aɣ</who_are_we>
+        <coders_title>Wid ittekkan deg uslal n usenfaṛ  ayi </coders_title>
+        <updates>IMUCCAḍ INEGGURA</updates>
+        <send_feedback>Ciyεet-aɣ-d alɣuten-nwen</send_feedback>
+        <are_you_teacher>D aselmad n tmaziɣt?</are_you_teacher>
+        <are_you_dev>D aneflay web/mobile?</are_you_dev>
+        <prg_lng_thanks>Tanmirt tameqrant i wiyi daɣen!</prg_lng_thanks>
+        <rate_translation>Sawem asegzi-ayi</rate_translation>
+        <darkmode>Sulles</darkmode>
+        <donate_txt>
+           Aqlaɣ nxeddem aṭas iwakken ad nerr asegzawal ayi am axir yal ass,
+          iwakken ad nessemlil ak tintaliyin n tmaziɣt akked akter n tmental!
+           Maca anecta ur yicad ara.. iwakken an awed ɣer tqacuct n usenfaṛ ayi,
+          lemɛawna nwen teswa aquddim ameqran ɣer zzat- TZAMREM ad tekkim seg tura
+          yidneɣ iw sellek n yidles. IDLES NWEN !
+        </donate_txt>
+	</tz_lat>
+
+	<tz_tfng>
+	<donate>ⵙⵙⴻⵍⴽⴻⵜ ⵢⵉⴷⵍⴻⵙ</donate>
+        <help_us>ⵄⴰⵡⵏⴻⵜ-ⴰⵖ</help_us>
+        <read_with_us>ⵖⵔⴻⵜ ⵢⵉⴷⵏⴻⵖ</read_with_us>
+        <swap_btn>ⴱⴻⴷⴷⴻⵍ</swap_btn>
+        <empty_btn>ⵙⵓⴼⴻⵖ</empty_btn>
+        <copy_btn>ⵄⴰⵏⴻⴷ</copy_btn>
+        <correct_btn>ⵙⴻⵖⵜⵉ</correct_btn>
+        <paste_btn>ⵙⴻⵏⵜⴻⴹ</paste_btn>
+        <who_are_we>ⵎⴻⵏⵀⵓ-ⴰⵖ</who_are_we>
+        <coders_title>ⵡⵉⴷ ⵉⵜⵜⴻⴽⴽⴰⵏ ⴷⴻⴳ ⵓⵙⵍⴰⵍ ⵏ ⵓⵙⴻⵏⴼⴰⵕ ⴰⵢⵉ</coders_title>
+        <updates>ⵉⵎⵓⵛⵛⴰⴹ ⵉⵏⴻⴳⴳⵓⵔⴰ</updates>
+        <send_feedback>ⵛⵉⵢεⴻⵜ-ⴰⵖ-ⴷ ⴰⵍⵖⵓⵜⴻⵏ-ⵏⵡⴻⵏ</send_feedback>
+        <are_you_teacher>ⴷ ⴰⵙⴻⵍⵎⴰⴷ ⵏ ⵜⵎⴰⵣⵉⵖⵜ?</are_you_teacher>
+        <are_you_dev>ⴷ ⴰⵏⴻⴼⵍⴰⵢ ⵡⴻⴱ/ⵎoⴱⵉⵍⴻ?</are_you_dev>
+        <prg_lng_thanks>ⵜⴰⵏⵎⵉⵔⵜ ⵜⴰⵎⴻⵇⵔⴰⵏⵜ ⵉ ⵡⵉⵢⵉ ⴷⴰⵖⴻⵏ!</prg_lng_thanks>
+        <rate_translation>ⵙⴰⵡⴻⵎ ⴰⵙⴻⴳⵣⵉ-ⴰⵢⵉ</rate_translation>
+        <darkmode>ⵙⵓⵍⵍⴻⵙ</darkmode>
+        <donate_txt>
+          ⴰⵇⵍⴰⵖ ⵏⵅⴻⴷⴷⴻⵎ ⴰⵟⴰⵙ ⵉⵡⴰⴽⴽⴻⵏ ⴰⴷ ⵏⴻⵔⵔ ⴰⵙⴻⴳⵣⴰⵡⴰⵍ ⴰⵢⵉ ⴰⵎ ⴰⵅⵉⵔ ⵢⴰⵍ ⴰⵙⵙ,
+          ⵉⵡⴰⴽⴽⴻⵏ ⴰⴷ ⵏⴻⵙⵙⴻⵎⵍⵉⵍ ⴰⴽ ⵜⵉⵏⵜⴰⵍⵉⵢⵉⵏ ⵏ ⵜⵎⴰⵣⵉⵖⵜ ⴰⴽⴽⴻⴷ ⴰⴽⵜⴻⵔ ⵏ ⵜⵎⴻⵏⵜⴰⵍ!
+           ⵎⴰⵛⴰ ⴰⵏⴻⵛⵜⴰ ⵓⵔ ⵢⵉⵛⴰⴷ ⴰⵔⴰ.. ⵉⵡⴰⴽⴽⴻⵏ ⴰⵏ ⴰⵡⴻⴷ ⵖⴻⵔ ⵜⵇⴰⵛⵓⵛⵜ ⵏ ⵓⵙⴻⵏⴼⴰⵕ ⴰⵢⵉ,
+          ⵍⴻⵎⵄⴰⵡⵏⴰ ⵏⵡⴻⵏ ⵜⴻⵙⵡⴰ ⴰⵇⵓⴷⴷⵉⵎ ⴰⵎⴻⵇⵔⴰⵏ ⵖⴻⵔ ⵣⵣⴰⵜ- ⵜⵣⴰⵎⵔⴻⵎ ⴰⴷ ⵜⴻⴽⴽⵉⵎ ⵙⴻⴳ ⵜⵓⵔⴰ
+          ⵢⵉⴷⵏⴻⵖ ⵉⵡ ⵙⴻⵍⵍⴻⴽ ⵏ ⵢⵉⴷⵍⴻⵙ. ⵉⴷⵍⴻⵙ ⵏⵡⴻⵏ !
+        </donate_txt>
+	</tz_tfng>
 </languages>
