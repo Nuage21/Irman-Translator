@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
 
 urlpatterns = [
-    path('translator/', include('Translator.urls')),
+    url(r'^translator/', include('Translator.urls')),
     path('admin/', admin.site.urls),
 ]

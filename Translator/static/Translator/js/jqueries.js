@@ -29,6 +29,23 @@ $(document).ready(function () {
         $('.areabtnholder > button').toggleClass('btn-dark');
     });
 
+    // Translation ajax here
+
+    $('#from-lng').on('keyup', (key)=> {
+        var msg = $('#from-lng').val();
+        console.log(msg);
+
+        $.ajax({
+            url: '/translator/ajax/translate/',
+            data: {
+                'msg': msg
+            },
+            dataType: 'json',
+            success:  (data) => {
+                $('#to-lng').val(data.tmsg);
+            }
+        });
+    });
 
 });
 
