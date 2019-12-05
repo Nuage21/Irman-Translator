@@ -157,8 +157,8 @@ var alphasApp = new Vue({
         tifinaghAlphas: "ⴰⴱⵛⵞⴷⴹⴻⴼⴳⴶⵀⵃⵉⵊⴽⵍⵎⵏⵄⵇⵔⵕⵙⵚⵜⵟⵓⵖⵡⵅⵢⵣⵥ",
         berberAlphas: "abcčdḍefgǧhḥijklmnɛqrṛsṣtṭuɣwxyzẓ",
         berberWritten: brbr,
-        fromLng: brbr,
-        toLng: eng,
+        fromLng: eng,
+        toLng: brbr,
         fromFlag: '/static/Translator/img/flags/berber.png',
         toFlag: '/static/Translator/img/flags/uk.png',
         correctBtnTxt: correct_btn_txt,
@@ -176,6 +176,11 @@ var alphasApp = new Vue({
                 this.fromFlag = this.toFlag;
                 this.toLng = tmp;
                 this.toFlag = tmpf;
+
+                // exchanging inner text ...
+                tmp_from = $('#from-lng').val()
+                $('#from-lng').val($('#to-lng').val())
+                $('#to-lng').val(tmp_from)
             }
             ,
             toLatin() {
