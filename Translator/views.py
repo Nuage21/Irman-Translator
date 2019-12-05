@@ -36,11 +36,12 @@ def get_item(obj, lng, attr):
 
 
 def Translate(req):
+
     msg = req.GET['msg']
     msg = str(msg)
 
     msg0 = translate_stage0(msg)
-    msg1 = translate_stage1(msg0).strip()
+    msg1 = translate_stage1(msg0)
     msg2 = rm_indicators(msg1)
 
     data = {
