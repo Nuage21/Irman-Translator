@@ -6,14 +6,25 @@ def translate(req):
     msg = req.GET['msg']
     msg = str(msg)
 
-    msg2 = ''  # current result
+    res = ''  # current result
 
     if msg:
-        msg0 = translate_stage0(msg)
-        msg1 = translate_stage1(msg0)
-        msg2 = rm_indicators(msg1)
+        sentences = msg.split('.')
+        for sent in sentences:
+            if res:
+                res = res + '. '
+            print(sent)
+            phrases = sent.split(',')
+            for ph in phrases:
+                ph0 = translate_stage0(ph)
+                ph1 = translate_stage1(ph0)
+                ph2 = rm_indicators(ph1)
+                if res:
+                    res = res + ', '
+                res = res + ph2
 
     data = {
-        'tmsg': msg2
+        'tmsg': res
     }
+
     return JsonResponse(data)
