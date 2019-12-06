@@ -13,9 +13,10 @@ def translate(req):
         for sent in sentences:
             if res:
                 res = res + '. '
-            print(sent)
             phrases = sent.split(',')
             for ph in phrases:
+                ph = adjust_text(ph)
+
                 ph0 = translate_stage0(ph)
                 ph1 = translate_stage1(ph0)
                 ph2 = rm_indicators(ph1)

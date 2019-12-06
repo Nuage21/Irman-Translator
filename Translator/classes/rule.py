@@ -26,49 +26,28 @@ iam = [
     'ahnad',
     'ahnttad',
 ]
-dico = {
-    'i': ['nekki', 'pp'],
-    'u': ['kečči', 'pp'],
-    'you': ['kečči', 'pp'],
-    'you_f': ['kemmi', 'pp'],
-    'he': ['netta', 'pp'],
-    'she': ['nettat', 'pp'],
-    'it': ['netta', 'pp'],
-    'you_p': ['kenwi', 'pp'],
-    'you_pf': ['kuntti', 'pp'],
-    'we': ['nekni', 'pp'],
-    'we_f': ['nukentti', 'pp'],
-    'they': ['nutni', 'pp'],
-    'they_f': ['nutentti', 'pp'],
-    'still': ['mazal', '0v'],
-    'but': ['maca', 'oa'],
-    'why': ['ayɣer', 'qs'],
-    'love': ['ḥemel', '0v'],
-    'drink': ['sw', '0v'],
-    'banana': ['banan', '0n'],
-    'kill': ['nɣ', '0v'],
-    'cry': ['ttru', '0v'],
-    'hit': ['wet', '0v'],
-    'to': ['ad', 'to'],
-    'suicide': ['swisid', '0v'],
-    'hate': ['kerh', '0v'],
-    'will': ['ad', '0f'],
-    'myself': ['iman-iw', 'dp'],
-    'yourself': ['iman-ik', 'pp'],
-    'himself': ['iman-is', 'pp'],
-    'themseves': ['iman-nsen', 'pp'],
-    'ourselves': ['iman-neɣ', 'pp'],
-    'crying': ['tettru', 'cv'],
-    'walking': ['teddu', 'cv'],
-    'eating': ['tečč', 'cv'],
-    'want': ['bɣ', '0v'],
-    'i\'m': ['aqli', 'im'],
-    'you\'are': ['aqlik', 'im'],
-    'he\'s': ['atan', 'im'],
-    'she\'s': ['attan', 'im'],
-    'we\'are': ['aqlaɣ', 'im'],
-    'they\'are': ['ahnad', 'im'],
-}
+
+
+def load_dico():
+    dico_file = open("Translator/static/Translator/translation_data/en_tz/dico.txt", encoding='utf-8')
+    dico = {}
+
+    for line in dico_file:
+        line = str(line)
+        splited_line = line.split(':')
+        key = splited_line[0]
+        indicators_tab = []
+        indicators = re.split(r'[^a-zA-Z0-9čǧḥɛṛṭɣẓṣ-]', splited_line[1])
+        for i in indicators:
+            if i:
+                indicators_tab.append(i)
+        dico[key] = indicators_tab
+
+    dico_file.close()
+    return dico
+
+
+dico = load_dico()
 
 
 class rule:
@@ -115,27 +94,31 @@ class rule:
         return -1
 
     def is_conditional_el(self, model_el):
+        # return '' not conditional else ex: $12 ?12 => conditional
         cndmark_found = False
         number = 0
         reversed_model_el = model_el[::-1]
-
+        mark = '?'
         for letter in reversed_model_el:
             if letter.isdigit():
                 number = 10 * number + int(letter)
             elif letter == '?' or letter == '$':
+                mark = letter
                 cndmark_found = True
                 break
             else:
                 break
-        number = int(str(number)[::-1])  # ex: 123 -> 321
+        number = mark + str(number)[::-1]  # ex: 123 -> 321
         if cndmark_found:
             return number
-        return -1
+        return ''
 
     def is_model_rest_conditional(self, model, st):  # ex: ['|pp|', |pp|?, |gg|?] -> true from 1
+        if st >= len(model):
+            return False
         is_cnd = True
         while st < len(model):
-            if self.is_conditional_el(model[st]) == -1:
+            if not self.is_conditional_el(model[st]):
                 is_cnd = False
             st = st + 1
         return is_cnd
@@ -157,11 +140,22 @@ class rule:
         brck_close = clause_el.find(']')
 
         clen = len(clause_el)
+
         conditional_matche = self.is_conditional_el(clause_el)
 
-        if conditional_matche >= 0 and (matched_buf[conditional_matche])[-1] == '$':
-            return ''
+        if conditional_matche:
+            condition_mark = conditional_matche[0]
+            condition_param = int(conditional_matche[1:])
 
+            target_pattern_el = matched_buf[condition_param]
+
+            if condition_mark == '?' and target_pattern_el[-1] == '$':
+                return ''
+            if condition_mark == '$':
+                if target_pattern_el[-1] == '$':
+                    return self.rm_suffixes(target_pattern_el)
+                else:
+                    return ''
         #  now either not conditional or conditional&exist
         if brck_open < 0 and brck_close < 0:  # no bracket
             return self.rm_suffixes(clause_el)
@@ -171,7 +165,7 @@ class rule:
         bracket_modifier = clause_el[0:2]  # get what inside the []
 
         if bracket_modifier == 'el':
-            bracket_inside = clause_el[3:clen - 1]  # ex el[32] -> 32
+            bracket_inside = clause_el[3:clause_el.find(']')]  # ex el[32] -> 32
             return self.rm_suffixes(matched_buf[int(bracket_inside)])
 
         bracket_inside = clause_el[5:clen - 1]  # get what inside the []
@@ -202,7 +196,6 @@ class rule:
                self.apply_clause(matched_buf, clause[plus_index + 1:clen])
 
     def apply(self, text):
-
         invalid_pattern_except = 'invalid pattern'
         empty_pat_model_except = 'pattern model is empty'
         no_app_except = 'rule application clause is empty'
@@ -211,7 +204,7 @@ class rule:
 
         plen = len(self.pattern)
 
-        if (not text) or (not self.pattern):
+        if not self.pattern:
             return 'exception: null pattern or text'
         pth1 = self.pattern.find('(', 0)
         if pth1 == -1:
@@ -247,7 +240,6 @@ class rule:
                 i = 0
 
             conditional_app = ((i == len(text_ctx)) and self.is_model_rest_conditional(pmodel_ctx, i))
-
             if conditional_app:
                 for j in range(len(pmodel_ctx) - i):
                     matched_buf.append('|$$|$')
@@ -264,8 +256,8 @@ class rule:
                 i = 0
                 matched_buf.clear()
 
-        result = result + ' ' + ' '.join(matched_buf)
-        return result.strip()  # remove sides spaces
+        result = (result + ' ' + ' '.join(matched_buf)).strip()
+        return result  # remove sides spaces
 
 
 rule0 = rule('if(|pp|>|0v|>|pp|?):'
@@ -283,8 +275,7 @@ rule0 = rule('if(|pp|>|0v|>|pp|?):'
              'pp_2[-iyi, wagi, tagi,-t,-t,-aɣ,-aɣ, imanwen, tigi,-ten,tent],'
              'pp_2[-iyi, wagi, tagi,0,0,-aɣ,-aɣ, wigi, imanwent,-ten,tent],'
              'pp_2[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]'
-             ']?2')
-
+             ']?2+ +el[2]$2')
 
 rule1 = rule('if(|im|>|cv|):'
              'el[0]+ +'
@@ -297,21 +288,30 @@ def translate_word(word):
         w = dico.get(word.lower())
         if w:
             return '|' + w[1] + '|' + w[0]
-        return word
+        return '|99|' + word
 
 
-def translate_stage0(text):
-    splitted = re.split(r"[^a-zA-Z0-9'.,]", text)
+def translate_stage0(phrase):
+    splitted = re.split(r"[^a-zA-Z0-9'.,]", phrase)
     result = ''
     for word in splitted:
         result = result + ' ' + translate_word(word)
     return result
+
+
+def adjust_text(txt):
+    #  remove multiple spaces and strip
+    txt = re.sub(' +', ' ', txt)
+    return txt.strip()
+
 
 def translate_stage1(text0):
     #  apply rules
     text0 = text0.strip()
     result = rule0.apply(text0)
     result = rule1.apply(result)
+
+    result = adjust_text(result)
     return result
 
 
