@@ -28,15 +28,18 @@ $(document).ready(function () {
         $('#Translater').toggleClass('dark');
         $('.areabtnholder > button').toggleClass('btn-dark');
         // toggle local storage mode only if not first time page chargement
-        if(!isNowEntered){
+        if (!isNowEntered) {
             nowMode = localStorage.getItem('irman_tapp')
             localStorage.setItem('irman_tapp', (nowMode == 'dark') ? 'light' : 'dark')
         }
     }
 
-    chargedMode = localStorage.getItem('irman_tapp')
-    if(chargedMode == 'dark')
+    let chargedMode = localStorage.getItem('irman_tapp');
+    
+    if (chargedMode == 'dark') {
+        $('#dark-check').prop('checked', true);
         toggleMode(true);
+    }
 
     $('#modeSwitcher').click(() => {
         toggleMode();
