@@ -35,7 +35,7 @@ $(document).ready(function () {
     }
 
     let chargedMode = localStorage.getItem('irman_tapp');
-    
+
     if (chargedMode == 'dark') {
         $('#dark-check').prop('checked', true);
         toggleMode(true);
