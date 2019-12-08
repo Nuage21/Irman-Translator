@@ -173,7 +173,7 @@ class rule:
         bracket_modifier = clause_el[0:2]  # get what inside the []
 
         if bracket_modifier == 'el':
-            bracket_inside = clause_el[3:clause_el.find(']')]  # ex el[32] -> 32
+            bracket_inside = clause_el[3:clause_el.rfind(']')]  # ex el[32] -> 32
             is_range = bracket_inside.find(':')
             if is_range > 0:
                 min = int(bracket_inside[0:is_range])
@@ -190,7 +190,7 @@ class rule:
                 bracket_inside = len(matched_buf) - 1
             return self.rm_suffixes(matched_buf[int(bracket_inside)])
 
-        bracket_inside = clause_el[5:clause_el.find(']')]  # get what inside the []
+        bracket_inside = clause_el[5:clause_el.rfind(']')]  # get what inside the []
         bracket_param = int(clause_el[3:4])  # ex: pp_2[] param = 2 (depends on 2d el)
 
         bracket_inside = self.split_inside_bracket(bracket_inside)
@@ -242,7 +242,7 @@ class rule:
             return exct + two_point_missing_except
         # get model context
         pmodel_ctx = self.pattern[pth1 + 1:pth2].split('>')
-        text_ctx = re.split(r"[^a-zA-z0-9ɣ'č.$ḥ|?,-]+", text)
+        text_ctx = re.split(r"[^a-zA-z0-9ɣ'čǧḥɛṛṭɣẓṣ$ḥ|?,-]+", text)
         multiple_matches_recorder = 0
         i = 0
         matched_buf = []
@@ -359,7 +359,7 @@ def adjust_text(txt):
 
 def translate_stage1(text0):
     #  apply rules
-    text0 = text0.strip()
+    text0 = adjust_text(text0)
     result = rule0.apply(text0)
     result = rule1.apply(result)
 
