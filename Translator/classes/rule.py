@@ -148,7 +148,6 @@ class rule:
             condition_param = int(conditional_matche[1:])
 
             target_pattern_el = matched_buf[condition_param]
-
             if condition_mark == '?' and target_pattern_el[-1] == '$':
                 return ''
             if condition_mark == '$':
@@ -247,7 +246,8 @@ class rule:
             if i == len(pmodel_ctx) or conditional_app:
                 # remove indicators
                 for j in range(len(matched_buf)):
-                    matched_buf[j] = (matched_buf[j])[4:]
+                    if (matched_buf[j])[0] == '|':
+                        matched_buf[j] = (matched_buf[j])[4:]
                 # apply to match
                 st = pth2 + 2  # skip ):
                 model_clause = self.pattern[st:plen]
