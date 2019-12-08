@@ -152,11 +152,11 @@ class rule:
             if condition_mark == '?' and target_pattern_el[-1] == '$':
                 return ''
             if condition_mark == '$':
-                if target_pattern_el[-1] == '$':
-                    return self.rm_suffixes(target_pattern_el)
-                else:
+                if target_pattern_el[-1] != '$':
                     return ''
-        #  now either not conditional or conditional&exist
+
+
+        #  now either not conditional or ?conditional&exist or
         if brck_open < 0 and brck_close < 0:  # no bracket
             return self.rm_suffixes(clause_el)
 
