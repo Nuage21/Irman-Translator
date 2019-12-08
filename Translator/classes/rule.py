@@ -87,14 +87,20 @@ class rule:
         if model_el[0] == '|':  # condition model
             if word[0:4] == model_el[0:4]:
                 return 0
-        if word == model_el:  # word matches model
-            return 0
+        # direct match evaluating
+        if word[0] == '|':
+            if word[4:] == model_el:  # word matches model
+                return 0
+        else:
+            if word == model_el:  # word matches model
+                return 0
+        # simple conditional (always match regardless)
         if model_el[-1] == '?':
             return 1  # matches with conditional existence
         return -1
 
     def is_conditional_el(self, model_el):
-        # return '' not conditional else ex: $12 ?12 => conditional
+        # return '' not conditional ex: $12 ?12 => conditional
         cndmark_found = False
         number = 0
         reversed_model_el = model_el[::-1]
@@ -135,6 +141,10 @@ class rule:
             return word[0:i]
         return word
 
+    def tab_rm_suffixes(self, tab):
+        for i in range(len(tab)):
+            tab[i] = self.rm_suffixes(tab[i])
+        return tab
     def apply_single_clause_el(self, matched_buf, clause_el):
         brck_open = clause_el.find('[')
         brck_close = clause_el.find(']')
@@ -154,7 +164,6 @@ class rule:
                 if target_pattern_el[-1] != '$':
                     return ''
 
-
         #  now either not conditional or ?conditional&exist or
         if brck_open < 0 and brck_close < 0:  # no bracket
             return self.rm_suffixes(clause_el)
@@ -165,9 +174,23 @@ class rule:
 
         if bracket_modifier == 'el':
             bracket_inside = clause_el[3:clause_el.find(']')]  # ex el[32] -> 32
+            is_range = bracket_inside.find(':')
+            if is_range > 0:
+                min = int(bracket_inside[0:is_range])
+                max = bracket_inside[is_range+1:]
+                if max == 'last':
+                    max = len(matched_buf) - 1
+                max = int(max)
+                composed = ''
+                while min < max:
+                    composed += self.rm_suffixes(matched_buf[min]) + ' '
+                    min = min + 1
+                return composed
+            if bracket_inside == 'last':
+                bracket_inside = len(matched_buf) - 1
             return self.rm_suffixes(matched_buf[int(bracket_inside)])
 
-        bracket_inside = clause_el[5:clen - 1]  # get what inside the []
+        bracket_inside = clause_el[5:clause_el.find(']')]  # get what inside the []
         bracket_param = int(clause_el[3:4])  # ex: pp_2[] param = 2 (depends on 2d el)
 
         bracket_inside = self.split_inside_bracket(bracket_inside)
@@ -220,23 +243,51 @@ class rule:
         # get model context
         pmodel_ctx = self.pattern[pth1 + 1:pth2].split('>')
         text_ctx = re.split(r"[^a-zA-z0-9ɣ'č.$ḥ|?,-]+", text)
-
+        multiple_matches_recorder = 0
         i = 0
         matched_buf = []
         result = ''
+
         for word in text_ctx:
+
+            if multiple_matches_recorder == 1:  # max conditionals reached
+                i = i + 1
+                multiple_matches_recorder = 0
+
             matches = self.it_matches(word, pmodel_ctx[i])
 
             if matches == 0:
                 matched_buf.append(word)
                 i = i + 1
             elif matches == 1:
-                matched_buf.append(word + '$')  # $ for conditional matching
+                matched_buf.append(word + '$')  # $ single for conditional matching
                 i = i + 1
             else:
-                result = result + ' '.join(matched_buf) + ' ' + word
-                matched_buf.clear()
-                i = 0
+                is_conditional = self.is_conditional_el(pmodel_ctx[i])
+                if is_conditional:
+                    if self.it_matches(word, pmodel_ctx[i + 1]) == 0:
+                        # two conditions to stop evaluating multiple conditionals
+                        # 1. we reach the max of multiples
+                        # 2. next pattern_el typo matches with current word
+                        i = i + 2
+                        multiple_matches_recorder = 0
+                        matched_buf.append(word)
+                    else:
+                        if multiple_matches_recorder > 1:
+                            matched_buf.append(word + '$')
+                            multiple_matches_recorder = multiple_matches_recorder - 1
+                        else:
+                            # mark = is_conditional[0]
+                            parameter = int(is_conditional[1:])
+                            matched_buf.append(word + '$')
+                            multiple_matches_recorder = parameter  # already affected one
+
+                else:
+                    # no match at all (not direct, not conditional)
+                    matched_buf = self.tab_rm_suffixes(matched_buf)
+                    result = result + ' '.join(matched_buf) + ' ' + word
+                    matched_buf.clear()
+                    i = 0
 
             conditional_app = ((i == len(text_ctx)) and self.is_model_rest_conditional(pmodel_ctx, i))
             if conditional_app:
@@ -256,6 +307,7 @@ class rule:
                 i = 0
                 matched_buf.clear()
 
+        matched_buf = self.tab_rm_suffixes(matched_buf)
         result = (result + ' ' + ' '.join(matched_buf)).strip()
         return result  # remove sides spaces
 
@@ -277,10 +329,10 @@ rule0 = rule('if(|pp|>|0v|>|pp|?):'
              'pp_2[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]'
              ']?2+ +el[2]$2')
 
-rule1 = rule('if(|im|>|cv|):'
+rule1 = rule('if(|im|>|mm|?0>|cv|):'
              'el[0]+ +'
-             'im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]'
-             '+el[1]'
+             'im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+ +el[1:last]+ +'
+             '+el[last]'
              '+im_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]')
 
 def translate_word(word):
