@@ -99,13 +99,20 @@ class rule:
             return 1  # matches with conditional existence
         return -1
 
-    def is_conditional_el(self, model_el):
+    def is_conditional_el(self, model_el, matched_buf_len):
         # return '' not conditional ex: $12 ?12 => conditional
+        if not model_el:
+            return False
+
         cndmark_found = False
         number = 0
         reversed_model_el = model_el[::-1]
+        st = 0
+        if reversed_model_el[0] == 'r' and (
+                reversed_model_el[1].isdigit() or reversed_model_el[1] == '$' or reversed_model_el[1] == '?'):
+            st = 1
         mark = '?'
-        for letter in reversed_model_el:
+        for letter in reversed_model_el[st:]:
             if letter.isdigit():
                 number = 10 * number + int(letter)
             elif letter == '?' or letter == '$':
@@ -114,7 +121,10 @@ class rule:
                 break
             else:
                 break
-        number = mark + str(number)[::-1]  # ex: 123 -> 321
+        if st == 1:
+            number = mark + str(matched_buf_len - 1 - number)[::-1]  # ex: 123 -> 321
+        else:
+            number = mark + str(number)[::-1]  # ex: 123 -> 321
         if cndmark_found:
             return number
         return ''
@@ -124,7 +134,8 @@ class rule:
             return False
         is_cnd = True
         while st < len(model):
-            if not self.is_conditional_el(model[st]):
+            # 5 is optional, just to run the method, since we only interested in True or False
+            if not self.is_conditional_el(model[st], 5):
                 is_cnd = False
             st = st + 1
         return is_cnd
@@ -145,18 +156,33 @@ class rule:
         for i in range(len(tab)):
             tab[i] = self.rm_suffixes(tab[i])
         return tab
+
+    def eval_param(self, param, matched_buf_size):
+        # exemple for param = '3r' return third from last, for param = 2 return 2;
+        real_param = param
+        is_reverse = param.find('r')
+        if is_reverse == 0:
+            real_param = matched_buf_size - 1
+        elif is_reverse > 0:
+            real_param = matched_buf_size - 1 - int(param[0:is_reverse])
+        real_param = int(real_param)
+        return real_param
+
     def apply_single_clause_el(self, matched_buf, clause_el):
         brck_open = clause_el.find('[')
         brck_close = clause_el.find(']')
 
         clen = len(clause_el)
+        mlen = len(matched_buf)
 
-        conditional_matche = self.is_conditional_el(clause_el)
+        conditional_matche = self.is_conditional_el(clause_el, mlen)
 
         if conditional_matche:
             condition_mark = conditional_matche[0]
             condition_param = int(conditional_matche[1:])
 
+            if condition_param >= len(matched_buf):
+                return ''
             target_pattern_el = matched_buf[condition_param]
             if condition_mark == '?' and target_pattern_el[-1] == '$':
                 return ''
@@ -177,21 +203,23 @@ class rule:
             is_range = bracket_inside.find(':')
             if is_range > 0:
                 min = int(bracket_inside[0:is_range])
-                max = bracket_inside[is_range+1:]
-                if max == 'last':
-                    max = len(matched_buf) - 1
-                max = int(max)
+                max = self.eval_param(bracket_inside[is_range + 1:], mlen)
                 composed = ''
                 while min < max:
                     composed += self.rm_suffixes(matched_buf[min]) + ' '
                     min = min + 1
                 return composed
-            if bracket_inside == 'last':
-                bracket_inside = len(matched_buf) - 1
+
+            # if not range
+            bracket_inside = self.eval_param(bracket_inside, mlen)
             return self.rm_suffixes(matched_buf[int(bracket_inside)])
 
-        bracket_inside = clause_el[5:clause_el.rfind(']')]  # get what inside the []
-        bracket_param = int(clause_el[3:4])  # ex: pp_2[] param = 2 (depends on 2d el)
+        open_bracket_index = clause_el.find('[')
+
+        bracket_inside = clause_el[open_bracket_index + 1:clause_el.rfind(']')]  # get what inside the []
+        bracket_param = clause_el[3:open_bracket_index]  # ex: pp_2[] param = 2 (depends on 2d el)
+
+        bracket_param = self.eval_param(bracket_param, mlen)  # eval: forex 2r -> mlen-3
 
         bracket_inside = self.split_inside_bracket(bracket_inside)
         bracket_param_tab = self.get_param_tab(bracket_modifier)  # ex: personal pronouns tab
@@ -216,6 +244,20 @@ class rule:
         first_clause_applied = self.apply_single_clause_el(matched_buf, first_clause_el)
         return first_clause_applied + \
                self.apply_clause(matched_buf, clause[plus_index + 1:clen])
+
+    def no_direct_match_after(self, model, i, phrase_ctx, j):
+        no_match = True
+        mlen = len(model)
+        plen = len(phrase_ctx)
+        tmpi = i
+        while j < plen:
+            while i < mlen:
+                if self.it_matches(phrase_ctx[j], model[i]) == 0:
+                    return False
+                i = i + 1
+            i = tmpi
+            j = j + 1
+        return no_match
 
     def apply(self, text):
         invalid_pattern_except = 'invalid pattern'
@@ -244,12 +286,12 @@ class rule:
         pmodel_ctx = self.pattern[pth1 + 1:pth2].split('>')
         text_ctx = re.split(r"[^a-zA-z0-9ɣ'čǧḥɛṛṭɣẓṣ$ḥ|?,-]+", text)
         multiple_matches_recorder = 0
-        i = 0
+        i = 0  # iterates over model_els
+        j = 0  # to keep text_ctx current pos
         matched_buf = []
         result = ''
 
         for word in text_ctx:
-
             if multiple_matches_recorder == 1:  # max conditionals reached
                 i = i + 1
                 multiple_matches_recorder = 0
@@ -263,7 +305,7 @@ class rule:
                 matched_buf.append(word + '$')  # $ single for conditional matching
                 i = i + 1
             else:
-                is_conditional = self.is_conditional_el(pmodel_ctx[i])
+                is_conditional = self.is_conditional_el(pmodel_ctx[i], 5)  # 5 is optional
                 if is_conditional:
                     if self.it_matches(word, pmodel_ctx[i + 1]) == 0:
                         # two conditions to stop evaluating multiple conditionals
@@ -289,7 +331,11 @@ class rule:
                     matched_buf.clear()
                     i = 0
 
-            conditional_app = ((i == len(text_ctx)) and self.is_model_rest_conditional(pmodel_ctx, i))
+            conditional_app = self.is_model_rest_conditional(pmodel_ctx, i) and self.no_direct_match_after(pmodel_ctx,
+                                                                                                           i, text_ctx,
+                                                                                                           j)
+            j = j + 1  # word pos at text_ctx goes next
+
             if conditional_app:
                 for j in range(len(pmodel_ctx) - i):
                     matched_buf.append('|$$|$')
@@ -312,28 +358,33 @@ class rule:
         return result  # remove sides spaces
 
 
-rule0 = rule('if(|pp|>|0v|>|pp|?):'
+rule0 = rule('if(|pp|>|00|?0>|0v|>|pp|?):el[0]$1+ +el[1:1r]+ +'
              'pp_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]'
-             '+el[1]'
+             '+el[1r]'
              '+pp_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]'
              '+pp_0['
-             'pp_2[-imaniw,-k,-kem,-t,-t, nekni, nukentti,ken,kentt,ten,tent],'
-             'pp_2[-iyi, imanik,0,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],'
-             'pp_2[-iyi, wagi, imanim,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],'
-             'pp_2[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
-             'pp_2[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
-             'pp_2[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
-             'pp_2[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
-             'pp_2[-iyi, wagi, tagi,-t,-t,-aɣ,-aɣ, imanwen, tigi,-ten,tent],'
-             'pp_2[-iyi, wagi, tagi,0,0,-aɣ,-aɣ, wigi, imanwent,-ten,tent],'
-             'pp_2[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]'
-             ']?2+ +el[2]$2')
+             'pp_0r[-imaniw,-k,-kem,-t,-t, nekni, nukentti,ken,kentt,ten,tent],'
+             'pp_0r[-iyi, imanik,0,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],'
+             'pp_0r[-iyi, wagi, imanim,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],'
+             'pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
+             'pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
+             'pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
+             'pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
+             'pp_0r[-iyi, wagi, tagi,-t,-t,-aɣ,-aɣ, imanwen, tigi,-ten,tent],'
+             'pp_0r[-iyi, wagi, tagi,0,0,-aɣ,-aɣ, wigi, imanwent,-ten,tent],'
+             'pp_0r[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]'
+             ']?0r+ +el[0r]$0r')
 
-rule1 = rule('if(|im|>|mm|?0>|cv|):'
+rule1 = rule('if(|im|>|00|?0>|cv|):'
              'el[0]+ +'
-             'im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+ +el[1:last]+ +'
-             '+el[last]'
+             'im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+ +el[1:0r]+ +'
+             '+el[0r]'
              '+im_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]')
+
+rule2 = rule('if(|sp|>|mn|):el[1]+el[0]')
+
+
+rule_list = [rule0, rule1, rule2]
 
 def translate_word(word):
     for w in dico:
@@ -360,8 +411,9 @@ def adjust_text(txt):
 def translate_stage1(text0):
     #  apply rules
     text0 = adjust_text(text0)
-    result = rule0.apply(text0)
-    result = rule1.apply(result)
+    result = text0
+    for r in rule_list:
+        result = r.apply(result)
 
     result = adjust_text(result)
     return result
