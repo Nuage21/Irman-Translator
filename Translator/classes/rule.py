@@ -396,18 +396,36 @@ rule1 = rule('if(|pp|>|im|):|im|+pp_0[aqli,aqlik,aqlikem,atan,attan,aqlaÉ£,aqlaÉ
 
 rule4 = rule('if(|da|>|mn|):el[1]+-+el[0]')
 
-rule_list = [rule0, rule1, rule2, rule3, rule4]
+rule5 = rule('if(|fn|):|fn|+t+el[0]+t')
+
+rule_list = [rule5, rule0, rule1, rule2, rule3, rule4]
 
 
-def translate_word(word):
-    for w in dico:
-        w = dico.get(word.lower())
-        if w:
-            return '|' + w[1] + '|' + w[0]
-        return '|99|' + word
+def translate_word(word0):
+    word = word0.lower()
+
+    w = dico.get(word)
+
+    if not w:
+        # treat plural nouns
+        if word[-1] == 's':  # ex: houses -> (not found) -> seek house
+            word = word[:-1]
+            w = dico.get(word)
+            if w:
+                word_tr = w[0]
+                if w[1] == 'mn':
+                    w[0] = 'i' + word_tr[1:] + 'en'
+                    w[1] = 'pn'
+                elif w[1] == 'fn':
+                    w[0] = 'ti' + word_tr[1:] + 'in'
+                    w[1] = 'pn'
+    if w:
+        return '|' + w[1] + '|' + w[0]
+
+    return '|99|' + word0
 
 
-def translate_stage0(phrase): # map a phrase with correspondants
+def translate_stage0(phrase):  # map a phrase with corespondents
     splitted = re.split(r"[^a-zA-Z0-9'.,]", phrase)
     result = ''
     for word in splitted:
