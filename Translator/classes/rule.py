@@ -85,9 +85,26 @@ class rule:
         if not model_el:
             return 0
         if model_el[0] == '|':  # classification match
-            if word[0:word.rfind('|') + 1] == model_el[0:model_el.rfind('|') + 1]:
-                return 0
+            word_closed_classifier = word.rfind('|')
+            model_closed_classifier = model_el.rfind('|')
 
+            for i in range(max(word_closed_classifier, model_closed_classifier)):
+                if i >= model_closed_classifier:
+                    return -1
+                elif i >= word_closed_classifier:
+                    is_rest_model_conditional = True
+                    j = i
+                    while j <model_closed_classifier:
+                        if model_el[j] != 'X':
+                            is_rest_model_conditional = False
+                        j = j + 1
+                    if is_rest_model_conditional:
+                        return 0
+                    else:
+                        return -1
+                if model_el[i] != 'X' and model_el[i] != word[i]:  # X matches anything
+                    return -1
+            return 0
         # direct match evaluating (omit classification)
         if word[0] == '|':
             if word[word.rfind('|') + 1:] == model_el:  # word matches model
@@ -374,7 +391,7 @@ class rule:
         return result, status  # remove sides spaces
 
 
-rule0 = rule('if(|pp|>|00|?0>|0v|>|pp|?):el[0]$1+ +el[1:1r]$1+ +'
+rule0 = rule('if(|pp|>|00|?0>|v0|>|pp|?):el[0]$1+ +el[1:1r]$1+ +'
              'pp_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]'
              '+el[1r]'
              '+pp_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]'
@@ -391,19 +408,19 @@ rule0 = rule('if(|pp|>|00|?0>|0v|>|pp|?):el[0]$1+ +el[1:1r]$1+ +'
              'pp_0r[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]'
              ']?0r+ +el[0r]$0r')
 
-rule2 = rule('if(|im|>|00|?0>|cv|):'
+rule2 = rule('if(|im|>|00|?0>|vc|):'
              'el[0]+ +el[1:0r]+ +'
              'im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]'
              '+el[0r]'
              '+im_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]')
 
-rule3 = rule('if(|sp|>|mn|):el[1]+el[0]')
+rule3 = rule('if(|p_possessive|>|nXXXXXX|):el[1]+el[0]')
 
 rule1 = rule('if(|pp|>|im|):|im|+pp_0[aqli,aqlik,aqlikem,atan,attan,aqlaɣ,aqlaɣ,aqlikun,aqlikunt,atnad,atenttad]')
 
-rule4 = rule('if(|da|>|mn|):el[1]+-+el[0]')
+rule4 = rule('if(|a_demonstrative|>|nXX|):el[1]+-+el[0]')
 
-rule5 = rule('if(|fn|):t+el[0]+t')
+rule5 = rule('if(|nfs|):|nfs_irr|t+el[0]+t')
 
 rule_list = [rule5, rule0, rule1, rule2, rule3, rule4]
 
@@ -427,12 +444,13 @@ def translate_word(word0):
             w = dico.get(word)
             if w:
                 word_tr = w[0]
-                if w[1] == 'mn':
+                if w[1] == 'nms':
                     word_translation = 'i' + word_tr[1:] + 'en'
-                    word_classifier = 'pmn'
-                elif w[1] == 'fn':
+                    word_classifier = 'nmp'
+                elif w[1] == 'nfs':
                     word_translation = 'ti' + word_tr[1:] + 'in'
-                    word_classifier = 'pfn'
+                    word_classifier = 'nfp'
+    print('|' + word_classifier + '|' + word_translation)
     if w:
         return '|' + word_classifier + '|' + word_translation
 
