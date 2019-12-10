@@ -260,28 +260,34 @@ class rule:
         return no_match
 
     def apply(self, text):
-        invalid_pattern_except = 'invalid pattern'
-        empty_pat_model_except = 'pattern model is empty'
-        no_app_except = 'rule application clause is empty'
-        two_point_missing_except = '\':\' missing after model clause'
-        exct = 'exception: '
+        err_invalid_pattern = 'invalid pattern'
+        err_empty_pat_model = 'pattern model is empty'
+        err_no_app = 'rule application clause is empty'
+        err_null_patter_or_text = 'rule application clause is empty'
+        err_two_point_missing = '\':\' missing after model clause'
+
+        status = -1  # =0 => smth has been applied
+        # =-1 => nothing has been applied (same text returned)
+        # =1 => an error has occured
+        # nothing applied by default
 
         plen = len(self.pattern)
 
         if not self.pattern:
-            return 'exception: null pattern or text'
+            return err_null_patter_or_text, status
         pth1 = self.pattern.find('(', 0)
         if pth1 == -1:
-            return exct + invalid_pattern_except
+            return err_invalid_pattern, 1  # if clause no parethesed
         pth2 = self.pattern.find(')', pth1)
         if pth2 < pth1:
-            return exct + invalid_pattern_except
+            return err_invalid_pattern, 1  # if clause unclosed parenthese
         if pth2 == pth1 + 1:
-            return exct + empty_pat_model_except
+            return err_empty_pat_model, 1  # nothing inside if clause
         if pth2 == plen - 1:
-            return exct + no_app_except
+            return err_no_app, 1  # no if clause application
         if self.pattern[pth2 + 1] != ':':
-            return exct + two_point_missing_except
+            return err_two_point_missing, 1  # : missing
+
         # get model context
         pmodel_ctx = self.pattern[pth1 + 1:pth2].split('>')
         text_ctx = re.split(r"[^a-zA-z0-9ɣ'čǧḥɛṛṭɣẓṣ$ḥ|?,-]+", text)
@@ -289,6 +295,7 @@ class rule:
         i = 0  # iterates over model_els
         j = 0  # to keep text_ctx current pos
         matched_buf = []
+
         result = ''
 
         for word in text_ctx:
@@ -341,6 +348,8 @@ class rule:
                     matched_buf.append('|$$|$')
 
             if i == len(pmodel_ctx) or conditional_app:
+                status = 0  # smth has changed
+
                 # remove indicators
                 for j in range(len(matched_buf)):
                     if (matched_buf[j])[0] == '|':
@@ -355,10 +364,10 @@ class rule:
 
         matched_buf = self.tab_rm_suffixes(matched_buf)
         result = (result + ' ' + ' '.join(matched_buf)).strip()
-        return result  # remove sides spaces
+        return result, status  # remove sides spaces
 
 
-rule0 = rule('if(|pp|>|00|?0>|0v|>|pp|?):el[0]$1+ +el[1:1r]+ +'
+rule0 = rule('if(|pp|>|00|?0>|0v|>|pp|?):el[0]$1+ +el[1:1r]$1+ +'
              'pp_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]'
              '+el[1r]'
              '+pp_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]'
@@ -375,16 +384,20 @@ rule0 = rule('if(|pp|>|00|?0>|0v|>|pp|?):el[0]$1+ +el[1:1r]+ +'
              'pp_0r[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]'
              ']?0r+ +el[0r]$0r')
 
-rule1 = rule('if(|im|>|00|?0>|cv|):'
-             'el[0]+ +'
-             'im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+ +el[1:0r]+ +'
+rule2 = rule('if(|im|>|00|?0>|cv|):'
+             'el[0]+ +el[1:0r]+ +'
+             'im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]'
              '+el[0r]'
              '+im_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]')
 
-rule2 = rule('if(|sp|>|mn|):el[1]+el[0]')
+rule3 = rule('if(|sp|>|mn|):el[1]+el[0]')
 
+rule1 = rule('if(|pp|>|im|):|im|+pp_0[aqli,aqlik,aqlikem,atan,attan,aqlaɣ,aqlaɣ,aqlikun,aqlikunt,atnad,atenttad]')
 
-rule_list = [rule0, rule1, rule2]
+rule4 = rule('if(|da|>|mn|):el[1]+-+el[0]')
+
+rule_list = [rule0, rule1, rule2, rule3, rule4]
+
 
 def translate_word(word):
     for w in dico:
@@ -394,7 +407,7 @@ def translate_word(word):
         return '|99|' + word
 
 
-def translate_stage0(phrase):
+def translate_stage0(phrase): # map a phrase with correspondants
     splitted = re.split(r"[^a-zA-Z0-9'.,]", phrase)
     result = ''
     for word in splitted:
@@ -413,7 +426,7 @@ def translate_stage1(text0):
     text0 = adjust_text(text0)
     result = text0
     for r in rule_list:
-        result = r.apply(result)
+        result, status = r.apply(result)
 
     result = adjust_text(result)
     return result
