@@ -1,4 +1,5 @@
 import re
+from xml.dom import minidom
 
 personal_p = [
     'nekki',
@@ -94,7 +95,7 @@ class rule:
                 elif i >= word_closed_classifier:
                     is_rest_model_conditional = True
                     j = i
-                    while j <model_closed_classifier:
+                    while j < model_closed_classifier:
                         if model_el[j] != 'X':
                             is_rest_model_conditional = False
                         j = j + 1
@@ -391,39 +392,16 @@ class rule:
         return result, status  # remove sides spaces
 
 
-rule0 = rule('if(|pp|>|00|?0>|v0|>|pp|?):el[0]$1+ +el[1:1r]$1+ +'
-             'pp_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]'
-             '+el[1r]'
-             '+pp_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]'
-             '+pp_0['
-             'pp_0r[-imaniw,-k,-kem,-t,-t, nekni, nukentti,ken,kentt,ten,tent],'
-             'pp_0r[-iyi, imanik,0,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],'
-             'pp_0r[-iyi, wagi, imanim,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],'
-             'pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
-             'pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
-             'pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
-             'pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],'
-             'pp_0r[-iyi, wagi, tagi,-t,-t,-aɣ,-aɣ, imanwen, tigi,-ten,tent],'
-             'pp_0r[-iyi, wagi, tagi,0,0,-aɣ,-aɣ, wigi, imanwent,-ten,tent],'
-             'pp_0r[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]'
-             ']?0r+ +el[0r]$0r')
+def xml_load_rule_list():
+    rules_list = []
+    root = minidom.parse('Translator/static/Translator/translation_data/en_tz/rules.xml')
+    for rule_node in root.getElementsByTagName('rule'):
+        rule_core = str(rule_node.firstChild.data).rstrip()
+        rules_list.append(rule(rule_core))
+    return rules_list
 
-rule2 = rule('if(|im|>|00|?0>|vc|):'
-             'el[0]+ +el[1:0r]+ +'
-             'im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]'
-             '+el[0r]'
-             '+im_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]')
 
-rule3 = rule('if(|p_possessive|>|nXXXXXX|):el[1]+el[0]')
-
-rule1 = rule('if(|pp|>|im|):|im|+pp_0[aqli,aqlik,aqlikem,atan,attan,aqlaɣ,aqlaɣ,aqlikun,aqlikunt,atnad,atenttad]')
-
-rule4 = rule('if(|a_demonstrative|>|nXX|):el[1]+-+el[0]')
-
-rule5 = rule('if(|nfs|):|nfs_irr|t+el[0]+t')
-
-rule_list = [rule5, rule0, rule1, rule2, rule3, rule4]
-
+rule_list = xml_load_rule_list()
 
 def translate_word(word0):
     word = word0.lower()
@@ -450,7 +428,6 @@ def translate_word(word0):
                 elif w[1] == 'nfs':
                     word_translation = 'ti' + word_tr[1:] + 'in'
                     word_classifier = 'nfp'
-    print('|' + word_classifier + '|' + word_translation)
     if w:
         return '|' + word_classifier + '|' + word_translation
 
