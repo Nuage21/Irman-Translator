@@ -37,7 +37,7 @@ def load_dico():
         splited_line = line.split(':')
         key = splited_line[0]
         indicators_tab = []
-        indicators = re.split(r'[^a-zA-Z0-9čǧḥɛṛṭɣẓṣ-]', splited_line[1])
+        indicators = re.split(r'[^_a-zA-Z0-9čǧḥɛṛṭɣẓṣ-]', splited_line[1])
         for i in indicators:
             if i:
                 indicators_tab.append(i)
@@ -84,17 +84,20 @@ class rule:
     def it_matches(self, word, model_el):
         if not model_el:
             return 0
-        if model_el[0] == '|':  # condition model
-            if word[0:4] == model_el[0:4]:
+        if model_el[0] == '|':  # classification match
+            if word[0:word.rfind('|') + 1] == model_el[0:model_el.rfind('|') + 1]:
                 return 0
-        # direct match evaluating
+
+        # direct match evaluating (omit classification)
         if word[0] == '|':
-            if word[4:] == model_el:  # word matches model
+            if word[word.rfind('|') + 1:] == model_el:  # word matches model
                 return 0
-        else:
-            if word == model_el:  # word matches model
-                return 0
-        # simple conditional (always match regardless)
+
+        elif word == model_el:  # word matches model
+            return 0
+
+        # simple conditional (always match regardless of everything)
+        # rem: direct match is prefered over conditional, so that is tested last
         if model_el[-1] == '?':
             return 1  # matches with conditional existence
         return -1
@@ -196,10 +199,17 @@ class rule:
 
         if brck_close < brck_open or brck_open < 2:
             return '[exception: invalid model clause non closed bracket]'
-        bracket_modifier = clause_el[0:2]  # get what inside the []
+
+        bracket_underscore_index = clause_el.find('_')
+        bracket_modifier_delimiter = brck_open
+        if bracket_underscore_index > 0:
+            bracket_modifier_delimiter = bracket_underscore_index
+
+        bracket_modifier = clause_el[0:bracket_modifier_delimiter]  # get what inside the []
+
+        bracket_inside = clause_el[brck_open + 1:clause_el.rfind(']')]  # ex el[32] -> 32
 
         if bracket_modifier == 'el':
-            bracket_inside = clause_el[3:clause_el.rfind(']')]  # ex el[32] -> 32
             is_range = bracket_inside.find(':')
             if is_range > 0:
                 min = int(bracket_inside[0:is_range])
@@ -214,12 +224,9 @@ class rule:
             bracket_inside = self.eval_param(bracket_inside, mlen)
             return self.rm_suffixes(matched_buf[int(bracket_inside)])
 
-        open_bracket_index = clause_el.find('[')
+        bracket_param = clause_el[bracket_underscore_index + 1:brck_open]  # ex: pp_2[] param = 2 (depends on 2d el)
 
-        bracket_inside = clause_el[open_bracket_index + 1:clause_el.rfind(']')]  # get what inside the []
-        bracket_param = clause_el[3:open_bracket_index]  # ex: pp_2[] param = 2 (depends on 2d el)
-
-        bracket_param = self.eval_param(bracket_param, mlen)  # eval: forex 2r -> mlen-3
+        bracket_param = self.eval_param(bracket_param, mlen)  # eval: ex 2r -> mlen-3
 
         bracket_inside = self.split_inside_bracket(bracket_inside)
         bracket_param_tab = self.get_param_tab(bracket_modifier)  # ex: personal pronouns tab
@@ -353,7 +360,7 @@ class rule:
                 # remove indicators
                 for j in range(len(matched_buf)):
                     if (matched_buf[j])[0] == '|':
-                        matched_buf[j] = (matched_buf[j])[4:]
+                        matched_buf[j] = (matched_buf[j])[matched_buf[j].rfind('|') + 1:]
                 # apply to match
                 st = pth2 + 2  # skip ):
                 model_clause = self.pattern[st:plen]
@@ -396,7 +403,7 @@ rule1 = rule('if(|pp|>|im|):|im|+pp_0[aqli,aqlik,aqlikem,atan,attan,aqlaɣ,aqla�
 
 rule4 = rule('if(|da|>|mn|):el[1]+-+el[0]')
 
-rule5 = rule('if(|fn|):|fn|+t+el[0]+t')
+rule5 = rule('if(|fn|):t+el[0]+t')
 
 rule_list = [rule5, rule0, rule1, rule2, rule3, rule4]
 
@@ -406,7 +413,14 @@ def translate_word(word0):
 
     w = dico.get(word)
 
-    if not w:
+    word_translation = ''
+    word_classifier = ''
+
+    if w:
+        word_translation = w[0]
+        word_classifier = w[1]
+
+    else:
         # treat plural nouns
         if word[-1] == 's':  # ex: houses -> (not found) -> seek house
             word = word[:-1]
@@ -414,13 +428,13 @@ def translate_word(word0):
             if w:
                 word_tr = w[0]
                 if w[1] == 'mn':
-                    w[0] = 'i' + word_tr[1:] + 'en'
-                    w[1] = 'pn'
+                    word_translation = 'i' + word_tr[1:] + 'en'
+                    word_classifier = 'pmn'
                 elif w[1] == 'fn':
-                    w[0] = 'ti' + word_tr[1:] + 'in'
-                    w[1] = 'pn'
+                    word_translation = 'ti' + word_tr[1:] + 'in'
+                    word_classifier = 'pfn'
     if w:
-        return '|' + w[1] + '|' + w[0]
+        return '|' + word_classifier + '|' + word_translation
 
     return '|99|' + word0
 
@@ -460,8 +474,6 @@ def rm_indicators(text):
             if bar_ind0 < 0:
                 bar_ind0 = i
             else:
-                if i - bar_ind0 != 3:
-                    result = result + after_bar
                 bar_ind0 = -1
                 after_bar = ''
         else:
