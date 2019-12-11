@@ -196,7 +196,6 @@ class rule:
         return real_param
 
     def apply_single_clause_el(self, matched_buf, clause_el):
-        print(matched_buf)
         brck_open = clause_el.find('[')
         brck_close = clause_el.find(']')
 
@@ -239,7 +238,7 @@ class rule:
             if is_range > 0:
                 min = int(bracket_inside[0:is_range])
                 max = self.eval_param(bracket_inside[is_range + 1:], mlen)
-                composed = ''
+                composed = ' '
                 while min < max:
                     composed += self.rm_suffixes(matched_buf[min]) + ' '
                     min = min + 1
@@ -320,6 +319,18 @@ class rule:
         if self.pattern[pth2 + 1] != ':':
             return err_two_point_missing, 1  # : missing
 
+        # ERRORS_TREATED
+
+        def correct_matched_buf(buf):
+            # no match at all (not direct, not conditional)
+            buf = self.tab_rm_suffixes(buf)
+
+            # remove conditionally loaded into matched_buf
+            for k in range(len(buf)):
+                if buf[k] == '|$$|':
+                    buf[k] = ''
+            return buf
+
         # get model context
         pmodel_ctx = self.pattern[pth1 + 1:pth2].split('>')
         text_ctx = re.split(r"[^a-zA-z0-9ɣ'čǧḥḍɛṛṭɣẓṣ$ḥ|?,-]+", text)
@@ -329,14 +340,12 @@ class rule:
         matched_buf = []
 
         result = ''
-        print('_____________________________________', text_ctx)
         for word in text_ctx:
             if multiple_matches_recorder == 1:  # max conditionals reached
                 i = i + 1
                 multiple_matches_recorder = 0
 
             matches = self.it_matches(word, pmodel_ctx[i])
-            print(word, ' vs ', pmodel_ctx[i], ' = ', matches)
             if matches == 0:
                 matched_buf.append(word)
                 i = i + 1
@@ -371,15 +380,8 @@ class rule:
 
                 else:
 
-                    # no match at all (not direct, not conditional)
-                    matched_buf = self.tab_rm_suffixes(matched_buf)
-
-                    # remove conditionally loaded into matched_buf
-                    for k in range(len(matched_buf)):
-                        if matched_buf[k] == '|$$|':
-                            matched_buf[k] = ''
-
-                    result = result + ' '.join(matched_buf) + ' ' + word
+                    matched_buf = correct_matched_buf(matched_buf)
+                    result = result + ' ' + ' '.join(matched_buf) + ' ' + word + ' '
                     matched_buf.clear()
                     i = 0
 
@@ -403,15 +405,10 @@ class rule:
                 st = pth2 + 2  # skip ):
                 model_clause = self.pattern[st:plen]
                 applied = self.apply_clause(matched_buf, model_clause)
-                result = result + ' ' + applied
+                result = result + ' ' + applied + ' '
                 i = 0
                 matched_buf.clear()
-
-        matched_buf = self.tab_rm_suffixes(matched_buf)
-        for k in range(len(matched_buf)):
-            if matched_buf[k] == '|$$|':
-                matched_buf[k] = ''
-
+        matched_buf = correct_matched_buf(matched_buf)
         result = (result + ' ' + ' '.join(matched_buf)).strip()
         return result, status  # remove sides spaces
 
