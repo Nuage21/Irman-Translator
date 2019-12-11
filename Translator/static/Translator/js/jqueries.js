@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     if (navigator.appVersion.indexOf("Edge") != -1) {
@@ -14,7 +13,8 @@ $(document).ready(function () {
     $('#latinbtn').click(() => {
         $('.tifibox').fadeOut(300, () => $('.latinbox').show());
     });
-    $('#modeSwitcher').click(() => {
+
+    var toggleMode = (isNowEntered) => {
         $('.side-app-btn').toggleClass('btn-dark');
         $('#MainApp').toggleClass('dark');
         $('#App').toggleClass('dark');
@@ -27,24 +27,42 @@ $(document).ready(function () {
         $('.down-input').toggleClass('dark');
         $('#Translater').toggleClass('dark');
         $('.areabtnholder > button').toggleClass('btn-dark');
+        // toggle local storage mode only if not first time page chargement
+        if (!isNowEntered) {
+            nowMode = localStorage.getItem('irman_tapp')
+            localStorage.setItem('irman_tapp', (nowMode == 'dark') ? 'light' : 'dark')
+        }
+    }
+
+    let chargedMode = localStorage.getItem('irman_tapp');
+
+    if (chargedMode == 'dark') {
+        $('#dark-check').prop('checked', true);
+        toggleMode(true);
+    }
+
+    $('#modeSwitcher').click(() => {
+        toggleMode();
     });
 
     // Translation ajax here
 
-    $('#from-lng').on('keyup', (key)=> {
+    $('#from-lng').on('keyup', (key) => {
         var msg = $('#from-lng').val();
         console.log(msg);
 
-        $.ajax({
-            url: '/translator/ajax/translate/',
-            data: {
-                'msg': msg
-            },
-            dataType: 'json',
-            success:  (data) => {
-                $('#to-lng').val(data.tmsg);
-            }
-        });
+        if (alphasApp.$data.fromLng == eng) {
+            $.ajax({
+                url: '/translator/ajax/translate/',
+                data: {
+                    'msg': msg
+                },
+                dataType: 'json',
+                success: (data) => {
+                    $('#to-lng').val(data.tmsg);
+                }
+            });
+        }
     });
 
 });

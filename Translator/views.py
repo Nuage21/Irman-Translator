@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.template.defaulttags import register
 from xml.dom import minidom
-from django.http import JsonResponse
 
 class LanguagesXml:
     root = minidom.parse('Translator/static/Translator/lng.xml')
@@ -32,15 +31,6 @@ LNG = LanguagesXml()
 @register.simple_tag
 def get_item(obj, lng, attr):
     return obj.get(lng, attr)
-
-
-def Translate(req):
-    msg = req.GET['msg']
-    msg = str(msg)
-    data = {
-        'tmsg': msg[::-1]
-    }
-    return JsonResponse(data)
 
 
 def index(req):
