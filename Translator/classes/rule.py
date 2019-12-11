@@ -38,7 +38,7 @@ def load_dico():
         splited_line = line.split(':')
         key = splited_line[0]
         indicators_tab = []
-        indicators = re.split(r'[^_a-zA-Z0-9čǧḥɛṛṭɣẓṣ-]', splited_line[1])
+        indicators = re.split(r'[^_a-zA-Z0-9čǧḥḍɛṛṭɣẓṣ-]', splited_line[1])
         for i in indicators:
             if i:
                 indicators_tab.append(i)
@@ -85,6 +85,7 @@ class rule:
     def it_matches(self, word, model_el):
         if not model_el:
             return 0
+
         if model_el[0] == '|':  # classification match
             word_closed_classifier = word.rfind('|')
             model_closed_classifier = model_el.rfind('|')
@@ -95,6 +96,7 @@ class rule:
                 elif i >= word_closed_classifier:
                     is_rest_model_conditional = True
                     j = i
+                    # (is the rest all conditional ? ex: abc[XXXXX] )
                     while j < model_closed_classifier:
                         if model_el[j] != 'X':
                             is_rest_model_conditional = False
@@ -102,8 +104,12 @@ class rule:
                     if is_rest_model_conditional:
                         return 0
                     else:
+                        if model_el[-1] == '?':
+                            return 1  # even if no match but conditional
                         return -1
                 if model_el[i] != 'X' and model_el[i] != word[i]:  # X matches anything
+                    if model_el[-1] == '?':
+                        return 1  # even if no match but conditional
                     return -1
             return 0
         # direct match evaluating (omit classification)
@@ -190,6 +196,7 @@ class rule:
         return real_param
 
     def apply_single_clause_el(self, matched_buf, clause_el):
+        print(matched_buf)
         brck_open = clause_el.find('[')
         brck_close = clause_el.find(']')
 
@@ -315,26 +322,32 @@ class rule:
 
         # get model context
         pmodel_ctx = self.pattern[pth1 + 1:pth2].split('>')
-        text_ctx = re.split(r"[^a-zA-z0-9ɣ'čǧḥɛṛṭɣẓṣ$ḥ|?,-]+", text)
+        text_ctx = re.split(r"[^a-zA-z0-9ɣ'čǧḥḍɛṛṭɣẓṣ$ḥ|?,-]+", text)
         multiple_matches_recorder = 0
         i = 0  # iterates over model_els
         j = 0  # to keep text_ctx current pos
         matched_buf = []
 
         result = ''
-
+        print('_____________________________________', text_ctx)
         for word in text_ctx:
             if multiple_matches_recorder == 1:  # max conditionals reached
                 i = i + 1
                 multiple_matches_recorder = 0
 
             matches = self.it_matches(word, pmodel_ctx[i])
-
+            print(word, ' vs ', pmodel_ctx[i], ' = ', matches)
             if matches == 0:
                 matched_buf.append(word)
                 i = i + 1
             elif matches == 1:
-                matched_buf.append(word + '$')  # $ single for conditional matching
+                cd = '$'
+                if i + 1 < len(pmodel_ctx):
+                    if self.it_matches(word, pmodel_ctx[i + 1]) == 0:
+                        matched_buf.append('|$$|$')  # $ for single conditional matching
+                        cd = ''
+                        i = i + 1
+                matched_buf.append(word + cd)  # $ for single conditional matching
                 i = i + 1
             else:
                 is_conditional = self.is_conditional_el(pmodel_ctx[i], 5)  # 5 is optional
@@ -357,8 +370,15 @@ class rule:
                             multiple_matches_recorder = parameter  # already affected one
 
                 else:
+
                     # no match at all (not direct, not conditional)
                     matched_buf = self.tab_rm_suffixes(matched_buf)
+
+                    # remove conditionally loaded into matched_buf
+                    for k in range(len(matched_buf)):
+                        if matched_buf[k] == '|$$|':
+                            matched_buf[k] = ''
+
                     result = result + ' '.join(matched_buf) + ' ' + word
                     matched_buf.clear()
                     i = 0
@@ -388,6 +408,10 @@ class rule:
                 matched_buf.clear()
 
         matched_buf = self.tab_rm_suffixes(matched_buf)
+        for k in range(len(matched_buf)):
+            if matched_buf[k] == '|$$|':
+                matched_buf[k] = ''
+
         result = (result + ' ' + ' '.join(matched_buf)).strip()
         return result, status  # remove sides spaces
 
@@ -402,6 +426,7 @@ def xml_load_rule_list():
 
 
 rule_list = xml_load_rule_list()
+
 
 def translate_word(word0):
     word = word0.lower()
