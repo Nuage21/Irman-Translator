@@ -82,9 +82,40 @@ class rule:
         if param == 'im':
             return iam
 
+    def or_split(self, model_el):
+        # exemple: |pp|or|v0| -> ['pp', 'v0']
+        accum = ''
+        reslt = []
+        i = 0
+        while i < len(model_el) - 1:
+            if model_el[i:i + 2] == 'or':
+                accum = accum.strip()
+                reslt.append(accum)
+                accum = ''
+                i = i + 1
+            else:
+                accum = accum + model_el[i]
+            i = i + 1
+        accum = accum + model_el[-1]
+        reslt.append(accum)
+        return reslt
+
+    def it_matches_or_list(self, word, model_list):
+        for model_el in model_list:
+            m = self.it_matches(word, model_el)
+            if m >= 0:
+                return m, model_el
+        return -1, 'none'
+
     def it_matches(self, word, model_el):
         if not model_el:
             return 0
+
+        or_index = model_el.find('or')
+        if or_index > 0:
+            or_splitted = self.or_split(model_el)
+            status, matched_model = self.it_matches_or_list(word, or_splitted)
+            return status
 
         if model_el[0] == '|':  # classification match
             word_closed_classifier = word.rfind('|')

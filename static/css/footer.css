@@ -99,21 +99,30 @@ footer .input-group-addon {
     width: 500px;
     height: 300px;
     opacity: 60%;
+    animation-name: hover-read-img-out;
+    animation-duration: 700ms;
+    animation-fill-mode: forwards;
+
 }
 
 .footer-read-img:hover {
-    animation-name: opacimg;
-    animation-duration: 800ms;
+    animation-name: hover-read-img-in;
+    animation-duration: 700ms;
     animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
 }
 
-@keyframes opacimg {
-    from {
-        opacity: 60%;
-    }
+@keyframes hover-read-img-in {
     to {
         opacity: 100%;
+    }
+}
+
+@keyframes hover-read-img-out {
+    from{
+        opacity: 100%;
+    }
+    to {
+        opacity: 60%;
     }
 }
 
@@ -121,8 +130,7 @@ footer .input-group-addon {
     color: #0269A4;
 }
 
-.footer-title
-{
+.footer-title {
     font-family: Baufra, Simplifica, Aileron;
     opacity: 70%;
 }

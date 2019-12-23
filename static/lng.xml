@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <languages>
     <en>
-        <page_title>The first Tamaziɣt translator!</page_title>
+        <translator_page_title>The first Tamaziɣt translator!</translator_page_title>
         <english>English</english>
         <berber>Tamaziɣt</berber>
         <latin>latin</latin>
@@ -31,7 +31,7 @@
     </en>
 
     <fr>
-        <page_title>Le premier traducteur de Tamaziɣt!</page_title>
+        <translator_page_title>Le premier traducteur de Tamaziɣt!</translator_page_title>
         <english>Anglais</english>
         <berber>Tamaziɣt</berber>
         <latin>latin</latin>
@@ -61,7 +61,7 @@
     </fr>
 
     <ar>
-        <page_title>أول مترجم للأمازيغية!</page_title>
+        <translator_page_title>أول مترجم للأمازيغية!</translator_page_title>
         <english>الإنجليزية</english>
         <berber>الأمازيغية</berber>
         <latin>لاتينية</latin>
@@ -91,7 +91,7 @@
     </ar>
 
     <es>
-        <page_title>¡El primer traductor de Tamaziɣt!</page_title>
+        <translator_page_title>¡El primer traductor de Tamaziɣt!</translator_page_title>
         <english>Inglesa</english>
         <berber>beréber</berber>
         <latin>latín</latin>
@@ -122,7 +122,7 @@
     </es>
 
     <tz_lat>
-        <page_title>Anemmegrud Amezwaru n Tamaziɣt!</page_title>
+        <translator_page_title>Anemmegrud Amezwaru n Tamaziɣt!</translator_page_title>
         <english>Tagnizit</english>
         <berber>Tamaziɣt</berber>
         <latin>Tarumit</latin>
@@ -154,7 +154,7 @@
     </tz_lat>
 
     <tz_tfng>
-        <page_title>ⴰⵏⴻⵎⵎⴻⴳⵔⵓⴷ ⴰⵎⴻⵣⵡⴰⵔⵓ ⵏ ⵜⴰⵎⴰⵣⵉⵖⵜ!</page_title>
+        <translator_page_title>ⴰⵏⴻⵎⵎⴻⴳⵔⵓⴷ ⴰⵎⴻⵣⵡⴰⵔⵓ ⵏ ⵜⴰⵎⴰⵣⵉⵖⵜ!</translator_page_title>
         <english>ⵜⴰⴳⵏⵉⵣⵉⵜ</english>
         <berber>ⵜⴰⵎⴰⵣⵉⵖⵜ</berber>
         <latin>ⵜⴰⵔⵓⵎⵉⵜ</latin>

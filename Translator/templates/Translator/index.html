@@ -1,26 +1,26 @@
 <!doctype html>
 <html lang="en-US">
 <head>
-    <title>{% get_item LNG lng=cur_lng attr='page_title' %}</title>
+    <title>{% get_item LNG lng=cur_lng attr='translator_page_title' %}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/index_style.css' %}"/>
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/textarea.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/footer.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/header.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/header.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/berber-alpha.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/side-app.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/coder-info.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/icon.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/coder-info.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/icon.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/star-rater.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/powered-lngs.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'Translator/css/topbar-switcher.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/powered-lngs.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/topbar-switcher.css' %}">
     <!-- Footer's css -->
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Bootstrap Scripts +jQuery -->
-    <link rel="icon" href="{% static 'Translator/img/icon.png' %}"/>
+    <link rel="icon" href="{% static '/img/icon.png' %}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -46,37 +46,37 @@
                     <div class="lng-selector">
                         <div class="d-inline lng-sel-holder">
                             <a href="?lng=en" class="lng-sel">
-                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/uk.png' %}">
+                                <img class="lng-sel-flag" src="{% static '/img/flags/uk.png' %}">
                                 <span class="lng-sel-txt"> English </span>
                             </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
                             <a href="?lng=es" class="lng-sel">
-                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/spain.gif' %}">
+                                <img class="lng-sel-flag" src="{% static '/img/flags/spain.gif' %}">
                                 <span class="lng-sel-txt"> Español </span>
                             </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
                             <a href="?lng=fr" class="lng-sel">
-                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/france.gif' %}">
+                                <img class="lng-sel-flag" src="{% static '/img/flags/france.gif' %}">
                                 <span class="lng-sel-txt"> Français </span>
                             </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
                             <a href="?lng=ar" class="lng-sel">
-                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/arab.png' %}">
+                                <img class="lng-sel-flag" src="{% static '/img/flags/arab.png' %}">
                                 <span class="lng-sel-txt"> العربية </span>
                             </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
                             <a href="?lng=tz_lat" class="lng-sel">
-                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/berber.png' %}">
+                                <img class="lng-sel-flag" src="{% static '/img/flags/berber.png' %}">
                                 <span class="lng-sel-txt"> Tamaziɣt (Latin) </span>
                             </a>
                         </div>
                         <div class="d-inline lng-sel-holder">
                             <a href="?lng=tz_tfng" class="lng-sel">
-                                <img class="lng-sel-flag" src="{% static 'Translator/img/flags/berber.png' %}">
+                                <img class="lng-sel-flag" src="{% static '/img/flags/berber.png' %}">
                                 <span class="lng-sel-txt"> Tamaziɣt (ⵜⵍⴼⵍⵏⴰⵖ) </span>
                             </a>
                         </div>
@@ -98,7 +98,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #131313 !important;">
 
             <a href="https://en.wikipedia.org/wiki/Berber_flag">
-                <img class="rounded float-left" src="{% static 'Translator/img/flags/berber.png' %}"
+                <img class="rounded float-left" src="{% static '/img/flags/berber.png' %}"
                      style="width:70px;height:35px;margin-right:20px;"/>
             </a>
             <div>
@@ -133,7 +133,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{% static 'Translator/img/icons/help.png' %}" class="navbar-icon"/>
+                            <img src="{% static '/img/icons/help.png' %}" class="navbar-icon"/>
                             {% get_item LNG lng=cur_lng attr='help_us' %}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -153,15 +153,15 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item" style="color:white;">
                         <a class="nav-link" href="#">
-                            <img src="{% static 'Translator/img/icons/read.png' %}" class="navbar-icon"/>
+                            <img src="{% static '/img/icons/read.png' %}" class="navbar-icon"/>
                             {% get_item LNG lng=cur_lng attr='read_with_us' %}
                         </a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item" style="color:white;">
-                        <a class="nav-link" href="#">
-                            <img src="{% static 'Translator/img/icons/lyrics.png' %}" class="navbar-icon"/> Irman Lyrics
+                        <a class="nav-link" href="/lyrics/?lng={{cur_lng}}">
+                            <img src="{% static '/img/icons/lyrics.png' %}" class="navbar-icon"/> Irman Lyrics
                         </a>
                     </li>
                 </ul>
@@ -183,21 +183,21 @@
                     <span class="side-app-btn-txt"><b style="font-size: calc(0.7vw + 0.7vh);">ǧ</b> <br/> {% get_item LNG lng=cur_lng attr='latin' %}</span>
                 </button>
                 <button class="btn btn-light side-app-btn" v-on:click="swapLngs()">
-                    <img src="{% static 'Translator/img/icons/swap.png' %}" class="side-app-icon">
+                    <img v-bind:src="this.$data.swap_icon" class="side-app-icon">
                     <br/>
                     <span class="side-app-btn-txt">
                         {% get_item LNG lng=cur_lng attr='swap_btn' %}
                     </span>
                 </button>
                 <button class="btn btn-light side-app-btn" v-on:click="this.emptyAreas()">
-                    <img src="{% static 'Translator/img/icons/empty.png' %}" class="side-app-icon">
+                    <img v-bind:src="this.$data.empty_icon"  class="side-app-icon">
                     <br/>
                     <span class="side-app-btn-txt">
                         {% get_item LNG lng=cur_lng attr='empty_btn' %}
                     </span>
                 </button>
                 <button class="btn btn-light side-app-btn" v-on:click="this.copyTranslation()">
-                    <img src="{% static 'Translator/img/icons/copy.png' %}" class="side-app-icon">
+                    <img v-bind:src="this.$data.copy_icon"  class="side-app-icon">
                     <br/>
                     <span class="side-app-btn-txt">
                         {% get_item LNG lng=cur_lng attr='copy_btn' %}
@@ -236,7 +236,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
                 <h5 class="mb-4 font-weight-bold footer-title">
-                    <img src="{% static 'Translator/img/icons/contributor.png' %}" class="footer-icon"/>
+                    <img src="{% static '/img/icons/contributor.png' %}" class="footer-icon"/>
                     {% get_item LNG lng=cur_lng attr='who_are_we' %}
                 </h5>
                 <p class="mb-2">
@@ -244,7 +244,7 @@
                 </p>
                 <div class="coder-info">
                     <div style="float:left;">
-                        <img src="{% static 'Translator/img/coders/hbfree.jpg' %}" class="rounded-circle coder-img"/>
+                        <img src="{% static '/img/coders/hbfree.jpg' %}" class="rounded-circle coder-img"/>
                     </div>
                     <div class="coder-cred">
                         <div style="float:top;">
@@ -260,7 +260,7 @@
 
                 <div class="coder-info">
                     <div style="float:left;">
-                        <img src="{% static 'Translator/img/coders/kafree.jpg' %}" class="rounded-circle coder-img"/>
+                        <img src="{% static '/img/coders/kafree.jpg' %}" class="rounded-circle coder-img"/>
                     </div>
                     <div style="float:top;">
                         <span class="coder-name" style="margin-left:-5px;"> Khadidja (Jiji) </span>
@@ -278,22 +278,22 @@
                     <br/>
                     <div class="lngs-holder">
                         <div class="d-inline pow-lng">
-                            <img class="lng-icon" src="{% static 'Translator/img/lngs/python.png' %}">
+                            <img class="lng-icon" src="{% static '/img/lngs/python.png' %}">
                             <span> Python </span>
                         </div>
                         <div class="d-inline pow-lng">
-                            <img class="lng-icon" src="{% static 'Translator/img/lngs/vue.png' %}">
+                            <img class="lng-icon" src="{% static '/img/lngs/vue.png' %}">
                             <span> Vue.js </span>
                         </div>
                     </div>
                     <br/>
                     <div class="lngs-holder">
                         <div class="d-inline pow-lng">
-                            <img class="lng-icon" src="{% static 'Translator/img/lngs/jquery.png' %}">
+                            <img class="lng-icon" src="{% static '/img/lngs/jquery.png' %}">
                             <span> jQuery </span>
                         </div>
                         <div class="d-inline pow-lng">
-                            <img class="lng-icon" src="{% static 'Translator/img/lngs/django.png' %}">
+                            <img class="lng-icon" src="{% static '/img/lngs/django.png' %}">
                             <span> Django </span>
                         </div>
                     </div>
@@ -301,25 +301,25 @@
             <br/>
             <div class="lngs-holder" style="margin:-10px 0 0 -10px !important;">
                 <div class="d-inline pow-lng" style="margin-top:-30px !important;">
-                    <img class="lng-icon" src="{% static 'Translator/img/lngs/bootstrap.png' %}">
+                    <img class="lng-icon" src="{% static '/img/lngs/bootstrap.png' %}">
                     <span> Bootstrap </span>
                 </div>
                 <div class="d-inline pow-lng">
-                    <img class="html-css-js" src="{% static 'Translator/img/lngs/html-css-js.png' %}">
+                    <img class="html-css-js" src="{% static '/img/lngs/html-css-js.png' %}">
                 </div>
             </div>
         </div>
 
         <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4 unmarginit">
             <h5 class="mb-4 font-weight-bold footer-title">
-                <img src="{% static 'Translator/img/icons/read.png' %}" class="footer-icon"/>
+                <img src="{% static '/img/icons/read.png' %}" class="footer-icon"/>
                 {% filter upper %}
                 {% get_item LNG lng=cur_lng attr='read_with_us' %}
                 {% endfilter %}
             </h5>
             <div class="footer-article-holder">
-                <a href="randomlink.com">
-                    <img class="img-thumbnail footer-read-img" src="{% static 'Translator/img/Bejaia.jpg' %}"/>
+                <a href="#">
+                    <img class="img-thumbnail footer-read-img" src="{% static '/img/Bejaia.jpg' %}"/>
                 </a>
                 <blockquote class="blockquote footer-img-lgd">taken @Cap Bouak, Bejaia by Photographer</blockquote>
                 <p>Bejaia is the second largest Amazigh city today, from Naceria to ...</p>
@@ -327,7 +327,7 @@
         </div>
         <div class="col-lg-3 col-sm-6 mt-2 mb-4 unmarginit">
             <h5 class="mb-4 font-weight-bold footer-title">
-                <img src="{% static 'Translator/img/icons/update.png' %}" class="footer-icon"/>
+                <img src="{% static '/img/icons/update.png' %}" class="footer-icon"/>
                 {% get_item LNG lng=cur_lng attr='updates' %}
             </h5>
             <ul class="recent-post" style="margin-left:-30px;">
@@ -345,7 +345,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4 unmarginit">
             <a href="#" class="donate">
                 <h5 class="mb-4 font-weight-bold footer-title">
-                    <img src="{% static 'Translator/img/icons/heart.png' %}" class="footer-icon"/>
+                    <img src="{% static '/img/icons/heart.png' %}" class="footer-icon"/>
                     {% get_item LNG lng=cur_lng attr='donate' %}
                 </h5>
             </a>

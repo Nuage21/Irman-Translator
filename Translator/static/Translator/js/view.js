@@ -30,23 +30,23 @@ Vue.component('txtinput',
                 </div>
                 <div class="areabtnholder" role="group" style="padding: 0 !important;" aria-label="down-app-btns">
                     <button type="button" class="btn btn-sm shadow-none btn-light" @click="copytxt(lngid)">
-                        <img src="/static/Translator/img/icons/copy.png" class="down-app-icon">
+                        <img v-bind:src="this.$parent.$data.copy_icon" class="down-app-icon">
                         <span class="down-btn-txt">{{this.$parent.$data.copyBtnTxt}}</span>
                     </button>
                     <button type="button" class="btn btn-sm shadow-none btn-light" v-if="!isdisabled"
                             @click="pastetxt(lngid)">
-                        <img src="/static/Translator/img/icons/paste.png" class="down-app-icon">
+                        <img v-bind:src="this.$parent.$data.paste_icon" class="down-app-icon">
                         <span class="down-btn-txt">{{this.$parent.$data.pasteBtnTxt}}</span>
                     </button>
                     <button type="button" class="btn btn-sm shadow-none btn-light" v-if="!isdisabled"
                             v-on:click="this.emptyAreas()">
-                        <img src="/static/Translator/img/icons/empty.png" class="down-app-icon">
+                        <img v-bind:src="this.$parent.$data.empty_icon" class="down-app-icon">
                         <span class="down-btn-txt">{{this.$parent.$data.emptyBtnTxt}}</span>
                     </button>
                     <button type="button" class="btn btn-sm shadow-none btn-light"
                             v-show="(lng==this.$parent.$data.berberWritten) && !isdisabled"
                             @click="this.correct()">
-                        <img src="/static/Translator/img/icons/correct.png" class="down-app-icon">
+                        <img src="/static/img/icons/correct.png" class="down-app-icon">
                         <span class="down-btn-txt">{{this.$parent.$data.correctBtnTxt}}</span>
                     </button>
                 </div>
@@ -159,8 +159,12 @@ var alphasApp = new Vue({
         berberWritten: brbr,
         fromLng: eng,
         toLng: brbr,
-        fromFlag: '/static/Translator/img/flags/uk.png',
-        toFlag: '/static/Translator/img/flags/berber.png',
+        fromFlag: '/static/img/flags/uk.png',
+        toFlag: '/static/img/flags/berber.png',
+        swap_icon:  '/static/img/icons/swap.png',
+        copy_icon:  '/static/img/icons/copy.png',
+        paste_icon:  '/static/img/icons/paste.png',
+        empty_icon:  '/static/img/icons/empty.png',
         correctBtnTxt: correct_btn_txt,
         copyBtnTxt: copy_btn_txt,
         pasteBtnTxt: paste_btn_txt,

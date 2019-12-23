@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.template.defaulttags import register
 from xml.dom import minidom
+import os.path
+
+PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
 
 class LanguagesXml:
-    root = minidom.parse('Translator/static/Translator/lng.xml')
+    root = minidom.parse(PROJECT_PATH + '\\static\\lng.xml')
 
     def get(self, lng, attr):
         cur = self.root.getElementsByTagName(lng)

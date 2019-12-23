@@ -1,71 +1,87 @@
+var fn = -4;
+var padd = '-dark.png';
+
 $(document).ready(function () {
-
-    if (navigator.appVersion.indexOf("Edge") != -1) {
-        $('body').css({zoom: "85%"});
-    }
-    adjustElements();
-    $(window).on('resize', adjustElements);
-
-    $('#tifibtn').click(() => {
-        $('.latinbox').fadeOut(300, () => $('.tifibox').show());
-
-    });
-    $('#latinbtn').click(() => {
-        $('.tifibox').fadeOut(300, () => $('.latinbox').show());
-    });
-
-    var toggleMode = (isNowEntered) => {
-        $('.side-app-btn').toggleClass('btn-dark');
-        $('#MainApp').toggleClass('dark');
-        $('#App').toggleClass('dark');
-        $('#AdsApp').toggleClass('dark');
-        $('#side-app').toggleClass('dark');
-        $('button.berber-alpha').toggleClass('dark');
-        $('textarea.input').toggleClass('dark');
-        $('.side-app-btn').toggleClass('dark');
-        $('.input-legend').toggleClass('dark');
-        $('.down-input').toggleClass('dark');
-        $('#Translater').toggleClass('dark');
-        $('.areabtnholder > button').toggleClass('btn-dark');
-        // toggle local storage mode only if not first time page chargement
-        if (!isNowEntered) {
-            nowMode = localStorage.getItem('irman_tapp')
-            localStorage.setItem('irman_tapp', (nowMode == 'dark') ? 'light' : 'dark')
+        if (navigator.appVersion.indexOf("Edge") != -1) {
+            $('body').css({zoom: "85%"});
         }
-    }
+        adjustElements();
+        $(window).on('resize', adjustElements);
 
-    let chargedMode = localStorage.getItem('irman_tapp');
+        $('#tifibtn').click(() => {
+            $('.latinbox').fadeOut(300, () => $('.tifibox').show());
 
-    if (chargedMode == 'dark') {
-        $('#dark-check').prop('checked', true);
-        toggleMode(true);
-    }
+        });
+        $('#latinbtn').click(() => {
+            $('.tifibox').fadeOut(300, () => $('.latinbox').show());
+        });
+        // ______to deal with darkmode icons switch
 
-    $('#modeSwitcher').click(() => {
-        toggleMode();
-    });
+        var toggleMode = (isNowEntered) => {
+            $('.side-app-btn').toggleClass('btn-dark');
+            $('#MainApp').toggleClass('dark');
+            $('#App').toggleClass('dark');
+            $('#AdsApp').toggleClass('dark');
+            $('#side-app').toggleClass('dark');
+            $('button.berber-alpha').toggleClass('dark');
+            $('textarea.input').toggleClass('dark');
+            $('.side-app-btn').toggleClass('dark');
+            $('.input-legend').toggleClass('dark');
+            $('.down-input').toggleClass('dark');
+            $('#Translater').toggleClass('dark');
+            $('.areabtnholder > button').toggleClass('btn-dark');
+            // set icon array to dark
+            if ($('#App').hasClass('dark') == false) {
+                fn = -9;
+                padd = '.png';
+                // must go light
+            }
+            alphasApp.$data.swap_icon = alphasApp.$data.swap_icon.slice(0, fn) + padd;
+            alphasApp.$data.copy_icon = alphasApp.$data.copy_icon.slice(0, fn) + padd;
+            alphasApp.$data.paste_icon = alphasApp.$data.paste_icon.slice(0, fn) + padd;
+            alphasApp.$data.empty_icon = alphasApp.$data.empty_icon.slice(0, fn) + padd;
+            // reset
+            fn = -4;
+            padd = '-dark.png';
 
-    // Translation ajax here
-
-    $('#from-lng').on('keyup', (key) => {
-        var msg = $('#from-lng').val();
-        console.log(msg);
-
-        if (alphasApp.$data.fromLng == eng) {
-            $.ajax({
-                url: '/translator/ajax/translate/',
-                data: {
-                    'msg': msg
-                },
-                dataType: 'json',
-                success: (data) => {
-                    $('#to-lng').val(data.tmsg);
-                }
-            });
+            // toggle local storage mode only if not first time page chargement
+            if (!isNowEntered) {
+                nowMode = localStorage.getItem('irman_tapp')
+                localStorage.setItem('irman_tapp', (nowMode == 'dark') ? 'light' : 'dark')
+            }
         }
-    });
 
-});
+        let chargedMode = localStorage.getItem('irman_tapp');
+
+        if (chargedMode == 'dark') {
+            $('#dark-check').prop('checked', true);
+            toggleMode(true);
+        }
+
+        $('#modeSwitcher').click(() => {
+            toggleMode(false);
+        });
+
+        // Translation ajax here
+
+        $('#from-lng').on('keyup', (key) => {
+            var msg = $('#from-lng').val();
+            if (alphasApp.$data.fromLng == eng) {
+                $.ajax({
+                    url: '/translator/ajax/translate/',
+                    data: {
+                        'msg': msg
+                    },
+                    dataType: 'json',
+                    success: (data) => {
+                        $('#to-lng').val(data.tmsg);
+                    }
+                });
+            }
+        });
+
+    }
+);
 
 var isAdsAppDown = false;
 
@@ -164,7 +180,6 @@ function adjustElements() {
                 else if (winWidth > 1000) {
                     $('#side-app').css({'width': '4%'});
                 } else {
-                    console.log('Window Width: ' + winWidth + 'class used: col-lg');
                 }
             }
         }
