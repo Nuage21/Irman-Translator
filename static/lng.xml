@@ -2,6 +2,7 @@
 <languages>
     <en>
         <translator_page_title>The first Tamaziɣt translator!</translator_page_title>
+        <lyrics_page_title>Irman Lyrics</lyrics_page_title>
         <english>English</english>
         <berber>Tamaziɣt</berber>
         <latin>latin</latin>
@@ -32,6 +33,7 @@
 
     <fr>
         <translator_page_title>Le premier traducteur de Tamaziɣt!</translator_page_title>
+        <lyrics_page_title>Lyrics d'Irman</lyrics_page_title>
         <english>Anglais</english>
         <berber>Tamaziɣt</berber>
         <latin>latin</latin>
@@ -62,6 +64,7 @@
 
     <ar>
         <translator_page_title>أول مترجم للأمازيغية!</translator_page_title>
+        <lyrics_page_title>كلمات إيرمان</lyrics_page_title>
         <english>الإنجليزية</english>
         <berber>الأمازيغية</berber>
         <latin>لاتينية</latin>
@@ -92,6 +95,7 @@
 
     <es>
         <translator_page_title>¡El primer traductor de Tamaziɣt!</translator_page_title>
+        <lyrics_page_title>Letras de Irman</lyrics_page_title>
         <english>Inglesa</english>
         <berber>beréber</berber>
         <latin>latín</latin>
@@ -123,6 +127,7 @@
 
     <tz_lat>
         <translator_page_title>Anemmegrud Amezwaru n Tamaziɣt!</translator_page_title>
+        <lyrics_page_title>Tira n cna - Irman</lyrics_page_title>
         <english>Tagnizit</english>
         <berber>Tamaziɣt</berber>
         <latin>Tarumit</latin>
@@ -155,6 +160,7 @@
 
     <tz_tfng>
         <translator_page_title>ⴰⵏⴻⵎⵎⴻⴳⵔⵓⴷ ⴰⵎⴻⵣⵡⴰⵔⵓ ⵏ ⵜⴰⵎⴰⵣⵉⵖⵜ!</translator_page_title>
+        <lyrics_page_title>ⵜⵉⵔⴰ ⵏ ⵛⵏⴰ - ⵉⵔⵎⴰⵏ</lyrics_page_title>
         <english>ⵜⴰⴳⵏⵉⵣⵉⵜ</english>
         <berber>ⵜⴰⵎⴰⵣⵉⵖⵜ</berber>
         <latin>ⵜⴰⵔⵓⵎⵉⵜ</latin>
