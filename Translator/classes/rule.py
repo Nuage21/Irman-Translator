@@ -505,8 +505,14 @@ def translate_stage1(text0):
     #  apply rules
     text0 = adjust_text(text0)
     result = text0
-    for r in rule_list:
-        result, status = r.apply(result)
+
+    rule_app_left = True
+    while rule_app_left:
+        rule_app_left = False # suppose nothing wd change
+        for r in rule_list:
+            result, status = r.apply(result)
+            if status == 0:  # if smth has changed (rule match found & applied)
+                rule_app_left = True
 
     result = adjust_text(result)
     return result
