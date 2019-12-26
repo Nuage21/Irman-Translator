@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rules>
     <rule name="rule0">if(|pp|>|00|?0>|v0|or|adj|>|pp|?):el[0]$1+ +el[1:1r]$1+ +pp_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+el[1r]+pp_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]+pp_0[pp_0r[-imaniw,-k,-kem,-t,-t, nekni, nukentti,ken,kentt,ten,tent],pp_0r[-iyi, imanik,0,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],pp_0r[-iyi, wagi, imanim,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],pp_0r[-iyi, wagi, tagi,-t,-t,-aɣ,-aɣ, imanwen, tigi,-ten,tent],pp_0r[-iyi, wagi, tagi,0,0,-aɣ,-aɣ, wigi, imanwent,-ten,tent],pp_0r[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]]?0r+ +el[0r]$0r</rule>
-    <rule name="rule1">if(|p_possessive|>|nXXXXXX|):el[1]+el[0]</rule>
+    <rule name="rule1">if(|p_possessive|>|nXXXXXX|):|cmp_pn|+nel[1]+nel[0]</rule>
     <rule name="rule2">if(|pp|>|im|):|im|+pp_0[aqli,aqlik,aqlikem,atan,attan,aqlaɣ,aqlaɣ,aqlikun,aqlikunt,atnad,atenttad]</rule>
-    <rule name="rule3">if(|a_demonstrative|>|nXXXXXX|):el[1]+-+el[0]</rule>
-    <rule name="rule4">if(|nfs|):|nfs_irr|t+el[0]+t</rule>
+    <rule name="rule3">if(|a_demonstrative|>|nXXXXXX|):|cmp_dn|+nel[1]+-+nel[0]</rule>
+    <rule name="rule4">if(|nfs|):|nfs_irr|t+nel[0]+t</rule>
     <rule name="rule5">if(|im|>|00|?0>|vc|or|adj|):el[0]+   +el[1:0r]+ +im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+el[0r]+im_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]</rule>
     <rule name="rule6">if(|th|?>|nXXXXXX|>|im|>|adj|):el[0]$0+ +el[2r]+ d-+el[0r]</rule>
-    <rule name="rule7">if(|nXXXXXXXXXXXXXXX|?>|th|>|nXXXXXX|):el[0]$+ +el[1]?+el[0r]</rule>
-    <rule name="rule8">if(|adj|>|nXXXXXX|):|nms|+el[1]+ +|adj|+el[0]</rule>
+    <rule name="rule7">if(|nXXXXXX|?>|th|>|nXXXXXX|):el[0]$+ +el[1]?+el[0r]</rule>
+    <rule name="rule8">if(|adj|>|nXXXXXX|):el[1]+ +el[0]</rule>
 </rules>

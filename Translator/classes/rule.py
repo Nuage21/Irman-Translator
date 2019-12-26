@@ -264,6 +264,11 @@ class rule:
 
         bracket_inside = clause_el[brck_open + 1:clause_el.rfind(']')]  # ex el[32] -> 32
 
+        ignore_classifier = False
+        if bracket_modifier == 'nel':
+            ignore_classifier = True
+            bracket_modifier = 'el'
+
         if bracket_modifier == 'el':
             is_range = bracket_inside.find(':')
             if is_range > 0:
@@ -271,13 +276,20 @@ class rule:
                 max = self.eval_param(bracket_inside[is_range + 1:], mlen)
                 composed = ' '
                 while min < max:
-                    composed += self.rm_suffixes(matched_buf[min]) + ' '
+                    to_add = matched_buf[min]
+                    if ignore_classifier:
+                        to_add = rm_indicators(to_add)
+                    composed += self.rm_suffixes(to_add) + ' '
                     min = min + 1
                 return composed
 
             # if not range
             bracket_inside = self.eval_param(bracket_inside, mlen)
-            return self.rm_suffixes(matched_buf[int(bracket_inside)])
+
+            to_add = matched_buf[int(bracket_inside)]
+            if ignore_classifier:
+                to_add = rm_indicators(to_add)
+            return self.rm_suffixes(to_add)
 
         bracket_param = clause_el[bracket_underscore_index + 1:brck_open]  # ex: pp_2[] param = 2 (depends on 2d el)
 
@@ -287,7 +299,7 @@ class rule:
         bracket_param_tab = self.get_param_tab(bracket_modifier)  # ex: personal pronouns tab
 
         for i in range(len(bracket_inside)):
-            if matched_buf[bracket_param] == bracket_param_tab[i]:  # what index stands for
+            if rm_indicators(matched_buf[bracket_param]) == bracket_param_tab[i]:  # what index stands for
                 cur_bracket_el = bracket_inside[i]
                 if cur_bracket_el == '0':
                     return ''
