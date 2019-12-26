@@ -369,17 +369,28 @@ class rule:
         i = 0  # iterates over model_els
         j = 0  # to keep text_ctx current pos
         matched_buf = []
-
         result = ''
-        for word in text_ctx:
+
+        match_st = -1
+        def set_match_st():
+            nonlocal match_st
+            if match_st < 0:
+                match_st = j
+
+        while j < len(text_ctx):
+            word = text_ctx[j]
+
             if multiple_matches_recorder == 1:  # max conditionals reached
                 i = i + 1
                 multiple_matches_recorder = 0
 
             matches = self.it_matches(word, pmodel_ctx[i])
+
             if matches == 0:
                 matched_buf.append(word)
                 i = i + 1
+                set_match_st()
+
             elif matches == 1:
                 cd = '$'
                 if i + 1 < len(pmodel_ctx):
@@ -389,9 +400,12 @@ class rule:
                         i = i + 1
                 matched_buf.append(word + cd)  # $ for single conditional matching
                 i = i + 1
+                set_match_st()
+
             else:
                 is_conditional = self.is_conditional_el(pmodel_ctx[i], 5)  # 5 is optional
-                if is_conditional:
+                if is_conditional:  # multi-conditional
+                    set_match_st()
                     if self.it_matches(word, pmodel_ctx[i + 1]) == 0:
                         # two conditions to stop evaluating multiple conditionals
                         # 1. we reach the max of multiples
@@ -404,17 +418,24 @@ class rule:
                             matched_buf.append(word + '$')
                             multiple_matches_recorder = multiple_matches_recorder - 1
                         else:
-                            # mark = is_conditional[0]
-                            parameter = int(is_conditional[1:])
+                            parameter = int(is_conditional[1:]) # extract multi-match param ex: |00|?5 -> pa.. = 5
                             matched_buf.append(word + '$')
                             multiple_matches_recorder = parameter  # already affected one
 
                 else:
+                    j = j + 1
+
+                    if match_st >= 0:
+                        matched_buf = [matched_buf[0], ]
+                        j = match_st + 1
+                        word = ''  # don't add word
 
                     matched_buf = correct_matched_buf(matched_buf)
                     result = result + ' ' + ' '.join(matched_buf) + ' ' + word + ' '
                     matched_buf.clear()
+                    match_st = -1
                     i = 0
+                    continue
 
             conditional_app = self.is_model_rest_conditional(pmodel_ctx, i) and self.no_direct_match_after(pmodel_ctx,
                                                                                                            i, text_ctx,
@@ -422,27 +443,28 @@ class rule:
             j = j + 1  # word pos at text_ctx goes next
 
             if conditional_app:
-                for j in range(len(pmodel_ctx) - i):
+                for k in range(len(pmodel_ctx) - i):
                     matched_buf.append('|$$|$')
 
             if i == len(pmodel_ctx) or conditional_app:
                 status = 0  # smth has changed
 
                 # remove indicators
-                for j in range(len(matched_buf)):
-                    if (matched_buf[j])[0] == '|':
-                        matched_buf[j] = (matched_buf[j])[matched_buf[j].rfind('|') + 1:]
+                for k in range(len(matched_buf)):
+                    matched_buf[k] = rm_indicators(matched_buf[k])
+
                 # apply to match
                 st = pth2 + 2  # skip ):
                 model_clause = self.pattern[st:plen]
                 applied = self.apply_clause(matched_buf, model_clause)
                 result = result + ' ' + applied + ' '
                 i = 0
+                match_st = -1
                 matched_buf.clear()
+
         matched_buf = correct_matched_buf(matched_buf)
         result = (result + ' ' + ' '.join(matched_buf)).strip()
         return result, status  # remove sides spaces
-
 
 def xml_load_rule_list():
     rules_list = []
