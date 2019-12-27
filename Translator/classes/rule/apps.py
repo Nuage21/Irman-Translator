@@ -176,6 +176,8 @@ def apply(self, text):
 
         if matches == 0:
             matched_buf.append(word)
+            if (pmodel_ctx[i])[-1].isdigit():  # multi-conditional pattern el ?
+                i = i - 1
             i = i + 1
             set_match_st()
 
