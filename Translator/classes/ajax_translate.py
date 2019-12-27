@@ -1,5 +1,6 @@
 from django.http import JsonResponse
-from .rule import *
+from . import en_tz_translate as tr
+from .rule import rule
 
 
 def translate(req):
@@ -15,10 +16,10 @@ def translate(req):
                 res = res + '. '
             phrases = sent.split(',')
             for ph in phrases:
-                ph = adjust_text(ph)
-                ph0 = translate_stage0(ph)
-                ph1 = translate_stage1(ph0)
-                ph2 = rm_indicators(ph1)
+                ph = tr.adjust_text(ph)
+                ph0 = tr.map_phrase(ph)
+                ph1 = tr.app_rules(ph0)
+                ph2 = rule.rm_indicators(ph1)
                 if res:
                     res = res + ', '
                 res = res + ph2
