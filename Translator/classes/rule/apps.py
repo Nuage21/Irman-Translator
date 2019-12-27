@@ -216,7 +216,12 @@ def apply(self, text):
                 j = j + 1
 
                 if match_st >= 0:
-                    matched_buf = [matched_buf[0], ]
+                    # get the first non-conditionally matched (!= |$$|$)
+                    first_non_cd_matched = '|$$|$'
+                    for f in matched_buf:
+                        if f != '|$$|$':
+                            first_non_cd_matched = f
+                    matched_buf = [first_non_cd_matched, ]
                     j = match_st + 1
                     word = ''  # don't add word
 
