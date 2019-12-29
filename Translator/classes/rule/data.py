@@ -7,7 +7,7 @@ personal_p = [
     'kemmi',
     'netta',
     'nettat',
-    'nekni',
+    'nukni',
     'nukentti',
     'kenwi',
     'kuntti',
@@ -24,6 +24,6 @@ iam = [
     'aqlaɣ',
     'aqlikun',
     'aqlikunt',
-    'ahnad',
-    'ahnttad',
+    'atnad',
+    'atenttad',
 ]

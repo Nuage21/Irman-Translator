@@ -1,12 +1,102 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rules>
-    <rule name="rule0">if(|pp|>|00|?0>|v0|or|adj|>|pp|?):el[0]$1+ +el[1:1r]$1+ +pp_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+el[1r]+pp_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]+pp_0[pp_0r[-imaniw,-k,-kem,-t,-t, nekni, nukentti,ken,kentt,ten,tent],pp_0r[-iyi, imanik,0,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],pp_0r[-iyi, wagi, imanim,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],pp_0r[-iyi, wagi, tagi,-t,-t,-aɣ,-aɣ, imanwen, tigi,-ten,tent],pp_0r[-iyi, wagi, tagi,0,0,-aɣ,-aɣ, wigi, imanwent,-ten,tent],pp_0r[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]]?0r+ +el[0r]$0r</rule>
-    <rule name="rule1">if(|p_possessive|>|nXXXXXX|):|cmp_np|+nel[1]+nel[0]</rule>
-    <rule name="rule2">if(|pp|>|im|):|im|+pp_0[aqli,aqlik,aqlikem,atan,attan,aqlaɣ,aqlaɣ,aqlikun,aqlikunt,atnad,atenttad]</rule>
-    <rule name="rule3">if(|a_demonstrative|>|nXXXXXX|):el[1]+-+el[0]</rule>
-    <rule name="rule4">if(|nfs|):|nfs_irr|t+el[0]+t</rule>
-    <rule name="rule5">if(|im|>|00|?0>|vc|or|adj|):el[0]+   +el[1:0r]+ +im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+el[0r]+im_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]</rule>
-    <rule name="rule6">if(|th|?>|nXXXXXX|>|im|>|adj|):el[0]$0+ +el[2r]+ d-+el[0r]</rule>
-    <rule name="rule7">if(|nXXXXXXXXXXXXXXX|?>|th|>|nXXXXXX|):el[0]$+ +el[1]?+el[0r]</rule>
-    <rule name="rule8">if(|adj|>|adj|?0>|nXXXXXX|):el[0r]+ +el[0:0r]</rule>
+    <rule name="futur-simple-cjg">
+        # Fundamental Simple-Future Conjugation Rule #
+        # ex: nekki ad ... neɣ kemmi? -> nekki ad kem-neɣeɣ #
+        ##
+        if(|pp|>|to|>|00|?0>|v0|or|adj|>|pp|?):
+            el[1] +
+            el[2:1r]$2+ +
+            |va|+pp_0[
+                    pp_0r[0,k-,kem-,t-,t-,0,0,ken-,ken-t,ten-,ten-t], # Nekki ad ... #
+                    pp_0r[yet-,t,t,t,t,ɣ-t,ɣ-t,t,t,ten-,ten-t], # kecci ad ... #
+                    pp_0r[yet-,t,t,t,t,ɣ-t,ɣ-t,t,t,ten-,ten-t], # kemmi ad ... #
+                    pp_0r[y,k-i,kem-t,t,t,ɣ-i,ɣ-i,ken-i,ken-ti,ten-i,ten-ti], # netta ad ... #
+                    pp_0r[y-t,k-t,kem-t,t,t,ɣ-t,ɣ-t,ken-t,ken-t,ten-t,ten-t], # nettat ad ... #
+                    pp_0r[n-,k-n,kem-n,t-n,t-n,n,n,ken-n,ken-tn,ten-n,ten-tn], # nekni ad ... #
+                    pp_0r[tn-,k-n,kem-n,t-n,t-n,n,n,ken-n,ken-tn,ten-n,ten-tn], # nutentti ad ... #
+                    pp_0r[yet-,t,t,t,t,ɣ-t,ɣ-t,t,t,ten-t,ten-t], # kunwi ad ... #
+                    pp_0r[yet-,t,t,t,t,ɣ-t,ɣ-t,t,t,ten-t,ten-t] # kuntti ad ... #
+            ]?0r+
+            pp_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]$0r+ # when simple without additional pp at end #
+            nel[1r]+
+                pp_0[
+                    pp_0r[eɣ imaniw,eɣ,eɣ,eɣ,eɣ,eɣ iman-neɣ,0,iman-nteɣ,eɣ,eɣ,eɣ], # Nekki ad ... #
+                    pp_0r[ed, imanik, imanim,eṭ,eṭ,ed,ed, iman-nwen, iman-nuntt,ed,ed], # kecci ad ... #
+                    pp_0r[ed, imanik, imanim,eṭ,eṭ,ed,ed, iman-nwen, iman-nuntt,ed,ed], # kemmi ad ... #
+                    pp_0r[0,0,0, iman-is,0,0,0,0,0,0,0], # netta ad ... #
+                    pp_0r[0,0,0,it,-itt,0,0,0,0,0,0], # nettat ad ... #
+                    pp_0r[ iman-neɣ,0,0,0,0, iman-neɣ, iman-nteɣ,0,0,0,0], # nekni ad ... #
+                    pp_0r[ iman-neɣ,0,0,0,0, iman-nteɣ, iman-nteɣ,0,0,0,0], # nukentti ad ... #
+                    pp_0r[em,em,em,em-t,em-t,em,em-t,em iman-nwen, iman-nwent,em,em], # kunwi ad ... #
+                    pp_0r[em,em,em,em-t,em-t,em,em-t,em iman-nwen, iman-nwent,em,em], # kunwi ad ... #
+                ]?0r+
+            pp_0[eɣ,ed,ed,i,t,n-,n-,em,em,en,en]$0r+ # when simple without additional |personal-p| at end #
+    </rule>
+    <rule name="paste-simple-cjg">
+        # Fundamental Paste Simple Conjugation Rule #
+        # ex: She takes you -> tewwi-k #
+        ##
+        if(|pp|>|00|?0>|v0|or|adj|>|pp|?):
+            el[0]$1+ +
+            el[1:1r]$1+ +
+            |va|+pp_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+
+            nel[1r]+pp_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]+
+            pp_0[
+                pp_0r[-imaniw,-k,-kem,-t,-t, nekni, nukentti,ken,kentt,ten,tent],
+                pp_0r[-iyi, imanik,0,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],
+                pp_0r[-iyi, wagi, imanim,-t,-t,-aɣ,-aɣ, wigi, tigi,-ten,-tent],
+                pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],
+                pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],
+                pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],
+                pp_0r[-iyi,-ik,-ikem,-t,-t,-aɣ,-aɣ,-iken,-ikent,-iten,-itent],
+                pp_0r[-iyi, wagi, tagi,-t,-t,-aɣ,-aɣ, imanwen, tigi,-ten,tent],
+                pp_0r[-iyi, wagi, tagi,0,0,-aɣ,-aɣ, wigi, imanwent,-ten,tent],
+                pp_0r[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]
+            ]?0r
+    </rule>
+    <rule name="possessive-noun">
+        # Possesive Noun Rule #
+        # ex: my house -> |p_possessive|-iw |nms|axxam -> |cmp_np|axxam-iw #
+        ##
+        if(|p_possessive|>|nXXXXXX|):|cmp_np|+nel[1]+nel[0]
+    </rule>
+    <rule name="repeat-erase-0">
+        # ex: We are -> |pp|nukni |im|aqlaɣ -> aqlaɣ #
+        if(|pp|>|im|):|im|+pp_0[aqli,aqlik,aqlikem,atan,attan,aqlaɣ,aqlaɣ,aqlikun,aqlikunt,atnad,atenttad]
+    </rule>
+    <rule name="demonstrative-noun">
+        # this house -> |a_demonstrative|wagi |nms|house -> |cmp_nd|axxam-wagi (later to be replaced with agi only)#
+        ##
+        if(|a_demonstrative|>|nXXXXXX|):|cmp_nd|nel[1]+-+nel[0] # cmp_nd -> composed_noun-demonstrative #
+    </rule>
+    <rule name="to-feminine">
+        # Fundamental to-Feminine conversion from Masculine nouns #
+        # ex: queen -> |nsf|aggelid -> |nsf_irr|taggelidt #
+        # nfs_irr -> noun-feminin-singular_irregular #
+        ##
+        if(|nfs|):|nfs_irr|t+el[0]+t
+    </rule>
+    <rule name="present-continous-cjg">
+        # ex: I'm at home eating -> |im|aqli |p_place|deg |nms|axxam |vc|ecc #
+        #            -> |im|aqli (|p_place|deg |nms|axxam)00? |vc_irr|tecceɣ #
+        ##
+        if(|im|>|00|?0>|vc|or|adj|):
+            el[0]+ +
+            el[1:0r]$1+ +
+            |vc_irr|+
+            im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+el[0r]+
+            im_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]
+    </rule>
+    <rule name="d-adj">
+        # ex: the man is big -> |th|d |nms|argaz |im|d |adj|ameqran -> |nms|argaz |adj_dej|d-ameqran #
+        ##
+        if(|th|?>|nXXXXXX|>|im|>|adj|):el[0]$0+ +el[2r]+ |adj_def|d-+nel[0r]
+    </rule>
+    <rule name="adj-placing">
+        # ex: this blue big smart home -> .. |adj|azegzaw |adj|ameqran |adj|ahercan |nms|axxam #
+        #                              -> .. |nms|axxam |adj|azagzaw |adj|ameqran |adj|ahercan#
+        ##
+        if(|adj|>|adj|?0>|nXXXXXX|):el[0r]+ +el[0:0r]
+    </rule>
 </rules>

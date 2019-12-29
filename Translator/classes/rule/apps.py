@@ -15,7 +15,6 @@ def apply_single_clause_el(self, matched_buf, clause_el):
     brck_open = clause_el.find('[')
     brck_close = clause_el.find(']')
 
-    clen = len(clause_el)
     mlen = len(matched_buf)
 
     conditional_matche = self.is_conditional_el(clause_el, mlen)
