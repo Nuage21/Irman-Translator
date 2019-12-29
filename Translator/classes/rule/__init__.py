@@ -38,24 +38,17 @@ class rule:
     from .apps import apply
 
     @staticmethod
+
+    # ex: '|pp|nekki |vc|hemleɣ' -> 'nekki hemleɣ'
+    # renoves classifiers @words-beginning
     def rm_indicators(text):
-        bar_ind0 = -1
-        i = 0
         result = ''
-        after_bar = ''
+        in_classifier = False
         for letter in text:
             if letter == '|':
-                if bar_ind0 < 0:
-                    bar_ind0 = i
-                else:
-                    bar_ind0 = -1
-                    after_bar = ''
-            else:
-                if bar_ind0 >= 0:
-                    after_bar = after_bar + letter
-                else:
-                    result = result + letter
-            i = i + 1
+                in_classifier = not in_classifier
+            elif not in_classifier:
+                result += str(letter)
         return result
 
 
