@@ -1,5 +1,6 @@
 from .data import personal_p
 from .data import iam
+import re
 
 def get_param_tab(self, param):
     if param == 'pp':
@@ -31,7 +32,7 @@ def tab_rm_suffixes(self, tab):
 
 def eval_param(self, param, matched_buf_size):
     # exemple for param = '3r' return third from last, for param = 2 return 2;
-    real_param = param
+    real_param = param.strip()
     is_reverse = param.find('r')
     if is_reverse == 0:
         real_param = matched_buf_size - 1
@@ -39,3 +40,8 @@ def eval_param(self, param, matched_buf_size):
         real_param = matched_buf_size - 1 - int(param[0:is_reverse])
     real_param = int(real_param)
     return real_param
+
+def adjust_text(txt):
+    #  remove multiple spaces and strip
+    txt = re.sub(' +', ' ', txt)
+    return txt.strip()

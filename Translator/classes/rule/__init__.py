@@ -1,5 +1,4 @@
 import re
-from xml.dom import minidom
 
 # contains rule class declaration
 # rule class is a powerful tool to apply grammar/vocab... rules to any string

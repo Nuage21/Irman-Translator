@@ -32,7 +32,18 @@ def xml_load_rule_list():
     root = minidom.parse('Translator/static/Translator/translation_data/en_tz/rules.xml')
     for rule_node in root.getElementsByTagName('rule'):
         rule_core = str(rule_node.firstChild.data).rstrip()
-        rules_list.append(rule(rule_core))
+        adjusted_rule_core = ''
+        in_comment = False  # reading inside a comment ?
+        un_permitted = ['\n', '\r', '\t']
+        for letter in rule_core:
+            if letter in un_permitted:
+                continue
+            else:
+                if letter == '#':
+                    in_comment = not in_comment
+                elif not in_comment:
+                    adjusted_rule_core += letter
+        rules_list.append(rule(adjusted_rule_core))
     return rules_list
 
 

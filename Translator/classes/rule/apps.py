@@ -1,4 +1,5 @@
 import re
+from .util import adjust_text
 
 # ****************************************************************************
 # contains: rule.apply_single_clause (apply one clause only)
@@ -44,7 +45,7 @@ def apply_single_clause_el(self, matched_buf, clause_el):
     if bracket_underscore_index > 0:
         bracket_modifier_delimiter = bracket_underscore_index
 
-    bracket_modifier = clause_el[0:bracket_modifier_delimiter]  # get what inside the []
+    bracket_modifier = clause_el[0:bracket_modifier_delimiter].strip()  # get what inside the []
 
     bracket_inside = clause_el[brck_open + 1:clause_el.rfind(']')]  # ex el[32] -> 32
 
@@ -254,4 +255,4 @@ def apply(self, text):
 
     matched_buf = correct_matched_buf(matched_buf)
     result = (result + ' ' + ' '.join(matched_buf)).strip()
-    return result, status  # remove sides spaces
+    return adjust_text(result), status  # remove sides spaces

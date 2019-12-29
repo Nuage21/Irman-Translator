@@ -1,5 +1,6 @@
 import re
 from .rule import loader
+from .rule.util import adjust_text
 
 def translate_word(word0):
     word = word0.lower()
@@ -38,13 +39,6 @@ def map_phrase(phrase):  # map a phrase with corespondents
     for word in splitted:
         result = result + ' ' + translate_word(word)
     return result
-
-
-def adjust_text(txt):
-    #  remove multiple spaces and strip
-    txt = re.sub(' +', ' ', txt)
-    return txt.strip()
-
 
 def app_rules(text0):
     #  apply rules
