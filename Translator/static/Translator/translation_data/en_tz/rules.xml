@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rules>
-    <rule id="0" name="future-simple-cjg">
+    <rule name="future-simple-cjg">
         # Fundamental Simple-Future Conjugation Rule #
         # ex: nekki ad ... neɣ kemmi? -> nekki ad kem-neɣeɣ #
         ##
@@ -13,10 +13,12 @@
                     pp_0r[yet-,t,t,t,t,ɣ-t,ɣ-t,t,t,ten-,ten-t], # kemmi ad ... #
                     pp_0r[y,k-i,kem-t,t,t,ɣ-i,ɣ-i,ken-i,ken-ti,ten-i,ten-ti], # netta ad ... #
                     pp_0r[y-t,k-t,kem-t,t,t,ɣ-t,ɣ-t,ken-t,ken-t,ten-t,ten-t], # nettat ad ... #
-                    pp_0r[n-,k-n,kem-n,t-n,t-n,n,n,ken-n,ken-tn,ten-n,ten-tn], # nekni ad ... #
-                    pp_0r[tn-,k-n,kem-n,t-n,t-n,n,n,ken-n,ken-tn,ten-n,ten-tn], # nutentti ad ... #
+                    pp_0r[n-,k-n,kem-n,t-n,t-n,n,n,ken-n,ken-tn,ten-n,ten-tn], # nukni ad ... #
+                    pp_0r[tn-,k-n,kem-n,t-n,t-n,n,n,ken-n,ken-tn,ten-n,ten-tn], # nukentti ad ... #
                     pp_0r[yet-,t,t,t,t,ɣ-t,ɣ-t,t,t,ten-t,ten-t], # kunwi ad ... #
-                    pp_0r[yet-,t,t,t,t,ɣ-t,ɣ-t,t,t,ten-t,ten-t] # kuntti ad ... #
+                    pp_0r[yet-,t,t,t,t,ɣ-t,ɣ-t,t,t,ten-t,ten-t], # kuntti ad ... #
+                    pp_0r[ye,k-,kem-,t,t,ɣ-t,ɣ-t,ken-,ken-t,ten-,ten-t], # nutni ad ... #
+                    pp_0r[ye,k-,kem-,t,t,ɣ-t,ɣ-t,ken-,ken-t,ten-,ten-t] # nutentti ad ... #
             ]?0r+
             pp_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]$0r+ # when simple without additional pp at end #
             nel[1r]+
@@ -29,15 +31,25 @@
                     pp_0r[ iman-neɣ,0,0,0,0, iman-neɣ, iman-nteɣ,0,0,0,0], # nekni ad ... #
                     pp_0r[ iman-neɣ,0,0,0,0, iman-nteɣ, iman-nteɣ,0,0,0,0], # nukentti ad ... #
                     pp_0r[em,em,em,em-t,em-t,em,em-t,em iman-nwen, iman-nwent,em,em], # kunwi ad ... #
-                    pp_0r[em,em,em,em-t,em-t,em,em-t,em iman-nwen, iman-nwent,em,em], # kunwi ad ... #
+                    pp_0r[em,em,em,em-t,em-t,em,em-t,em iman-nwen, iman-nwent,em,em], # kuntti ad ... #
+                    pp_0r[en,en,en,en,en,en,entt,en,entt,en,entt], # nutni ad ... #
+                    pp_0r[entt,entt,entt,entt,entt,entt,entt,entt,entt,entt,entt], # nutentti ad ... #
                 ]?0r+
-            pp_0[eɣ,ed,ed,i,t,n-,n-,em,em,en,en]$0r+ # when simple without additional |personal-p| at end #
+            pp_0[eɣ,ed,ed,i,t,n-,n-,em,em,en,en]$0r+ + # when simple without additional |personal-p| at end #
+            el[0r]$0r
     </rule>
-    <rule id="1" name="paste-simple-cjg">
+    <rule name="to-feminine">
+        # Fundamental to-Feminine conversion from Masculine nouns #
+        # ex: queen -> |nsf|aggelid -> |nsf_irr|taggelidt #
+        # nfs_irr -> noun-feminin-singular_irregular #
+        ##
+        if(|nfs|):|nfs_irr|t+nel[0]+t
+    </rule>
+    <rule name="paste-simple-cjg">
         # Fundamental Paste Simple Conjugation Rule #
         # ex: She takes you -> tewwi-k #
         ##
-        if(|pp|>|00|?0>|v0|or|adj|>|pp|?):
+        if(|pp|>|00|?0>|v0|>|pp|?):
             el[0]$1+ +
             el[1:1r]$1+ +
             |va|+pp_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+
@@ -55,33 +67,42 @@
                 pp_0r[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]
             ]?0r
     </rule>
-    <rule id="2" name="possessive-noun">
+    <rule name="adj-placing">
+        # ex: this blue big smart home -> .. |adj|azegzaw |adj|ameqran |adj|ahercan |nms|axxam #
+        #                              -> .. |nms|axxam |adj|azagzaw |adj|ameqran |adj|ahercan#
+        ##
+        if(|adj|>|nXXXXXX|):el[0r]+ +el[0:0r]
+    </rule>
+
+    <rule>if(|nmpXXXX|>|00|?0>|im|):el[0]+ +el[1:0r]$1+ +|im_irr|atnad</rule>
+    <rule>if(|nfpXXXX|>|00|?0>|imXXXX|):el[0]+ +el[1:0r]$1+ +|im_irr|atenttad</rule>
+    <rule>if(|nmsXXXX|>|00|?0>|im|):el[0]+ +el[1:0r]$1+ +|im_irr|atan</rule>
+    <rule>if(|nfsXXXX|>|00|?0>|im|):el[0]+ +el[1:0r]$1+ +|im_irr|attan</rule>
+
+    <rule name="possessive-noun">
         # Possesive Noun Rule #
         # ex: my house -> |p_possessive|-iw |nms|axxam -> |cmp_np|axxam-iw #
         ##
         if(|p_possessive|>|nXXXXXX|):|cmp_np|+nel[1]+nel[0]
     </rule>
-    <rule id="3" name="repeat-erase-0">
+    <rule name="repeat-erase-0">
         # ex: We are -> |pp|nukni |im|aqlaɣ -> aqlaɣ #
         if(|pp|>|im|):|im|+pp_0[aqli,aqlik,aqlikem,atan,attan,aqlaɣ,aqlaɣ,aqlikun,aqlikunt,atnad,atenttad]
     </rule>
-    <rule id="4" name="demonstrative-noun">
-        # this house -> |a_demonstrative|wagi |nms|house -> |cmp_nd|axxam-wagi (later to be replaced with agi only)#
-        ##
-        if(|a_demonstrative|>|nXXXXXX|):|cmp_nd|nel[1]+-+nel[0] # cmp_nd -> composed_noun-demonstrative #
+    <rule name="repeat-erase-0-rev">
+        # ex: We are -> |pp|nukni |im|aqlaɣ -> aqlaɣ #
+        if(|im|>|pp|):|im|+pp_0[aqli,aqlik,aqlikem,atan,attan,aqlaɣ,aqlaɣ,aqlikun,aqlikunt,atnad,atenttad]
     </rule>
-    <rule id="5" name="to-feminine">
-        # Fundamental to-Feminine conversion from Masculine nouns #
-        # ex: queen -> |nsf|aggelid -> |nsf_irr|taggelidt #
-        # nfs_irr -> noun-feminin-singular_irregular #
+    <rule name="demonstrative-noun">
+        # this house -> |a_demonstrative|wagi |nms|house -> |cmp_nd|axxam wagi (later to be replaced with agi only)#
         ##
-        if(|nfs|):|nfs_irr|t+el[0]+t
+        if(|a_demonstrative|>|nXXXXXX|):|cmp_nd|nel[1]+ +nel[0] # cmp_nd -> composed_noun-demonstrative #
     </rule>
-    <rule id="6" name="present-continous-cjg">
+    <rule name="present-continuous-cjg">
         # ex: I'm at home eating -> |im|aqli |p_place|deg |nms|axxam |vc|ecc #
         #            -> |im|aqli (|p_place|deg |nms|axxam)00? |vc_irr|tecceɣ #
         ##
-        if(|im|>|00|?0>|vc|or|adj|):
+        if(|imXXXX|>|00|?0>|vc|):
             el[0]+ +
             el[1:0r]$1+ +
             |vc_irr|+
@@ -89,15 +110,21 @@
             nel[0r]+ # verb root #
             im_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]
     </rule>
-    <rule id="7" name="d-adj">
+    <rule name="present-continuous-adj-cjg">
+        # ex: she's smart -> |im|attan |adj|ahercan #
+        #            -> |im|attan |adj_irr|d-tahercant #
+        ##
+        if(|imXXXX|>|00|?0>|adj|):
+            el[0]+ +
+            el[1:0r]$1+ +
+            |adj_irr|+d-+
+            im_0[0,0,t,0,t,i,ti,i,ti,i,ti]+
+            nel[0r]+ # adj root #
+            im_0[0,0,t,0,t,en,in,en,in,en,in]
+    </rule>
+    <rule name="d-adj">
         # ex: the man is big -> |th|d |nms|argaz |im|d |adj|ameqran -> |nms|argaz |adj_dej|d-ameqran #
         ##
         if(|th|?>|nXXXXXX|>|im|>|adj|):el[0]$0+ +el[2r]+ |adj_def|d-+nel[0r]
-    </rule>
-    <rule id="8" name="adj-placing">
-        # ex: this blue big smart home -> .. |adj|azegzaw |adj|ameqran |adj|ahercan |nms|axxam #
-        #                              -> .. |nms|axxam |adj|azagzaw |adj|ameqran |adj|ahercan#
-        ##
-        if(|adj|>|adj|?0>|nXXXXXX|):el[0r]+ +el[0:0r]
     </rule>
 </rules>

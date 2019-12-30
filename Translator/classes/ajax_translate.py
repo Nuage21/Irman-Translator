@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from . import en_tz_translate as tr
 from .rule import rule
+from .rule.util import adjust_text
 
 
 def translate(req):
