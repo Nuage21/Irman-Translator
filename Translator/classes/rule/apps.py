@@ -221,6 +221,7 @@ def apply(self, text):
                     for f in matched_buf:
                         if f != '|$$|$':
                             first_non_cd_matched = f
+                            break
                     matched_buf = [first_non_cd_matched, ]
                     j = match_st + 1
                     word = ''  # don't add word

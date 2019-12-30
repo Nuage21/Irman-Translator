@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rules>
-    <rule name="futur-simple-cjg">
+    <rule id="0" name="future-simple-cjg">
         # Fundamental Simple-Future Conjugation Rule #
         # ex: nekki ad ... neɣ kemmi? -> nekki ad kem-neɣeɣ #
         ##
@@ -33,7 +33,7 @@
                 ]?0r+
             pp_0[eɣ,ed,ed,i,t,n-,n-,em,em,en,en]$0r+ # when simple without additional |personal-p| at end #
     </rule>
-    <rule name="paste-simple-cjg">
+    <rule id="1" name="paste-simple-cjg">
         # Fundamental Paste Simple Conjugation Rule #
         # ex: She takes you -> tewwi-k #
         ##
@@ -55,29 +55,29 @@
                 pp_0r[-iyi,-k,-kem,-t,-t,-aɣ,-aɣ,kun,kunt, iman-nsen,tent]
             ]?0r
     </rule>
-    <rule name="possessive-noun">
+    <rule id="2" name="possessive-noun">
         # Possesive Noun Rule #
         # ex: my house -> |p_possessive|-iw |nms|axxam -> |cmp_np|axxam-iw #
         ##
         if(|p_possessive|>|nXXXXXX|):|cmp_np|+nel[1]+nel[0]
     </rule>
-    <rule name="repeat-erase-0">
+    <rule id="3" name="repeat-erase-0">
         # ex: We are -> |pp|nukni |im|aqlaɣ -> aqlaɣ #
         if(|pp|>|im|):|im|+pp_0[aqli,aqlik,aqlikem,atan,attan,aqlaɣ,aqlaɣ,aqlikun,aqlikunt,atnad,atenttad]
     </rule>
-    <rule name="demonstrative-noun">
+    <rule id="4" name="demonstrative-noun">
         # this house -> |a_demonstrative|wagi |nms|house -> |cmp_nd|axxam-wagi (later to be replaced with agi only)#
         ##
         if(|a_demonstrative|>|nXXXXXX|):|cmp_nd|nel[1]+-+nel[0] # cmp_nd -> composed_noun-demonstrative #
     </rule>
-    <rule name="to-feminine">
+    <rule id="5" name="to-feminine">
         # Fundamental to-Feminine conversion from Masculine nouns #
         # ex: queen -> |nsf|aggelid -> |nsf_irr|taggelidt #
         # nfs_irr -> noun-feminin-singular_irregular #
         ##
         if(|nfs|):|nfs_irr|t+el[0]+t
     </rule>
-    <rule name="present-continous-cjg">
+    <rule id="6" name="present-continous-cjg">
         # ex: I'm at home eating -> |im|aqli |p_place|deg |nms|axxam |vc|ecc #
         #            -> |im|aqli (|p_place|deg |nms|axxam)00? |vc_irr|tecceɣ #
         ##
@@ -85,15 +85,16 @@
             el[0]+ +
             el[1:0r]$1+ +
             |vc_irr|+
-            im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+el[0r]+
+            im_0[0,t-,t-,i,t,n-,n-,t-,t-,0,0]+
+            nel[0r]+ # verb root #
             im_0[eɣ,ed,ed,0,0,0,0,em,emt,en,ent]
     </rule>
-    <rule name="d-adj">
+    <rule id="7" name="d-adj">
         # ex: the man is big -> |th|d |nms|argaz |im|d |adj|ameqran -> |nms|argaz |adj_dej|d-ameqran #
         ##
         if(|th|?>|nXXXXXX|>|im|>|adj|):el[0]$0+ +el[2r]+ |adj_def|d-+nel[0r]
     </rule>
-    <rule name="adj-placing">
+    <rule id="8" name="adj-placing">
         # ex: this blue big smart home -> .. |adj|azegzaw |adj|ameqran |adj|ahercan |nms|axxam #
         #                              -> .. |nms|axxam |adj|azagzaw |adj|ameqran |adj|ahercan#
         ##
