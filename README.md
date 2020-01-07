@@ -1,6 +1,6 @@
 # Irman-Translator
 
-Irman-Translator is a *Rule* & *Statistics* based translation Web app, mainly written in **Django Python** for backend, and uses **Vue.js**, **jQuery** and **Bootstrap** for the front.
+Irman-Translator is a *Rule* & *Statistics* based translation Web app, mainly written in `Django`, `Python` for backend, and uses `Vue.js`, `jQuery` and `Bootstrap` for the front.
 
 It translates between English and [Tamaziɣt](https://en.wikipedia.org/wiki/Berber_languages "Learn about Berber languages")
 
@@ -8,7 +8,7 @@ It translates between English and [Tamaziɣt](https://en.wikipedia.org/wiki/Berb
 
 1. [How it works](#how-it-works)
 1. [Explaining the algorithm from English to Tamaziɣt](#explaining-the-algorithm-from-english-to-tamazi%C9%A3t)
-2. [Remarks](#remarks)
+2. [In Depth](#in-depth)
 2. [Contributing](#contributing)
 3. [Authors](#authors)
 
@@ -20,7 +20,8 @@ Irman-Translator uses both `Human Language Rules` and `Statistics` to provide th
 
 Let's see how Irman-Translator will do its job on the phrases `we're walking` `you're eating` 
 
-### Mapping (Step-0)
+The following titles shows the basic steps on which the translator passes through.
+## Mapping
 
 It consists of associating each word of the source phrase with its correspondant of the target language;
 to do that let's take this dictionary (just for explanation purposes: the mapping algorithm uses `binary search algorithm` over translation data to find the correspondant)
@@ -43,7 +44,7 @@ so for exemple we have `we're` that corresponds to `aqlaɣ` which is classified 
 ```
 we indicate the word category between two bars to not mix with the word itself chars  
 ```
-### Applying Rules (Step-1)
+### Rules Application
 
 - To create a rule we initiate an instance of the `rule` class with the rule core as constructor parameter.
 - To apply it we use the `rule.apply(target_phrase)`.
@@ -75,6 +76,7 @@ When we apply `rule0` to the phrases `mapped_phrase0` and `mapped_phrase1` after
   2. we have `+ +` which means add a space.
   3. then `im_0[0,t-,t-,i-,t-,n-,n-,t-,t-,0,0]`, `apply` will look for the 0'th matched at the `im` corresponding tab, 
      that way:
+
 ```python
 im_tab = rule.get_corresponding_tab('im') # will return im_tab
 
@@ -100,19 +102,61 @@ im_tab = [
   6. and we get `translated_phrase0 = 'aqlaɣ n-teddu'` and `translated_phrase1 = 'aqlik t-tečč-ed'` and after the 
      restitution `translated_sentence = 'aqlaɣ n-teddu, aqlik t-tečč-ed'`
 
-#### Remarks
+## In Depth
+
+The exemple above constitutes a little chunk of what the traslator does;
+
+The translator actually apply all the rules he find in `rules.xml` until no rule pattern match is found over the text, remark that when applying a certain rule, another rule pattern can be constructed as a result. And it continues again and again.
+
+The translator also manages language contexts, letters casing, punctuation and much more.
+
+The translation is sent to the user as a response to an `ajax request` when he changes the input text
+
+#### Remarks:
 The element and array-by-index replacing is only the basic of the rule application, more features are added as:
 - The conditional pattern or display with `?` to make a pattern element as optional (the match is prefered though), or 
   to make something in the application as condictional over a pattern element (ex: `el[0]?2` will be considered only if 
-  pattern element 2 was **not conditionally** matched)
-- The conditional display with $ to make something considered only if a certain pattern was **conditionally**  
-### Repeat applying rules until no match found (step-2)
-### Remove the left category indicators from the beginings of words as `|cv|coding` (step-3)
-### The translation is sent as a response to an `ajax request` from the user
+  pattern element 2 was **not conditionally** matched).
+
+- The conditional display with `$` to make something considered only if a certain pattern was **conditionally** matched.
+
+Actually the `rule` applier supports  several features to make creating and editing new rules as easy as possible.
+
+To learn more about the rules creating syntax check  [rule-syntax.pdf](https://github.com/hbFree/Irman-Translator/blob/master/rule-syntax.pdf")
+
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+Consider doing this to set up your developement environment
+
+
+##Linux
+From your terminal:
+1. Install **git** if not done yet: `$ sudo apt install git-all`
+
+2. clone the repository:`$ git clone https://github.com/hbFree/Irman-Translator`
+
+3. Enter the project directory: `$ cd Irman-Translator `
+
+4. Run `$ chmod +x linux_setup.sh; ./linux_setup.sh ` to install `python`, `django` and make needed migrations.
+
+##Windows
+
+1. Install `git` if not done yet from [windowd-git install](https://gitforwindows.org/) and `python` from  [python32 for Windows](https://www.python.org/downloads/windows/)
+
+2. clone the repository:`$ git clone https://github.com/hbFree/Irman-Translator`
+
+3. Enter the project directory: `$ cd Irman-Translator `
+
+4. Run `$ win_setup.bat ` to install `python`, `django` and make needed migrations.
+
+---
+
+If you are working on the code then it would be easier if you set up a python test project that contains the code you're working on, by that ou won't have to restart the server.
+
+Finally to test the whole project then you got to start the localhost server: `$ python manage.py runserver`, then  go to your browser and enter to: `http://127.0.0.1:8000/translator` 
 ## Authors
 This project was designed and developed by @hbFree with the help of @kadaitm
 > by this shall a language never die!
