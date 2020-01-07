@@ -8,7 +8,7 @@ It translates between English and [Tamaziɣt](https://en.wikipedia.org/wiki/Berb
 
 1. [How it works](#how-it-works)
 1. [Explaining the algorithm from English to Tamaziɣt](#explaining-the-algorithm-from-english-to-tamazi%C9%A3t)
-2. [In Depth](#in-depth)
+2. [In depth](#in-depth)
 2. [Contributing](#contributing)
 3. [Authors](#authors)
 
@@ -102,7 +102,7 @@ im_tab = [
   6. and we get `translated_phrase0 = 'aqlaɣ n-teddu'` and `translated_phrase1 = 'aqlik t-tečč-ed'` and after the 
      restitution `translated_sentence = 'aqlaɣ n-teddu, aqlik t-tečč-ed'`
 
-## In Depth
+## In depth
 
 The exemple above constitutes a little chunk of what the traslator does;
 
@@ -131,8 +131,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Consider doing this to set up your developement environment
 
+## Linux
 
-##Linux
 From your terminal:
 1. Install **git** if not done yet: `$ sudo apt install git-all`
 
@@ -142,7 +142,7 @@ From your terminal:
 
 4. Run `$ chmod +x linux_setup.sh; ./linux_setup.sh ` to install `python`, `django` and make needed migrations.
 
-##Windows
+## Windows
 
 1. Install `git` if not done yet from [windowd-git install](https://gitforwindows.org/) and `python` from  [python32 for Windows](https://www.python.org/downloads/windows/)
 
