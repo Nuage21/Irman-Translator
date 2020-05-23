@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Irman.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:\\Users\\Admin\\Desktop\\Main Workplace\\Irman-Translator\\templates\\',],
+        'DIRS': ['/home/hbfree/Desktop/Irman-Translator/Translator/templates/',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

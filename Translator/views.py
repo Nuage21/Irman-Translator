@@ -6,7 +6,7 @@ import os.path
 PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
 
 class LanguagesXml:
-    root = minidom.parse(PROJECT_PATH + '\\static\\lng.xml')
+    root = minidom.parse(PROJECT_PATH + '/static/lng.xml')
 
     def get(self, lng, attr):
         cur = self.root.getElementsByTagName(lng)
