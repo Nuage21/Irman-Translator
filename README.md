@@ -2,6 +2,8 @@
 
 Irman-Translator is a *Rule* based translation Web app, mainly written in `Django`, `Python` for backend, and uses `Vue.js`, `jQuery` and `Bootstrap` for the front.
 
+![Irman-Translator Image](.github/it.jpg?raw=true "Irman-Translator Desktop")
+
 It translates between English and [Tamaziɣt](https://en.wikipedia.org/wiki/Berber_languages "Learn about Berber languages")
 
 ## Contributing
